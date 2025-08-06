@@ -3,11 +3,13 @@
 import { Container, Box, Typography, Button } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useTranslations, useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 
 export default function Home() {
   const t = useTranslations();
   const locale = useLocale();
+  const router = useRouter();
 
   // Generate CV download URL based on current locale
   const getCVUrl = () => {
@@ -67,6 +69,15 @@ export default function Home() {
           <Typography variant="h2" color="text.secondary">
             {t('mountaineer')}
           </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
+            <Button 
+              variant="contained" 
+              className="blackButton"
+              onClick={() => router.push(`/${locale}/mountaineering`)}
+            >
+              {t('viewPortfolio')}
+            </Button>
+          </Box>
         </Box>
       </Container>
 
