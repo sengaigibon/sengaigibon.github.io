@@ -87,14 +87,11 @@ export default function MountaineeringPage() {
     <main>
       <LanguageSwitcher />
       
-      <Container maxWidth="lg" sx={{ 
-        py: 8,
-        minHeight: '100vh',
-        background: 'linear-gradient(to bottom, #fff, #000)',
-        width: '100vw',
-        maxWidth: 'none'
+      <Container maxWidth={false} sx={{ 
+        width: '100vw', 
+        background: 'linear-gradient(to bottom, #fff, #000)', 
+        p: 8,
       }}>
-        {/* Page Title */}
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography 
             variant="h2" 
@@ -102,7 +99,7 @@ export default function MountaineeringPage() {
             gutterBottom
             sx={{ 
               fontWeight: 'bold',
-              background: 'linear-gradient(45deg, #2E7D32, #66BB6A)',
+              background: 'linear-gradient(45deg, #2E7D32, #000000ff)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               color: 'transparent',
