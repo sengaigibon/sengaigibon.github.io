@@ -2,11 +2,30 @@
 
 import { Container, Box, Typography, Button } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 
 export default function Home() {
   const t = useTranslations();
+  const locale = useLocale();
+
+  // Generate CV download URL based on current locale
+  const getCVUrl = () => {
+    // Option 1: Locale-specific CVs
+    // return `/cv-${locale}.pdf`;
+    
+    // Option 2: Single CV (uncomment this and comment above)
+    return '/javier-caballero-cv-en.pdf';
+  };
+
+  const handleCVDownload = () => {
+    const link = document.createElement('a');
+    link.href = getCVUrl();
+    link.download = `javier-caballero-cv-${locale}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <main>
@@ -21,7 +40,13 @@ export default function Home() {
             {t('engineer')}
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
-            <Button variant="contained" className="blackButton">{t('downloadCV')}</Button>
+            <Button 
+              variant="contained" 
+              className="blackButton"
+              onClick={handleCVDownload}
+            >
+              {t('downloadCV')}
+            </Button>
             <Button
               id="see-experience"
               variant="contained"
