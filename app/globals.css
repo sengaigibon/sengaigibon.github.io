@@ -1,0 +1,54 @@
+/* Global styles for the application */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom button styles */
+.blackButton {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  font-size: 1rem !important;
+  padding: 12px 24px !important;
+}
+
+.blackButton:hover {
+  background-color: #3e3e3e !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default button styles that might interfere with MUI */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Ensure containers take full viewport */
+#main, #mountaineer, #photographer {
+  min-height: 100vh;
+}
