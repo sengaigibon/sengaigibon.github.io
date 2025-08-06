@@ -20,11 +20,11 @@ export default async function LocaleLayout({
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale)) notFound();
 
-  // Providing all messages to the client side is the easiest way to get started
-  const messages = await getMessages();
+  // Get messages for the specific locale
+  const messages = await getMessages({ locale });
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider messages={messages} locale={locale}>
       {children}
     </NextIntlClientProvider>
   );

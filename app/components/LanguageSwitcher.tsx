@@ -1,21 +1,23 @@
 'use client';
 
 import { Button, Box } from '@mui/material';
-import { useRouter, usePathname } from '../../lib/navigation';
-import { useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 import { useTransition } from 'react';
 
 export default function LanguageSwitcher() {
   const router = useRouter();
-  const pathname = usePathname();
   const locale = useLocale();
   const [isPending, startTransition] = useTransition();
 
   const switchLocale = (newLocale: string) => {
     if (locale === newLocale) return; // Don't switch if it's the same locale
     
+    console.log('Switching from', locale, 'to', newLocale);
+    
     startTransition(() => {
-      router.push(pathname, { locale: newLocale });
+      // Navigate directly to the new locale URL
+      router.replace(`/${newLocale}`);
     });
   };
 
