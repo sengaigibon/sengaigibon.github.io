@@ -14,33 +14,33 @@ export default function Footer() {
           flexDirection: 'column', 
           alignItems: 'center', 
           textAlign: 'center',
-          gap: 3
+          gap: 1
         }}>
-          <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {t('footer.name')}
           </Typography>
 
-          <Box sx={{ display: 'flex', gap: 2 }}>
+          <Box sx={{ display: 'flex', gap: 1 }}>
             <IconButton 
               sx={{ color: '#fff', '&:hover': { color: '#0077b5' } }}
               onClick={() => window.open('https://www.linkedin.com/in/jrcaballerob/', '_blank', 'noopener,noreferrer')}
               aria-label={t('footer.linkedinLabel')}
             >
-              <LinkedInIcon fontSize="large" />
+              <LinkedInIcon fontSize="medium" />
             </IconButton>
             <IconButton 
               sx={{ color: '#fff', '&:hover': { color: '#333' } }}
               onClick={() => window.open('https://github.com/sengaigibon', '_blank', 'noopener,noreferrer')}
               aria-label={t('footer.githubLabel')}
             >
-              <GitHubIcon fontSize="large" />
+              <GitHubIcon fontSize="medium" />
             </IconButton>
             <IconButton 
               sx={{ color: '#fff', '&:hover': { color: '#f48024' } }}
-              onClick={() => window.open('https://stackoverflow.com/users/your-profile', '_blank', 'noopener,noreferrer')}
+              onClick={() => window.open('https://stackoverflow.com/users/5519402/hiperboreo', '_blank', 'noopener,noreferrer')}
               aria-label={t('footer.stackoverflowLabel')}
             >
-              <QuestionAnswerIcon fontSize="large" />
+              <QuestionAnswerIcon fontSize="medium" />
             </IconButton>
           </Box>
 
