@@ -32,12 +32,12 @@ const programmingLanguages = [
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg"
 
     },
-    {        
+    {
         id: 6,
         name: "C",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg"
     },
-    {        
+    {
         id: 7,
         name: "C#",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg"

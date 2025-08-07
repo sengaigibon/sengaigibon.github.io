@@ -6,74 +6,74 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useTransition, useEffect } from 'react';
 
 export default function LanguageSwitcher() {
-  const router = useRouter();
-  const locale = useLocale();
-  const [isPending, startTransition] = useTransition();
+    const router = useRouter();
+    const locale = useLocale();
+    const [isPending, startTransition] = useTransition();
 
-  // Restore scroll position after locale change
-  useEffect(() => {
-    const savedScrollY = sessionStorage.getItem('scrollPosition');
-    if (savedScrollY) {
-      const scrollPosition = parseInt(savedScrollY, 10);
-      window.scrollTo(0, scrollPosition);
-      sessionStorage.removeItem('scrollPosition'); // Clear after restoring
-    }
-  }, [locale]);
+    // Restore scroll position after locale change
+    useEffect(() => {
+        const savedScrollY = sessionStorage.getItem('scrollPosition');
+        if (savedScrollY) {
+            const scrollPosition = parseInt(savedScrollY, 10);
+            window.scrollTo(0, scrollPosition);
+            sessionStorage.removeItem('scrollPosition'); // Clear after restoring
+        }
+    }, [locale]);
 
-  const switchLocale = (newLocale: string) => {
-    if (locale === newLocale) return; // Skip if it's the same locale
-    
-    // Save current scroll position
-    const scrollY = window.scrollY 
-    
-    sessionStorage.setItem('scrollPosition', scrollY.toString());
-    
-    startTransition(() => {
-      // Navigate directly to the new locale URL
-      router.replace(`/${newLocale}`);
-    });
-  };
+    const switchLocale = (newLocale: string) => {
+        if (locale === newLocale) return; // Skip if it's the same locale
 
-  return (
-    <Box sx={{ position: 'fixed', top: 20, right: 20, zIndex: 1000, display: 'flex', gap: 1}} >
-      <Button
-        variant={locale === 'en' ? 'contained' : 'outlined'}
-        size="small"
-        onClick={() => switchLocale('en')}
-        disabled={isPending}
-        sx={{
-          color: locale === 'en' ? '#fff' : '#000',
-          backgroundColor: locale === 'en' ? '#000' : 'transparent',
-          borderColor: '#000',
-          '&:hover': {
-            backgroundColor: locale === 'en' ? '#333' : 'rgba(0, 0, 0, 0.1)',
-          },
-          '&:disabled': {
-            opacity: 0.6,
-          },
-        }}
-      >
-        EN
-      </Button>
-      <Button
-        variant={locale === 'es' ? 'contained' : 'outlined'}
-        size="small"
-        onClick={() => switchLocale('es')}
-        disabled={isPending}
-        sx={{
-          color: locale === 'es' ? '#fff' : '#000',
-          backgroundColor: locale === 'es' ? '#000' : 'transparent',
-          borderColor: '#000',
-          '&:hover': {
-            backgroundColor: locale === 'es' ? '#333' : 'rgba(0, 0, 0, 0.1)',
-          },
-          '&:disabled': {
-            opacity: 0.6,
-          },
-        }}
-      >
-        ES
-      </Button>
-    </Box>
-  );
+        // Save current scroll position
+        const scrollY = window.scrollY
+
+        sessionStorage.setItem('scrollPosition', scrollY.toString());
+
+        startTransition(() => {
+            // Navigate directly to the new locale URL
+            router.replace(`/${newLocale}`);
+        });
+    };
+
+    return (
+        <Box sx={{ position: 'fixed', top: 20, right: 20, zIndex: 1000, display: 'flex', gap: 1 }} >
+            <Button
+                variant={locale === 'en' ? 'contained' : 'outlined'}
+                size="small"
+                onClick={() => switchLocale('en')}
+                disabled={isPending}
+                sx={{
+                    color: locale === 'en' ? '#fff' : '#000',
+                    backgroundColor: locale === 'en' ? '#000' : 'transparent',
+                    borderColor: '#000',
+                    '&:hover': {
+                        backgroundColor: locale === 'en' ? '#333' : 'rgba(0, 0, 0, 0.1)',
+                    },
+                    '&:disabled': {
+                        opacity: 0.6,
+                    },
+                }}
+            >
+                EN
+            </Button>
+            <Button
+                variant={locale === 'es' ? 'contained' : 'outlined'}
+                size="small"
+                onClick={() => switchLocale('es')}
+                disabled={isPending}
+                sx={{
+                    color: locale === 'es' ? '#fff' : '#000',
+                    backgroundColor: locale === 'es' ? '#000' : 'transparent',
+                    borderColor: '#000',
+                    '&:hover': {
+                        backgroundColor: locale === 'es' ? '#333' : 'rgba(0, 0, 0, 0.1)',
+                    },
+                    '&:disabled': {
+                        opacity: 0.6,
+                    },
+                }}
+            >
+                ES
+            </Button>
+        </Box>
+    );
 }

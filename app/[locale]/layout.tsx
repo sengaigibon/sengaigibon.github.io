@@ -5,27 +5,27 @@ import { getMessages } from 'next-intl/server';
 const locales = ['en', 'es'];
 
 export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+    return locales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({
-  children,
-  params
+    children,
+    params
 }: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+    children: React.ReactNode;
+    params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
-  
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale)) notFound();
+    const { locale } = await params;
 
-  // Get messages for the specific locale
-  const messages = await getMessages({ locale });
+    // Validate that the incoming `locale` parameter is valid
+    if (!locales.includes(locale)) notFound();
 
-  return (
-    <NextIntlClientProvider messages={messages} locale={locale}>
-      {children}
-    </NextIntlClientProvider>
-  );
+    // Get messages for the specific locale
+    const messages = await getMessages({ locale });
+
+    return (
+        <NextIntlClientProvider messages={messages} locale={locale}>
+            {children}
+        </NextIntlClientProvider>
+    );
 }
