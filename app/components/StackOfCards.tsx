@@ -52,7 +52,7 @@ const StackOfCards: React.FC<StackOfCardsProps> = ({ elements }) => (
         sm: 'repeat(3, 1fr)', 
         md: 'repeat(5, 1fr)', 
         lg: 'repeat(8, 1fr)', 
-        xl: `repeat(${elements.length}, 1fr)`, // All elements in 1 row on extra large screens
+        xl: `repeat(${elements.length}, 1fr)`, 
       },
       gap: 2,
       justifyItems: 'center',
