@@ -21,9 +21,9 @@ export default function LanguageSwitcher() {
   }, [locale]);
 
   const switchLocale = (newLocale: string) => {
-    if (locale === newLocale) return; // Don't switch if it's the same locale
+    if (locale === newLocale) return; // Skip if it's the same locale
     
-    // Save current scroll position - try multiple methods
+    // Save current scroll position
     const scrollY = window.scrollY 
     
     sessionStorage.setItem('scrollPosition', scrollY.toString());
@@ -35,16 +35,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <Box 
-      sx={{ 
-        position: 'fixed', 
-        top: 20, 
-        right: 20, 
-        zIndex: 1000,
-        display: 'flex',
-        gap: 1
-      }}
-    >
+    <Box sx={{ position: 'fixed', top: 20, right: 20, zIndex: 1000, display: 'flex', gap: 1}} >
       <Button
         variant={locale === 'en' ? 'contained' : 'outlined'}
         size="small"
