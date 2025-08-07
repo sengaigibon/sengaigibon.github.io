@@ -62,7 +62,13 @@ export default function Home() {
           <Typography variant="h2" color="text.secondary">
             {t('engineer')}
           </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: 2, 
+            mt: 4,
+            px: { xs: '20px', sm: 0 } 
+          }}>
             <Button id="download-cv" variant="contained" className="blackButton" 
                     onClick={handleCVDownload}>
               {t('downloadCV')}
