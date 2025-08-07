@@ -3,17 +3,30 @@
 import { Button, Box } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { useTransition } from 'react';
+import { useTransition, useEffect } from 'react';
 
 export default function LanguageSwitcher() {
   const router = useRouter();
   const locale = useLocale();
   const [isPending, startTransition] = useTransition();
 
+  // Restore scroll position after locale change
+  useEffect(() => {
+    const savedScrollY = sessionStorage.getItem('scrollPosition');
+    if (savedScrollY) {
+      const scrollPosition = parseInt(savedScrollY, 10);
+      window.scrollTo(0, scrollPosition);
+      sessionStorage.removeItem('scrollPosition'); // Clear after restoring
+    }
+  }, [locale]);
+
   const switchLocale = (newLocale: string) => {
     if (locale === newLocale) return; // Don't switch if it's the same locale
     
-    console.log('Switching from', locale, 'to', newLocale);
+    // Save current scroll position - try multiple methods
+    const scrollY = window.scrollY 
+    
+    sessionStorage.setItem('scrollPosition', scrollY.toString());
     
     startTransition(() => {
       // Navigate directly to the new locale URL

@@ -86,8 +86,8 @@ export default function Home() {
         </Box>
       </Container>
 
-      <Container id="skills" maxWidth={false} sx={{width: '100vw', height: '100vh', textAlign: 'center', background: containerGradient.bottomToTop }}>
-        <Box sx={{pt: 8}}>
+      <Container id="skills" maxWidth={false} sx={{width: '100vw', textAlign: 'center', background: containerGradient.bottomToTop }}>
+        <Box sx={{pt: 1}}>
           <Typography variant="h3" color="text.secondary">
             {t('whatIWorkWith')}
           </Typography>
