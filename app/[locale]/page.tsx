@@ -129,7 +129,6 @@ export default function Home() {
         </Box>
       </Container> */}
 
-      {/* Footer Section */}
       <Container maxWidth={false} sx={{ width: '100vw',  background: containerGradient.topToBottom, color: '#fff', py: 4 }}>
         <Footer />
       </Container>
