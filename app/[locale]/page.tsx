@@ -29,12 +29,27 @@ export default function Home() {
     document.body.removeChild(link);
   };
 
+  const boxConfig = { textAlign: 'center', width: '100%' };
+  const containerConfig = { 
+    width: '100vw', 
+    height: '100vh', 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    p: 0 
+  };
+
+  const containerGradient = {
+    topToBottom: 'linear-gradient(to bottom, #fff, #000)',
+    bottomToTop: 'linear-gradient(to top, #fff, #000)',
+  };
+
   return (
     <main>
       <LanguageSwitcher />
       
-      <Container id="main" maxWidth={false} sx={{ width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(to bottom, #fff, #000)', p: 0 }}>
-        <Box sx={{ textAlign: 'center', width: '100%' }}>
+      <Container id="main" maxWidth={false} sx={{...containerConfig, background: containerGradient.topToBottom }}>
+        <Box sx={boxConfig}>
           <Typography variant="h5" component="h1" gutterBottom>
             {t('iam')}
           </Typography>
@@ -42,27 +57,20 @@ export default function Home() {
             {t('engineer')}
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
-            <Button 
-              variant="contained" 
-              className="blackButton"
-              onClick={handleCVDownload}
-            >
+            <Button id="download-cv" variant="contained" className="blackButton" 
+                    onClick={handleCVDownload}>
               {t('downloadCV')}
             </Button>
-            <Button
-              id="see-experience"
-              variant="contained"
-              className="blackButton"
-              onClick={() => window.open('https://www.linkedin.com/in/jrcaballerob/', '_blank', 'noopener,noreferrer')}
-            >
+            <Button id="see-experience" variant="contained" className="blackButton"   
+                    onClick={() => window.open('https://www.linkedin.com/in/jrcaballerob/', '_blank', 'noopener,noreferrer')}>
               {t('seeExperience')}&nbsp;<LinkedInIcon />
             </Button>
           </Box>
         </Box>
       </Container>
 
-      <Container id="mountaineer" maxWidth={false} sx={{ width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(to top, #fff, #000)', p: 0 }}>
-        <Box sx={{ textAlign: 'center', width: '100%' }}>
+      <Container id="mountaineer" maxWidth={false} sx={{...containerConfig, background: containerGradient.topToBottom }}>
+        <Box sx={boxConfig}>
           <Typography variant="h5" component="h1" gutterBottom>
             {t('iam')}
           </Typography>
@@ -81,8 +89,8 @@ export default function Home() {
         </Box>
       </Container>
 
-      <Container id="photographer" maxWidth={false} sx={{ width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(to bottom, #fff, #000)', p: 0  }}>
-        <Box sx={{ textAlign: 'center', width: '100%' }}>
+      <Container id="photographer" maxWidth={false} sx={{...containerConfig, background: containerGradient.topToBottom }}>
+        <Box sx={boxConfig}>
           <Typography variant="h5" component="h1" gutterBottom>
             {t('iam')}
           </Typography>
