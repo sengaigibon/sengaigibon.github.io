@@ -89,7 +89,7 @@ export default function Home() {
       <Container id="skills" maxWidth={false} sx={{width: '100vw', height: '100vh', textAlign: 'center', background: containerGradient.bottomToTop }}>
         <Box sx={{pt: 8}}>
           <Typography variant="h3" color="text.secondary">
-            {t('knowledgeBase')}
+            {t('whatIWorkWith')}
           </Typography>
         </Box>
         <Box sx={{justifyContent: 'center', display: 'flex', p: 6 }}>
