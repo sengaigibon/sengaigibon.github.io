@@ -229,51 +229,28 @@ const frontendFrameworks = [
     }
 ];
 
+const boxConfig = { pb: 6, display: 'flex', flexDirection: 'column', alignItems: 'center' };
+
 export default function TechSkills() {
     const t = useTranslations();
+    const skills = [
+        { title: t('programmingLanguages'), elements: programmingLanguages },
+        { title: t('backendFrameworks'), elements: backendFrameworks },
+        { title: t('fe-frameworks'), elements: frontendFrameworks },
+        { title: t('apiTechnologies'), elements: apiTechnologies },
+        { title: t('databases'), elements: databases },
+        { title: t('devOpsTools'), elements: devOpsTools }
+    ];
     return (
         <div>
-            <Box sx={{ pb: 6, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant="h5" color="text.secondary" sx={{ pb: 4 }}>
-                    {t('programmingLanguages')}
-                </Typography>
-                <StackOfCards elements={programmingLanguages} />
-            </Box>
-
-            <Box sx={{ pb: 6, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant="h5" color="text.secondary" sx={{ pb: 4 }}>
-                    {t('backendFrameworks')}
-                </Typography>
-                <StackOfCards elements={backendFrameworks} />
-            </Box>
-
-            <Box sx={{ pb: 6, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant="h5" color="text.secondary" sx={{ pb: 4 }}>
-                    {t('apiTechnologies')}
-                </Typography>
-                <StackOfCards elements={apiTechnologies} />
-            </Box>
-
-            <Box sx={{ pb: 6, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant="h5" color="text.secondary" sx={{ pb: 4 }}>
-                    {t('databases')}
-                </Typography>
-                <StackOfCards elements={databases} />
-            </Box>
-
-            <Box sx={{ pb: 6, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant="h5" color="text.secondary" sx={{ pb: 4 }}>
-                    {t('devOpsTools')}
-                </Typography>
-                <StackOfCards elements={devOpsTools} />
-            </Box>
-
-            <Box sx={{ pb: 6, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant="h5" color="text.secondary" sx={{ pb: 4 }}>
-                    {t('fe-frameworks')}
-                </Typography>
-                <StackOfCards elements={frontendFrameworks} />
-            </Box>
+            {skills.map((skill) => (
+                <Box sx={boxConfig} key={skill.title}>
+                    <Typography variant="h5" color="text.secondary" sx={{ pb: 4 }}>
+                        {skill.title}
+                    </Typography>
+                    <StackOfCards elements={skill.elements} />
+                </Box>
+            ))}
         </div>
     );
 }
