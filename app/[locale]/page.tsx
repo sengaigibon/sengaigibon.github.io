@@ -5,6 +5,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import TechSkills from '../components/TechSkills';
 
 export default function Home() {
   const t = useTranslations();
@@ -74,7 +75,18 @@ export default function Home() {
         </Box>
       </Container>
 
-      <Container id="mountaineer" maxWidth={false} sx={{...containerConfig, background: containerGradient.bottomToTop }}>
+      <Container id="skills" maxWidth={false} sx={{width: '100vw', height: '100vh', textAlign: 'center', background: containerGradient.bottomToTop }}>
+        <Box sx={{pt: 8}}>
+          <Typography variant="h3" color="text.secondary">
+            {t('techskills')}
+          </Typography>
+        </Box>
+        <Box sx={{justifyContent: 'center', display: 'flex', p: 6 }}>
+          <TechSkills />
+        </Box>
+      </Container>
+
+      {/* <Container id="mountaineer" maxWidth={false} sx={{...containerConfig, background: containerGradient.bottomToTop }}>
         <Box sx={boxConfig}>
           <Typography variant="h5" component="h1" gutterBottom>
             {t('iam')}
@@ -103,7 +115,7 @@ export default function Home() {
             {t('photographer')}
           </Typography>
         </Box>
-      </Container>
+      </Container> */}
       
     </main>
   );
