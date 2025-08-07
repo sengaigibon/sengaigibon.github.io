@@ -39,9 +39,14 @@ export default function Home() {
     p: 0 
   };
 
+  const COLORS = {
+    GRADIENT_FROM: '#fff',
+    GRADIENT_TO: '#2A64C7'
+  };
+
   const containerGradient = {
-    topToBottom: 'linear-gradient(to bottom, #fff, #000)',
-    bottomToTop: 'linear-gradient(to top, #fff, #000)',
+    topToBottom: `linear-gradient(to bottom, ${COLORS.GRADIENT_FROM}, ${COLORS.GRADIENT_TO})`,
+    bottomToTop: `linear-gradient(to top, ${COLORS.GRADIENT_FROM}, ${COLORS.GRADIENT_TO})`,
   };
 
   return (
@@ -69,7 +74,7 @@ export default function Home() {
         </Box>
       </Container>
 
-      <Container id="mountaineer" maxWidth={false} sx={{...containerConfig, background: containerGradient.topToBottom }}>
+      <Container id="mountaineer" maxWidth={false} sx={{...containerConfig, background: containerGradient.bottomToTop }}>
         <Box sx={boxConfig}>
           <Typography variant="h5" component="h1" gutterBottom>
             {t('iam')}
