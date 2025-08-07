@@ -19,12 +19,21 @@
     "ready-for-adventure": "¿Listo para tu Próxima Aventura?",
     "contact-for-expedition": "Ponte en contacto para discutir planificación de expediciones y consultoría de montañismo.",
     "viewPortfolio": "Ver Portafolio",
-    "techskills": "Habilidades Tecnológicas",
-    "programmingLanguages": "Lenguajes de Programación",
-    "fe-frameworks": "Frameworks de Frontend & Tecnologías Web",
-    "backendFrameworks": "Frameworks de Backend",
-    "apiTechnologies": "Tecnologías de API",
-    "databases": "Bases de Datos",
-    "devOpsTools": "DevOps y Nube",
-    "whatIWorkWith": "Tecnologías con las que Trabajo"
+    "whatIWorkWith": "Tecnologías con las que Trabajo",
+    "techSkills": {
+        "programmingLanguages": "Lenguajes de Programación",
+        "frontendFrameworks": "Frameworks de Frontend & Tecnologías Web",
+        "backendFrameworks": "Frameworks de Backend",
+        "apiTechnologies": "Tecnologías de API",
+        "databases": "Bases de Datos",
+        "devOpsTools": "DevOps y Nube"
+    },
+    "footer": {
+        "name": "Javier Caballero",
+        "linkedinLabel": "Visitar perfil de LinkedIn",
+        "githubLabel": "Visitar perfil de GitHub",
+        "stackoverflowLabel": "Visitar perfil de Stack Overflow",
+        "copyright": "© 2025 jknight. Todos los derechos reservados",
+        "madeWith": "Hecho con ❤️ por Javier Caballero"
+    }
 }

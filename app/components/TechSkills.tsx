@@ -234,12 +234,12 @@ const boxConfig = { pb: 6, display: 'flex', flexDirection: 'column', alignItems:
 export default function TechSkills() {
     const t = useTranslations();
     const skills = [
-        { title: t('programmingLanguages'), elements: programmingLanguages },
-        { title: t('backendFrameworks'), elements: backendFrameworks },
-        { title: t('fe-frameworks'), elements: frontendFrameworks },
-        { title: t('apiTechnologies'), elements: apiTechnologies },
-        { title: t('databases'), elements: databases },
-        { title: t('devOpsTools'), elements: devOpsTools }
+        { title: t('techSkills.programmingLanguages'), elements: programmingLanguages },
+        { title: t('techSkills.backendFrameworks'), elements: backendFrameworks },
+        { title: t('techSkills.frontendFrameworks'), elements: frontendFrameworks },
+        { title: t('techSkills.apiTechnologies'), elements: apiTechnologies },
+        { title: t('techSkills.databases'), elements: databases },
+        { title: t('techSkills.devOpsTools'), elements: devOpsTools }
     ];
     return (
         <div>

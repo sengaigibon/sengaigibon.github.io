@@ -1,11 +1,12 @@
 'use client';
 
-import { Container, Box, Typography, Button } from '@mui/material';
+import { Container, Box, Typography, Button, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import TechSkills from '../components/TechSkills';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const t = useTranslations();
@@ -127,6 +128,10 @@ export default function Home() {
           </Typography>
         </Box>
       </Container> */}
+
+      <Container maxWidth={false} sx={{ width: '100vw',  background: containerGradient.topToBottom, color: '#fff', py: 4 }}>
+        <Footer />
+      </Container>
 
     </main>
   );
