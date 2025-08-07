@@ -4,11 +4,11 @@ const validLocales = ['en', 'es'];
 const defaultLocale = 'en';
 
 export default getRequestConfig(async ({ locale }) => {
-  // Ensure locale is valid, fallback to default if not
-  const validLocale = locale && validLocales.includes(locale) ? locale : defaultLocale;
-  
-  return {
-    locale: validLocale,
-    messages: (await import(`./messages/${validLocale}.json`)).default
-  };
+    // Ensure locale is valid, fallback to default if not
+    const validLocale = locale && validLocales.includes(locale) ? locale : defaultLocale;
+
+    return {
+        locale: validLocale,
+        messages: (await import(`./messages/${validLocale}.json`)).default
+    };
 });

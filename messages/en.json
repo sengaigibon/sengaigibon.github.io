@@ -19,12 +19,21 @@
     "ready-for-adventure": "Ready for Your Next Adventure?",
     "contact-for-expedition": "Get in touch to discuss expedition planning and mountaineering consulting.",
     "viewPortfolio": "View Portfolio",
-    "techskills": "Technical Skills",
-    "programmingLanguages": "Programming Languages",
-    "fe-frameworks": "Frontend Frameworks & Web Technologies",
-    "backendFrameworks": "Backend Frameworks",
-    "apiTechnologies": "API Technologies",
-    "databases": "Databases",
-    "devOpsTools": "DevOps & Cloud",
-    "whatIWorkWith": "What I Work With"
+    "whatIWorkWith": "Technologies I Work With",
+    "techSkills": {
+        "programmingLanguages": "Programming Languages",
+        "frontendFrameworks": "Frontend Frameworks & Web Technologies",
+        "backendFrameworks": "Backend Frameworks",
+        "apiTechnologies": "API Technologies",
+        "databases": "Databases",
+        "devOpsTools": "DevOps & Cloud"
+    },
+    "footer": {
+        "name": "Javier Caballero",
+        "linkedinLabel": "Visit LinkedIn profile",
+        "githubLabel": "Visit GitHub profile",
+        "stackoverflowLabel": "Visit Stack Overflow profile",
+        "copyright": "© 2025 jknight. All rights reserved",
+        "madeWith": "Made with ❤️ by Javier Caballero"
+    }
 }

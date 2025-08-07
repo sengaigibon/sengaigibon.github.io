@@ -32,12 +32,12 @@ const programmingLanguages = [
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg"
 
     },
-    {        
+    {
         id: 6,
         name: "C",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg"
     },
-    {        
+    {
         id: 7,
         name: "C#",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg"
@@ -234,12 +234,12 @@ const boxConfig = { pb: 6, display: 'flex', flexDirection: 'column', alignItems:
 export default function TechSkills() {
     const t = useTranslations();
     const skills = [
-        { title: t('programmingLanguages'), elements: programmingLanguages },
-        { title: t('backendFrameworks'), elements: backendFrameworks },
-        { title: t('fe-frameworks'), elements: frontendFrameworks },
-        { title: t('apiTechnologies'), elements: apiTechnologies },
-        { title: t('databases'), elements: databases },
-        { title: t('devOpsTools'), elements: devOpsTools }
+        { title: t('techSkills.programmingLanguages'), elements: programmingLanguages },
+        { title: t('techSkills.backendFrameworks'), elements: backendFrameworks },
+        { title: t('techSkills.frontendFrameworks'), elements: frontendFrameworks },
+        { title: t('techSkills.apiTechnologies'), elements: apiTechnologies },
+        { title: t('techSkills.databases'), elements: databases },
+        { title: t('techSkills.devOpsTools'), elements: devOpsTools }
     ];
     return (
         <div>
