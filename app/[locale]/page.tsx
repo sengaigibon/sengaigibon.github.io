@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import TechSkills from '../components/TechSkills';
 import Footer from '../components/Footer';
+import { boxConfig, containerConfig, containerGradient } from '../styles/config';
 
 export default function Home() {
     const t = useTranslations('main');
@@ -28,26 +29,6 @@ export default function Home() {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-    };
-
-    const boxConfig = { textAlign: 'center', width: '100%' };
-    const containerConfig = {
-        width: '100vw',
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        p: 0
-    };
-
-    const COLORS = {
-        GRADIENT_FROM: '#fff',
-        GRADIENT_TO: '#2A64C7'
-    };
-
-    const containerGradient = {
-        topToBottom: `linear-gradient(to bottom, ${COLORS.GRADIENT_FROM}, ${COLORS.GRADIENT_TO})`,
-        bottomToTop: `linear-gradient(to top, ${COLORS.GRADIENT_FROM}, ${COLORS.GRADIENT_TO})`,
     };
 
     return (
