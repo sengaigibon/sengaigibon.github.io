@@ -2,10 +2,11 @@ import { Box, Typography, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function Footer() {
-    const t = useTranslations();
+    const t = useTranslations('footer');
+    const locale = useLocale();
 
     return (
         
@@ -17,41 +18,41 @@ export default function Footer() {
           gap: 1
         }}>
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            {t('footer.name')}
+            {t('name')}
           </Typography>
 
           <Box sx={{ display: 'flex', gap: 1 }}>
             <IconButton 
               sx={{ color: '#fff', '&:hover': { color: '#0077b5' } }}
               onClick={() => window.open('https://www.linkedin.com/in/jrcaballerob/', '_blank', 'noopener,noreferrer')}
-              aria-label={t('footer.linkedinLabel')}
+              aria-label={t('linkedinLabel')}
             >
               <LinkedInIcon fontSize="medium" />
             </IconButton>
             <IconButton 
               sx={{ color: '#fff', '&:hover': { color: '#333' } }}
               onClick={() => window.open('https://github.com/sengaigibon', '_blank', 'noopener,noreferrer')}
-              aria-label={t('footer.githubLabel')}
+              aria-label={t('githubLabel')}
             >
               <GitHubIcon fontSize="medium" />
             </IconButton>
             <IconButton 
               sx={{ color: '#fff', '&:hover': { color: '#f48024' } }}
               onClick={() => window.open('https://stackoverflow.com/users/5519402/hiperboreo', '_blank', 'noopener,noreferrer')}
-              aria-label={t('footer.stackoverflowLabel')}
+              aria-label={t('stackoverflowLabel')}
             >
               <QuestionAnswerIcon fontSize="medium" />
             </IconButton>
           </Box>
 
           <Typography variant="body2" sx={{ opacity: 0.8 }}>
-            {t('footer.copyright')}
+            {t('copyright')}
           </Typography>
 
           <Typography variant="body2" sx={{ opacity: 0.9 }}>
-            {t('footer.madeWith')}
-            <a href="/realme" style={{ color: 'inherit', textDecoration: 'underline' }}>
-              {t('footer.me')}
+            {t('madeWith')}
+            <a href={`/${locale}/realme`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+              {t('me')}
             </a>
           </Typography>
         </Box>
