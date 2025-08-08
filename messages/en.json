@@ -26,7 +26,8 @@
         "githubLabel": "Visit GitHub profile",
         "stackoverflowLabel": "Visit Stack Overflow profile",
         "copyright": "© 2025 jknight. All rights reserved",
-        "madeWith": "Made with ❤️ by Javier Caballero"
+        "madeWith": "Made with ❤️ by ",
+        "me": "me"
     },
     "others": {
         "welcome": "Welcome to JKnight.eu",

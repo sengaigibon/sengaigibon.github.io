@@ -50,6 +50,9 @@ export default function Footer() {
 
           <Typography variant="body2" sx={{ opacity: 0.9 }}>
             {t('footer.madeWith')}
+            <a href="/realme" style={{ color: 'inherit', textDecoration: 'underline' }}>
+              {t('footer.me')}
+            </a>
           </Typography>
         </Box>
     );
