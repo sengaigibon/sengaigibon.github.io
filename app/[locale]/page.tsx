@@ -9,16 +9,15 @@ import TechSkills from '../components/TechSkills';
 import Footer from '../components/Footer';
 
 export default function Home() {
-  const t = useTranslations();
+  const t = useTranslations('main');
   const locale = useLocale();
   const router = useRouter();
 
-  // Generate CV download URL based on current locale
   const getCVUrl = () => {
-    // Option 1: Locale-specific CVs
+    // Op1: Locale-specific CVs
     // return `/cv-${locale}.pdf`;
 
-    // Option 2: Single CV (uncomment this and comment above)
+    // Op2: Single CV 
     return '/javier-caballero-cv-en.pdf';
   };
 

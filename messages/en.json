@@ -1,25 +1,17 @@
 {
-    "engineer": "A Software Engineer",
-    "welcome": "Welcome to JKnight.eu",
-    "subtitle": "A modern marketing page built with Material UI and Next.js.",
-    "getStarted": "Get Started",
-    "iam": "I am",
-    "developer": "A Software Developer",
-    "home": "Top",
-    "features": "Features",
-    "contact": "Contact",
-    "english": "ENGLISH",
-    "spanish": "SPANISH",
-    "mountaineer": "A Mountaineer",
-    "downloadCV": "Download CV",
-    "seeExperience": "See my experience",
-    "photographer": "A Photographer",
-    "mountaineering-portfolio": "Mountain Adventures",
-    "mountaineering-subtitle": "A collection of my mountaineering expeditions and alpine adventures around the world",
-    "ready-for-adventure": "Ready for Your Next Adventure?",
-    "contact-for-expedition": "Get in touch to discuss expedition planning and mountaineering consulting.",
-    "viewPortfolio": "View Portfolio",
-    "whatIWorkWith": "Technologies I Work With",
+    "main": {
+        "iam": "I am",
+        "engineer": "A Software Engineer",
+        "downloadCV": "Download CV",
+        "seeExperience": "See my experience",
+        "whatIWorkWith": "Technologies I Work With"
+    },
+    "mountaineering": {
+        "portfolio": "Mountain Adventures",
+        "subtitle": "A collection of my mountaineering expeditions and alpine adventures around the world",
+        "readyForAdventure": "Ready for Your Next Adventure?",
+        "contactForExpedition": "Get in touch to discuss expedition planning and mountaineering consulting."
+    },
     "techSkills": {
         "programmingLanguages": "Programming Languages",
         "frontendFrameworks": "Frontend Frameworks & Web Technologies",
@@ -35,5 +27,19 @@
         "stackoverflowLabel": "Visit Stack Overflow profile",
         "copyright": "© 2025 jknight. All rights reserved",
         "madeWith": "Made with ❤️ by Javier Caballero"
+    },
+    "others": {
+        "welcome": "Welcome to JKnight.eu",
+        "subtitle": "A modern marketing page built with Material UI and Next.js.",
+        "getStarted": "Get Started",
+        "developer": "A Software Developer",
+        "home": "Top",
+        "features": "Features",
+        "contact": "Contact",
+        "english": "ENGLISH",
+        "spanish": "SPANISH",
+        "mountaineer": "A Mountaineer",
+        "photographer": "A Photographer",
+        "viewPortfolio": "View Portfolio"
     }
 }

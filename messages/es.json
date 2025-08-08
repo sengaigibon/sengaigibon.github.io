@@ -1,32 +1,24 @@
 {
-    "engineer": "Ingeniero de Software",
-    "welcome": "Bienvenido a JKnight.eu",
-    "subtitle": "Una página de marketing moderna construida con Material UI y Next.js.",
-    "getStarted": "Comenzar",
-    "iam": "Soy",
-    "developer": "Desarrollador de Software",
-    "home": "Inicio",
-    "features": "Características",
-    "contact": "Contacto",
-    "english": "INGLÉS",
-    "spanish": "ESPAÑOL",
-    "mountaineer": "Montañista",
-    "downloadCV": "Descargar CV",
-    "seeExperience": "Ver mi experiencia",
-    "photographer": "Fotógrafo",
-    "mountaineering-portfolio": "Aventuras de Montaña",
-    "mountaineering-subtitle": "Una colección de mis expediciones de montañismo y aventuras alpinas alrededor del mundo",
-    "ready-for-adventure": "¿Listo para tu Próxima Aventura?",
-    "contact-for-expedition": "Ponte en contacto para discutir planificación de expediciones y consultoría de montañismo.",
-    "viewPortfolio": "Ver Portafolio",
-    "whatIWorkWith": "Tecnologías con las que Trabajo",
+    "main": {
+        "iam": "Soy",
+        "engineer": "Un Ingeniero de Software",
+        "downloadCV": "Descargar CV",
+        "seeExperience": "Ver mi experiencia",
+        "whatIWorkWith": "Tecnologías con las que Trabajo"
+    },
+    "mountaineering": {
+        "portfolio": "Aventuras en Montaña",
+        "subtitle": "Una colección de mis expediciones de montañismo y aventuras alpinas alrededor del mundo",
+        "readyForAdventure": "¿Listo para tu Próxima Aventura?",
+        "contactForExpedition": "Ponte en contacto para discutir planificación de expediciones y consultoría de montañismo."
+    },
     "techSkills": {
         "programmingLanguages": "Lenguajes de Programación",
-        "frontendFrameworks": "Frameworks de Frontend & Tecnologías Web",
-        "backendFrameworks": "Frameworks de Backend",
-        "apiTechnologies": "Tecnologías de API",
+        "frontendFrameworks": "Frameworks Frontend y Tecnologías Web",
+        "backendFrameworks": "Frameworks Backend",
+        "apiTechnologies": "Tecnologías API",
         "databases": "Bases de Datos",
-        "devOpsTools": "DevOps y Nube"
+        "devOpsTools": "DevOps y Cloud"
     },
     "footer": {
         "name": "Javier Caballero",
@@ -35,5 +27,19 @@
         "stackoverflowLabel": "Visitar perfil de Stack Overflow",
         "copyright": "© 2025 jknight. Todos los derechos reservados",
         "madeWith": "Hecho con ❤️ por Javier Caballero"
+    },
+    "others": {
+        "welcome": "Bienvenido a JKnight.eu",
+        "subtitle": "Una página de marketing moderna construida con Material UI y Next.js.",
+        "getStarted": "Comenzar",
+        "developer": "Un Desarrollador de Software",
+        "home": "Inicio",
+        "features": "Características",
+        "contact": "Contacto",
+        "english": "INGLÉS",
+        "spanish": "ESPAÑOL",
+        "mountaineer": "Un Montañero",
+        "photographer": "Un Fotógrafo",
+        "viewPortfolio": "Ver Portafolio"
     }
 }

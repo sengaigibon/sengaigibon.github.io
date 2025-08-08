@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
 
 export default function MountaineeringPage() {
-    const t = useTranslations();
+    const t = useTranslations('mountaineering');
 
     // Placeholder data for the mountaineering portfolio
     const mountaineeringProjects = [
@@ -106,14 +106,14 @@ export default function MountaineeringPage() {
                             mb: 2
                         }}
                     >
-                        {t('mountaineering-portfolio') || 'Mountain Adventures'}
+                        {t('portfolio') || 'Mountain Adventures'}
                     </Typography>
                     <Typography
                         variant="h6"
                         color="text.secondary"
                         sx={{ maxWidth: '600px', mx: 'auto' }}
                     >
-                        {t('mountaineering-subtitle') || 'A collection of my mountaineering expeditions and alpine adventures around the world'}
+                        {t('subtitle') || 'A collection of my mountaineering expeditions and alpine adventures around the world'}
                     </Typography>
                 </Box>
 
@@ -173,10 +173,10 @@ export default function MountaineeringPage() {
                 {/* Optional: Add a call-to-action section */}
                 <Box sx={{ textAlign: 'center', mt: 8 }}>
                     <Typography variant="h5" gutterBottom>
-                        {t('ready-for-adventure') || 'Ready for Your Next Adventure?'}
+                        {t('readyForAdventure') || 'Ready for Your Next Adventure?'}
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                        {t('contact-for-expedition') || 'Get in touch to discuss expedition planning and mountaineering consulting.'}
+                        {t('contactForExpedition') || 'Get in touch to discuss expedition planning and mountaineering consulting.'}
                     </Typography>
                 </Box>
             </Container>
