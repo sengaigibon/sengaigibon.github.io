@@ -2,7 +2,7 @@
 
 import { Container, Box, Typography, Card, CardMedia, CardContent, Grid } from '@mui/material';
 import { useTranslations } from 'next-intl';
-import LanguageSwitcher from '../../components/LanguageSwitcher';
+import LanguageSwitcher from '../../../components/LanguageSwitcher';
 
 export default function MountaineeringPage() {
     const t = useTranslations('mountaineering');
