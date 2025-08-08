@@ -1,13 +1,14 @@
 'use client';
 
 import { Button, Box } from '@mui/material';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl'; 
 import { useTransition, useEffect } from 'react';
 import { validLocales } from '@/i18n';
 
 export default function LanguageSwitcher() {
     const router = useRouter();
+    const pathname = usePathname();
     const locale = useLocale();
     const [isPending, startTransition] = useTransition();
 
@@ -30,8 +31,10 @@ export default function LanguageSwitcher() {
         sessionStorage.setItem('scrollPosition', scrollY.toString());
 
         startTransition(() => {
-            // Navigate directly to the new locale URL
-            router.replace(`/${newLocale}`);
+            var urlParts = pathname.split('/').filter(Boolean);
+            urlParts[0] = `${newLocale}`;
+            router.replace('/' + urlParts.join('/'));
+
         });
     };
 
