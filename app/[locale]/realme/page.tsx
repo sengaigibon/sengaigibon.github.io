@@ -1,0 +1,52 @@
+'use client';
+
+import { Container, Box, Typography, Button } from '@mui/material';
+import { useRouter } from 'next/navigation';
+import LanguageSwitcher from '../../components/LanguageSwitcher';
+import { useTranslations, useLocale } from 'next-intl';
+import { boxConfig, containerConfig, containerGradient } from '../../styles/config';
+import Footer from '../../components/Footer';
+
+export default function RealMe() {
+    const t = useTranslations();
+    const locale = useLocale();
+    const router = useRouter();
+
+    return (
+        <main>
+          <LanguageSwitcher />
+
+          <Container id="mountaineer" maxWidth={false} sx={{...containerConfig, background: containerGradient.bottomToTop }}>
+            <Box sx={boxConfig}>
+            <Typography variant="h5" component="h1" gutterBottom>
+                {t('main.iam')}
+            </Typography>
+            <Typography variant="h2" color="text.secondary">
+                {t('realme.mountaineer')}
+            </Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
+                <Button 
+                variant="contained" 
+                className="blackButton"
+                onClick={() => router.push(`/${locale}/realme/mountaineering`)}
+                >
+                {t('realme.viewPortfolio')}
+                </Button>
+            </Box>
+            </Box>
+        </Container>
+
+        <Container id="photographer" maxWidth={false} sx={{...containerConfig, background: containerGradient.topToBottom }}>
+            <Box sx={boxConfig}>
+            <Typography variant="h5" component="h1" gutterBottom>
+                {t('main.iam')}
+            </Typography>
+            <Typography variant="h2" color="text.secondary">
+                {t('realme.photographer')}
+            </Typography>
+            </Box>
+        </Container> 
+        
+        </main>
+    );
+}
