@@ -6,6 +6,11 @@
         "seeExperience": "Ver mi experiencia",
         "whatIWorkWith": "Tecnologías con las que Trabajo"
     },
+    "realme": {
+        "mountaineer": "Un Montañero",
+        "photographer": "Un Fotógrafo",
+        "viewPortfolio": "Ver Portafolio"
+    },
     "mountaineering": {
         "portfolio": "Aventuras en Montaña",
         "subtitle": "Una colección de mis expediciones de montañismo y aventuras alpinas alrededor del mundo",
@@ -27,7 +32,7 @@
         "stackoverflowLabel": "Visitar perfil de Stack Overflow",
         "copyright": "© 2025 jknight. Todos los derechos reservados",
         "madeWith": "Hecho con ❤️ por ",
-        "me": "mi"
+        "me": "mí"
     },
     "others": {
         "welcome": "Bienvenido a JKnight.eu",
@@ -38,9 +43,6 @@
         "features": "Características",
         "contact": "Contacto",
         "english": "INGLÉS",
-        "spanish": "ESPAÑOL",
-        "mountaineer": "Un Montañero",
-        "photographer": "Un Fotógrafo",
-        "viewPortfolio": "Ver Portafolio"
+        "spanish": "ESPAÑOL"
     }
 }

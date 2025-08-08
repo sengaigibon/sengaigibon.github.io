@@ -6,6 +6,11 @@
         "seeExperience": "See my experience",
         "whatIWorkWith": "Technologies I Work With"
     },
+    "realme": {
+        "mountaineer": "A Mountaineer",
+        "photographer": "A Photographer",
+        "viewPortfolio": "View Portfolio"
+    },
     "mountaineering": {
         "portfolio": "Mountain Adventures",
         "subtitle": "A collection of my mountaineering expeditions and alpine adventures around the world",
@@ -38,9 +43,6 @@
         "features": "Features",
         "contact": "Contact",
         "english": "ENGLISH",
-        "spanish": "SPANISH",
-        "mountaineer": "A Mountaineer",
-        "photographer": "A Photographer",
-        "viewPortfolio": "View Portfolio"
+        "spanish": "SPANISH"
     }
 }
