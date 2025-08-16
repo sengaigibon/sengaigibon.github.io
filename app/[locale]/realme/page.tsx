@@ -47,6 +47,10 @@ export default function RealMe() {
             </Box>
         </Container> 
         
+        <Container maxWidth={false} sx={{ width: '100vw', background: containerGradient.bottomToTop, color: '#fff', py: 4 }}>
+            <Footer />
+        </Container>
+
         </main>
     );
 }
