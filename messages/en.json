@@ -192,6 +192,22 @@
                 "image": "/images/taal.jpg",
                 "location": "Batangas, Philippines",
                 "elevation": "311 m"
+            },
+            {
+                "id": 23,
+                "title": "Huangshan",
+                "description": "Famous for twisted pines, granite peaks, and seas of clouds.",
+                "image": "/images/huangshan.jpg",
+                "location": "Anhui, China",
+                "elevation": "1,864 m"
+            },
+            {
+                "id": 24,
+                "title": "Lantau Peak",
+                "description": "Hong Kong's second-highest summit with views of the Tian Tan Buddha.",
+                "image": "/images/lantaupeak.jpg",
+                "location": "Hong Kong, China",
+                "elevation": "934 m"
             }
         ]
     },
