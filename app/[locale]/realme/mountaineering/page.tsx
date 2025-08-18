@@ -79,7 +79,6 @@ export default function MountaineeringPage() {
                                         textAlign: 'center'
                                     }}
                                 >
-                                    {/* Placeholder for image - you can replace with actual images */}
                                     📸 {project.title}
                                 </CardMedia>
                                 <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
