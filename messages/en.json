@@ -15,7 +15,185 @@
         "portfolio": "Mountain Adventures",
         "subtitle": "A collection of my mountaineering expeditions and alpine adventures around the world",
         "readyForAdventure": "Ready for Your Next Adventure?",
-        "contactForExpedition": "Get in touch to discuss expedition planning and mountaineering consulting."
+        "contactForExpedition": "Get in touch to discuss expedition planning and mountaineering consulting.",
+        "projects": [
+            {
+                "id": 1,
+                "title": "Nauhcampatépetl",
+                "description": "My first solo adventure and ascent.",
+                "image": "/images/nauhcampatepetl.jpg",
+                "location": "Veracruz, Mexico",
+                "elevation": "4,282 m"
+            },
+            {
+                "id": 2,
+                "title": "La Malinche",
+                "description": "Ascent of the Matlalcueye volcano, a classic of Tlaxcala and Puebla.",
+                "image": "/images/malinche.jpg",
+                "location": "Tlaxcala/Puebla, Mexico",
+                "elevation": "4,461 m"
+            },
+            {
+                "id": 3,
+                "title": "Iztaccíhuatl",
+                "description": "Traverse of the 'Sleeping Woman', Mexico's third-highest peak.",
+                "image": "/images/iztaccihuatl.jpg",
+                "location": "State of Mexico/Puebla, Mexico",
+                "elevation": "5,230 m"
+            },
+            {
+                "id": 4,
+                "title": "Volcancillo",
+                "description": "Neighboring hill of Cofre de Perote with views of the Veracruz highlands.",
+                "image": "/images/volcancillo.jpg",
+                "location": "Perote, Veracruz, Mexico",
+                "elevation": "3,200 m"
+            },
+            {
+                "id": 5,
+                "title": "Sierra Negra",
+                "description": "Summit of the Sierra Negra volcano, home to the Large Millimeter Telescope.",
+                "image": "/images/sierranegra.jpg",
+                "location": "Atlitzin, Mexico",
+                "elevation": "4,680 m"
+            },
+            {
+                "id": 6,
+                "title": "Fujisan",
+                "description": "Ascent of Mount Fuji, Japan's most iconic peak.",
+                "image": "/images/fujisan.jpg",
+                "location": "Honshū, Japan",
+                "elevation": "3,776 m"
+            },
+            {
+                "id": 7,
+                "title": "Mulhacén",
+                "description": "Summit of Mulhacén, the highest in the Iberian Peninsula.",
+                "image": "/images/mulhacen.jpg",
+                "location": "Sierra Nevada, Spain",
+                "elevation": "3,479 m"
+            },
+            {
+                "id": 8,
+                "title": "Pico Veleta",
+                "description": "Ascent of Veleta, Sierra Nevada's second-highest summit.",
+                "image": "/images/picoveleta.jpg",
+                "location": "Sierra Nevada, Spain",
+                "elevation": "3,396 m"
+            },
+            {
+                "id": 9,
+                "title": "Teide",
+                "description": "Ascent of Teide, the highest peak in Spain.",
+                "image": "/images/teide.jpg",
+                "location": "Tenerife, Spain",
+                "elevation": "3,718 m"
+            },
+            {
+                "id": 10,
+                "title": "Bobotov Kuk",
+                "description": "Summit of Bobotov Kuk, the highest point in Durmitor.",
+                "image": "/images/bobotovkuk.jpg",
+                "location": "Durmitor, Montenegro",
+                "elevation": "2,523 m"
+            },
+            {
+                "id": 11,
+                "title": "Musala",
+                "description": "Ascent of Musala, the roof of the Balkans.",
+                "image": "/images/musala.jpg",
+                "location": "Rila, Bulgaria",
+                "elevation": "2,925 m"
+            },
+            {
+                "id": 12,
+                "title": "Zugspitze",
+                "description": "Summit of Zugspitze, Germany's highest point.",
+                "image": "/images/zugspitze.jpg",
+                "location": "Bavarian Alps, Germany",
+                "elevation": "2,962 m"
+            },
+            {
+                "id": 13,
+                "title": "Alpspitze",
+                "description": "Ascent of the pyramidal Alpspitze via classic alpine routes.",
+                "image": "/images/alpspitze.jpg",
+                "location": "Bavarian Alps, Germany",
+                "elevation": "2,628 m"
+            },
+            {
+                "id": 14,
+                "title": "La Derrumbada Roja",
+                "description": "Ascent of La Derrumbada Roja, a volcanic dome in Puebla.",
+                "image": "/images/derrumbadaroja.jpg",
+                "location": "Puebla, Mexico",
+                "elevation": "3,480 m"
+            },
+            {
+                "id": 15,
+                "title": "La Maliciosa",
+                "description": "Summit of La Maliciosa, a classic in the Sierra de Guadarrama.",
+                "image": "/images/maliciosa.jpg",
+                "location": "Sierra de Guadarrama, Spain",
+                "elevation": "2,227 m"
+            },
+            {
+                "id": 16,
+                "title": "La Peñota",
+                "description": "Ascent of La Peñota, a natural balcony of Guadarrama.",
+                "image": "/images/lapenota.jpg",
+                "location": "Sierra de Guadarrama, Spain",
+                "elevation": "1,945 m"
+            },
+            {
+                "id": 17,
+                "title": "Abantos",
+                "description": "Route on Abantos, a viewpoint over San Lorenzo de El Escorial.",
+                "image": "/images/abantos.jpg",
+                "location": "Sierra de Guadarrama, Spain",
+                "elevation": "1,753 m"
+            },
+            {
+                "id": 18,
+                "title": "Mount Parnassus",
+                "description": "Mountaineering adventure on one of Greece's classic summits.",
+                "image": "/images/parnassus.jpg",
+                "location": "Phocis/Boeotia, Greece",
+                "elevation": "2,457 m"
+            },
+            {
+                "id": 19,
+                "title": "Jubiläumsgrat",
+                "description": "Classic high-alpine ridge between Zugspitze and Alpspitze.",
+                "image": "/images/jubilaeumsgrat.jpg",
+                "location": "Bavarian Alps, Germany",
+                "elevation": "up to 2,962 m"
+            },
+            {
+                "id": 20,
+                "title": "Hallasan",
+                "description": "Summit of Hallasan, the highest point in South Korea.",
+                "image": "/images/hallasan.jpg",
+                "location": "Jeju, South Korea",
+                "elevation": "1,947 m"
+            },
+            {
+                "id": 21,
+                "title": "Seongsan Ilchulbong",
+                "description": "Volcanic tuff cone famous for sunrise views.",
+                "image": "/images/seongsanilchulbong.jpg",
+                "location": "Jeju, South Korea",
+                "elevation": "182 m"
+            },
+            {
+                "id": 22,
+                "title": "Taal Volcano",
+                "description": "Active volcano with a crater in Lake Taal.",
+                "image": "/images/taal.jpg",
+                "location": "Batangas, Philippines",
+                "elevation": "311 m"
+            }
+        ]
     },
     "techSkills": {
         "programmingLanguages": "Programming Languages",

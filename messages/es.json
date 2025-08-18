@@ -168,6 +168,30 @@
                 "image": "/images/jubilaeumsgrat.jpg",
                 "location": "Alpes Bávaros, Alemania",
                 "elevation": "hasta 2,962 m"
+            },
+            {
+                "id": 20,
+                "title": "Hallasan",
+                "description": "Cima del Hallasan, el punto más alto de Corea del Sur.",
+                "image": "/images/hallasan.jpg",
+                "location": "Jeju, Corea del Sur",
+                "elevation": "1,947 m"
+            },
+            {
+                "id": 21,
+                "title": "Seongsan Ilchulbong",
+                "description": "Cono de toba volcánica, famoso por sus amaneceres.",
+                "image": "/images/seongsanilchulbong.jpg",
+                "location": "Jeju, Corea del Sur",
+                "elevation": "182 m"
+            },
+            {
+                "id": 22,
+                "title": "Volcán Taal",
+                "description": "Volcán activo con cráter en el lago Taal.",
+                "image": "/images/taal.jpg",
+                "location": "Batangas, Filipinas",
+                "elevation": "311 m"
             }
         ]
     },
