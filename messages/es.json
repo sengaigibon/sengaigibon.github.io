@@ -15,7 +15,161 @@
         "portfolio": "Aventuras en Montaña",
         "subtitle": "Una colección de mis expediciones de montañismo y aventuras alpinas alrededor del mundo",
         "readyForAdventure": "¿Listo para tu Próxima Aventura?",
-        "contactForExpedition": "Ponte en contacto para discutir planificación de expediciones y consultoría de montañismo."
+        "contactForExpedition": "Ponte en contacto para discutir planificación de expediciones y consultoría de montañismo.",
+        "projects": [
+            {
+                "id": 1,
+                "title": "Nauhcampatépetl",
+                "description": "Mi primer aventura y ascenso en solitario",
+                "image": "/images/nauhcampatepetl.jpg",
+                "location": "Veracruz, México",
+                "elevation": "4,282 m"
+            },
+            {
+                "id": 2,
+                "title": "La Malinche",
+                "description": "Ascenso al volcán Matlalcueye, clásico de Tlaxcala y Puebla.",
+                "image": "/images/malinche.jpg",
+                "location": "Tlaxcala/Puebla, México",
+                "elevation": "4,461 m"
+            },
+            {
+                "id": 3,
+                "title": "Iztaccíhuatl",
+                "description": "Travesía por la 'Mujer Dormida', tercera cima más alta de México.",
+                "image": "/images/iztaccihuatl.jpg",
+                "location": "Edo. de México/Puebla, México",
+                "elevation": "5,230 m"
+            },
+            {
+                "id": 4,
+                "title": "Volcancillo",
+                "description": "Cerro vecino del Cofre de Perote con vistas del altiplano veracruzano.",
+                "image": "/images/volcancillo.jpg",
+                "location": "Perote, Veracruz, México",
+                "elevation": "3,200 m"
+            },
+            {
+                "id": 5,
+                "title": "Sierra Negra",
+                "description": "Cumbre del volcán Sierra Negra, hogar del Gran Telescopio Milimétrico.",
+                "image": "/images/sierranegra.jpg",
+                "location": "Atlitzin, México",
+                "elevation": "4,680 m"
+            },
+            {
+                "id": 6,
+                "title": "Fujisan",
+                "description": "Ascenso al monte Fuji, el pico más icónico de Japón.",
+                "image": "/images/fujisan.jpg",
+                "location": "Honshū, Japón",
+                "elevation": "3,776 m"
+            },
+            {
+                "id": 7,
+                "title": "Mulhacén",
+                "description": "Cima del Mulhacén, la más alta de la península ibérica.",
+                "image": "/images/mulhacen.jpg",
+                "location": "Sierra Nevada, España",
+                "elevation": "3,479 m"
+            },
+            {
+                "id": 8,
+                "title": "Pico Veleta",
+                "description": "Ascenso al Veleta, segunda cumbre de Sierra Nevada.",
+                "image": "/images/picoveleta.jpg",
+                "location": "Sierra Nevada, España",
+                "elevation": "3,396 m"
+            },
+            {
+                "id": 9,
+                "title": "Teide",
+                "description": "Ascenso al Teide, el pico más alto de España.",
+                "image": "/images/teide.jpg",
+                "location": "Tenerife, España",
+                "elevation": "3,718 m"
+            },
+            {
+                "id": 10,
+                "title": "Bobotov Kuk",
+                "description": "Cima del Bobotov Kuk, punto más alto de Durmitor.",
+                "image": "/images/bobotovkuk.jpg",
+                "location": "Durmitor, Montenegro",
+                "elevation": "2,523 m"
+            },
+            {
+                "id": 11,
+                "title": "Musala",
+                "description": "Ascenso al Musala, techo de los Balcanes.",
+                "image": "/images/musala.jpg",
+                "location": "Rila, Bulgaria",
+                "elevation": "2,925 m"
+            },
+            {
+                "id": 12,
+                "title": "Zugspitze",
+                "description": "Cima de la Zugspitze, el punto más alto de Alemania.",
+                "image": "/images/zugspitze.jpg",
+                "location": "Alpes Bávaros, Alemania",
+                "elevation": "2,962 m"
+            },
+            {
+                "id": 13,
+                "title": "Alpspitze",
+                "description": "Ascenso a la piramidal Alpspitze por rutas clásicas alpinas.",
+                "image": "/images/alpspitze.jpg",
+                "location": "Alpes Bávaros, Alemania",
+                "elevation": "2,628 m"
+            },
+            {
+                "id": 14,
+                "title": "La Derrumbada Roja",
+                "description": "Ascenso a La Derrumbada Roja, domo volcánico en Puebla.",
+                "image": "/images/derrumbadaroja.jpg",
+                "location": "Puebla, México",
+                "elevation": "3,480 m"
+            },
+            {
+                "id": 15,
+                "title": "La Maliciosa",
+                "description": "Cima de La Maliciosa, clásica de la Sierra de Guadarrama.",
+                "image": "/images/maliciosa.jpg",
+                "location": "Sierra de Guadarrama, España",
+                "elevation": "2,227 m"
+            },
+            {
+                "id": 16,
+                "title": "La Peñota",
+                "description": "Ascenso a La Peñota, balcón natural de Guadarrama.",
+                "image": "/images/lapenota.jpg",
+                "location": "Sierra de Guadarrama, España",
+                "elevation": "1,945 m"
+            },
+            {
+                "id": 17,
+                "title": "Abantos",
+                "description": "Ruta por Abantos, mirador de San Lorenzo de El Escorial.",
+                "image": "/images/abantos.jpg",
+                "location": "Sierra de Guadarrama, España",
+                "elevation": "1,753 m"
+            },
+            {
+                "id": 18,
+                "title": "Monte Parnaso",
+                "description": "Aventura de montañismo en una de las cumbres clásicas de Grecia.",
+                "image": "/images/parnassus.jpg",
+                "location": "Fócida/Beocia, Grecia",
+                "elevation": "2,457 m"
+            },
+            {
+                "id": 19,
+                "title": "Jubiläumsgrat",
+                "description": "Arista clásica de alta montaña entre Zugspitze y Alpspitze.",
+                "image": "/images/jubilaeumsgrat.jpg",
+                "location": "Alpes Bávaros, Alemania",
+                "elevation": "hasta 2,962 m"
+            }
+        ]
     },
     "techSkills": {
         "programmingLanguages": "Lenguajes de Programación",
