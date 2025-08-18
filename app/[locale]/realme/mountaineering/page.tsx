@@ -105,10 +105,10 @@ export default function MountaineeringPage() {
 
                 <Box sx={{ textAlign: 'center', mt: 8 }}>
                     <Typography variant="h5" gutterBottom>
-                        {t('readyForAdventure') || 'Ready for Your Next Adventure?'}
+                        {t('readyForAdventure')}
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                        {t('contactForExpedition') || 'Get in touch to discuss expedition planning and mountaineering consulting.'}
+                        {t('contactForExpedition')}
                     </Typography>
                 </Box>
             </Container>
