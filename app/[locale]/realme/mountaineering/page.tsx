@@ -2,7 +2,7 @@
 
 import { Container, Box, Typography, Card, CardMedia, CardContent, Grid } from '@mui/material';
 import { useTranslations } from 'next-intl';
-import LanguageSwitcher from '../../../components/LanguageSwitcher';
+import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import { containerGradient } from '../../../styles/config';
 
@@ -20,7 +20,7 @@ export default function MountaineeringPage() {
 
     return (
         <main>
-            <LanguageSwitcher />
+            <Header />
 
             <Container maxWidth={false} sx={{
                 width: '100vw',
