@@ -18,41 +18,41 @@ export default function RealMe() {
 
           <Container id="mountaineer" maxWidth={false} sx={{...containerConfig, background: containerGradient.bottomToTop }}>
             <Box sx={boxConfig}>
-            <Typography variant="h5" component="h1" gutterBottom>
-                {t('main.iam')}
-            </Typography>
-            <Typography variant="h2" color="text.secondary">
-                {t('realme.mountaineer')}
-            </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
-                <Button 
-                variant="contained" 
-                className="blackButton"
-                onClick={() => router.push(`/${locale}/realme/mountaineering`)}
-                >
-                {t('realme.viewPortfolio')}
-                </Button>
-            </Box>
+                <Typography variant="h5" component="h1" gutterBottom>
+                    {t('main.iam')}
+                </Typography>
+                <Typography variant="h2" color="text.secondary">
+                    {t('realme.mountaineer')}
+                </Typography>
+                <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
+                    <Button 
+                    variant="contained" 
+                    className="blackButton"
+                    onClick={() => router.push(`/${locale}/realme/mountaineering`)}
+                    >
+                    {t('realme.viewPortfolio')}
+                    </Button>
+                </Box>
             </Box>
         </Container>
 
         <Container id="photographer" maxWidth={false} sx={{...containerConfig, background: containerGradient.topToBottom }}>
             <Box sx={boxConfig}>
-            <Typography variant="h5" component="h1" gutterBottom>
-                {t('main.iam')}
-            </Typography>
-            <Typography variant="h2" color="text.secondary">
-                {t('realme.photographer')}
-            </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
-              <Button 
-                variant="contained" 
-                className="blackButton"
-                onClick={() => window.open('https://www.flickr.com/photos/jrcaballerob/albums', '_blank', 'noopener,noreferrer')}
-                >
-                {t('realme.viewPortfolio')}
-                </Button>
-            </Box>
+                <Typography variant="h5" component="h1" gutterBottom>
+                    {t('main.iam')}
+                </Typography>
+                <Typography variant="h2" color="text.secondary">
+                    {t('realme.photographer')}
+                </Typography>
+                <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
+                <Button 
+                    variant="contained" 
+                    className="blackButton"
+                    onClick={() => window.open('https://www.flickr.com/photos/jrcaballerob/albums', '_blank', 'noopener,noreferrer')}
+                    >
+                    {t('realme.viewPortfolio')}
+                    </Button>
+                </Box>
             </Box>
         </Container> 
         
