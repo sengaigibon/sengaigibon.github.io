@@ -1,9 +1,7 @@
 'use client';
 
-import { Button, Box, Breadcrumbs, Tooltip, IconButton, Link } from '@mui/material';
+import { Button, Box, Tooltip, IconButton } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import HomeIcon from '@mui/icons-material/Home';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl'; 
 import { useTransition, useEffect } from 'react';
@@ -50,37 +48,9 @@ export default function Header() {
     const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
     const isNotHome = pathWithoutLocale !== '/';
 
-    const generateBreadcrumbs = (): BreadcrumbItem[] => {
-        const pathSegments = pathWithoutLocale.split('/').filter(Boolean);
-        const breadcrumbs: BreadcrumbItem[] = [
-            { label: t('home'), href: `/${locale}` }
-        ];
-
-        // Build breadcrumbs based on path segments
-        pathSegments.forEach((segment, index) => {
-            const href = `/${locale}/${pathSegments.slice(0, index + 1).join('/')}`;
-            
-            switch (segment) {
-                case 'realme':
-                    breadcrumbs.push({ label: t('realme'), href });
-                    break;
-                case 'mountaineering':
-                    breadcrumbs.push({ label: t('mountaineering') }); // No href for current page
-                    break;
-                default:
-                    breadcrumbs.push({ label: segment, href });
-            }
-        });
-
-        return breadcrumbs;
-    };
-
-    const breadcrumbs = generateBreadcrumbs();
-
     const handleBack = () => {
         router.back();
     };
-
 
     return (
         <>
