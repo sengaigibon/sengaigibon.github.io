@@ -44,6 +44,15 @@ export default function RealMe() {
             <Typography variant="h2" color="text.secondary">
                 {t('realme.photographer')}
             </Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
+              <Button 
+                variant="contained" 
+                className="blackButton"
+                onClick={() => window.open('https://www.flickr.com/photos/jrcaballerob/albums', '_blank', 'noopener,noreferrer')}
+                >
+                {t('realme.viewPortfolio')}
+                </Button>
+            </Box>
             </Box>
         </Container> 
         
