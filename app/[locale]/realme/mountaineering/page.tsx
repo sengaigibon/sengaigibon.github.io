@@ -67,20 +67,14 @@ export default function MountaineeringPage() {
                                 }}
                             >
                                 <CardMedia
-                                    component="div"
+                                    component="img"
+                                    image={project.image}
+                                    alt={project.title}
                                     sx={{
                                         height: 200,
-                                        background: 'linear-gradient(45deg, #424242, #757575)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        color: 'white',
-                                        fontSize: '0.9rem',
-                                        textAlign: 'center'
+                                        objectFit: 'cover'
                                     }}
-                                >
-                                    📸 {project.title}
-                                </CardMedia>
+                                />
                                 <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                                     <Typography gutterBottom variant="h6" component="h2" sx={{ fontWeight: 'bold' }}>
                                         {project.title}
