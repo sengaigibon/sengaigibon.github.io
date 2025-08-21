@@ -49,17 +49,17 @@ export default function Home() {
                         gap: 2,
                         mt: 4,
                         px: { xs: '20px', sm: 0 },
-                        flexDirection: { xs: 'column', sm: 'row' } // Stack vertically on mobile, horizontally on desktop
+                        flexDirection: { xs: 'column', sm: 'row' } 
                     }}>
                         <Button id="download-cv" variant="contained" className="blackButton"
                             onClick={handleCVDownload}
-                            sx={{ minWidth: { xs: '100%', sm: 'auto' } }} // Full width on mobile, auto on desktop
+                            sx={{ minWidth: { xs: '100%', sm: 'auto' } }} 
                         >
                             {t('downloadCV')}
                         </Button>
                         <Button id="see-experience" variant="contained" className="blackButton"
                             onClick={() => window.open('https://www.linkedin.com/in/jrcaballerob/', '_blank', 'noopener,noreferrer')}
-                            sx={{ minWidth: { xs: '100%', sm: 'auto' } }} // Full width on mobile, auto on desktop
+                            sx={{ minWidth: { xs: '100%', sm: 'auto' } }}
                         >
                             {t('seeExperience')}&nbsp;<LinkedInIcon />
                         </Button>
