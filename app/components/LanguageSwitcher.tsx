@@ -1,6 +1,7 @@
 'use client';
 
-import { Button, Box } from '@mui/material';
+import { Button, Box, Tooltip, IconButton } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl'; 
 import { useTransition, useEffect } from 'react';
@@ -38,32 +39,59 @@ export default function LanguageSwitcher() {
         });
     };
 
+    const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
+    const isNotHome = pathWithoutLocale !== '/';
+
+    const handleBack = () => {
+        router.back();
+    };
+
+
     return (
-        <Box sx={{ position: 'fixed', top: 20, right: 20, zIndex: 1000, display: 'flex', gap: 1 }} >
-            {validLocales.map((loc) => {
-                return (
-                    <Button
-                        key={loc}
-                        variant={locale === loc ? 'contained' : 'outlined'}
-                        size="small"
-                        onClick={() => switchLocale(loc)}
-                        disabled={isPending}
-                        sx={{
-                            color: locale === loc ? '#fff' : '#000',
-                            backgroundColor: locale === loc ? '#000' : 'transparent',
-                            borderColor: '#000',
-                            '&:hover': {
-                                backgroundColor: locale === loc ? '#333' : 'rgba(0, 0, 0, 0.1)',
-                            },
-                            '&:disabled': {
-                                opacity: 0.6,
-                            },
-                        }}
-                    >
-                        {loc.toUpperCase()}
-                    </Button>
-                );
-            })}
-        </Box>
+        <>
+            {isNotHome ? 
+                <Box sx={{ position: 'fixed', top: 20, left: 20, zIndex: 1000, display: 'flex', gap: 1 }}>
+                    <Tooltip title='back'>
+                        <IconButton
+                            onClick={handleBack}
+                            sx={{
+                                color: 'text.primary',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                                },
+                            }}
+                        >
+                            <ArrowBackIcon />
+                        </IconButton>
+                    </Tooltip>
+                </Box>
+            : null }
+            <Box sx={{ position: 'fixed', top: 20, right: 20, zIndex: 1000, display: 'flex', gap: 1 }}>
+                {validLocales.map((loc) => {
+                    return (
+                        <Button
+                            key={loc}
+                            variant={locale === loc ? 'contained' : 'outlined'}
+                            size="small"
+                            onClick={() => switchLocale(loc)}
+                            disabled={isPending}
+                            sx={{
+                                color: locale === loc ? '#fff' : '#000',
+                                backgroundColor: locale === loc ? '#000' : 'transparent',
+                                borderColor: '#000',
+                                '&:hover': {
+                                    backgroundColor: locale === loc ? '#333' : 'rgba(0, 0, 0, 0.1)',
+                                },
+                                '&:disabled': {
+                                    opacity: 0.6,
+                                },
+                            }}
+                        >
+                            {loc.toUpperCase()}
+                        </Button>
+                    );
+                })}
+            </Box>
+        </>
     );
 }
