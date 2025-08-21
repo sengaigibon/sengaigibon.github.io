@@ -292,6 +292,11 @@
         "madeWith": "Made with ❤️ by ",
         "me": "me"
     },
+    "navigation": {
+        "home": "Home",
+        "realme": "Me",
+        "mountaineering": "Mountaineering"
+    },
     "others": {
         "welcome": "Welcome to JKnight.eu",
         "subtitle": "A modern marketing page built with Material UI and Next.js.",
