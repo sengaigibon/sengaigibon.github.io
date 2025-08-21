@@ -1,12 +1,14 @@
 'use client';
 
 import { Button, Box } from '@mui/material';
-import { useRouter } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl'; 
 import { useTransition, useEffect } from 'react';
+import { validLocales } from '@/i18n';
 
 export default function LanguageSwitcher() {
     const router = useRouter();
+    const pathname = usePathname();
     const locale = useLocale();
     const [isPending, startTransition] = useTransition();
 
@@ -29,51 +31,39 @@ export default function LanguageSwitcher() {
         sessionStorage.setItem('scrollPosition', scrollY.toString());
 
         startTransition(() => {
-            // Navigate directly to the new locale URL
-            router.replace(`/${newLocale}`);
+            var urlParts = pathname.split('/').filter(Boolean);
+            urlParts[0] = `${newLocale}`;
+            router.replace('/' + urlParts.join('/'));
+
         });
     };
 
     return (
         <Box sx={{ position: 'fixed', top: 20, right: 20, zIndex: 1000, display: 'flex', gap: 1 }} >
-            <Button
-                variant={locale === 'en' ? 'contained' : 'outlined'}
-                size="small"
-                onClick={() => switchLocale('en')}
-                disabled={isPending}
-                sx={{
-                    color: locale === 'en' ? '#fff' : '#000',
-                    backgroundColor: locale === 'en' ? '#000' : 'transparent',
-                    borderColor: '#000',
-                    '&:hover': {
-                        backgroundColor: locale === 'en' ? '#333' : 'rgba(0, 0, 0, 0.1)',
-                    },
-                    '&:disabled': {
-                        opacity: 0.6,
-                    },
-                }}
-            >
-                EN
-            </Button>
-            <Button
-                variant={locale === 'es' ? 'contained' : 'outlined'}
-                size="small"
-                onClick={() => switchLocale('es')}
-                disabled={isPending}
-                sx={{
-                    color: locale === 'es' ? '#fff' : '#000',
-                    backgroundColor: locale === 'es' ? '#000' : 'transparent',
-                    borderColor: '#000',
-                    '&:hover': {
-                        backgroundColor: locale === 'es' ? '#333' : 'rgba(0, 0, 0, 0.1)',
-                    },
-                    '&:disabled': {
-                        opacity: 0.6,
-                    },
-                }}
-            >
-                ES
-            </Button>
+            {validLocales.map((loc) => {
+                return (
+                    <Button
+                        key={loc}
+                        variant={locale === loc ? 'contained' : 'outlined'}
+                        size="small"
+                        onClick={() => switchLocale(loc)}
+                        disabled={isPending}
+                        sx={{
+                            color: locale === loc ? '#fff' : '#000',
+                            backgroundColor: locale === loc ? '#000' : 'transparent',
+                            borderColor: '#000',
+                            '&:hover': {
+                                backgroundColor: locale === loc ? '#333' : 'rgba(0, 0, 0, 0.1)',
+                            },
+                            '&:disabled': {
+                                opacity: 0.6,
+                            },
+                        }}
+                    >
+                        {loc.toUpperCase()}
+                    </Button>
+                );
+            })}
         </Box>
     );
 }

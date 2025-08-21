@@ -1,32 +1,287 @@
 {
-    "engineer": "Ingeniero de Software",
-    "welcome": "Bienvenido a JKnight.eu",
-    "subtitle": "Una página de marketing moderna construida con Material UI y Next.js.",
-    "getStarted": "Comenzar",
-    "iam": "Soy",
-    "developer": "Desarrollador de Software",
-    "home": "Inicio",
-    "features": "Características",
-    "contact": "Contacto",
-    "english": "INGLÉS",
-    "spanish": "ESPAÑOL",
-    "mountaineer": "Montañista",
-    "downloadCV": "Descargar CV",
-    "seeExperience": "Ver mi experiencia",
-    "photographer": "Fotógrafo",
-    "mountaineering-portfolio": "Aventuras de Montaña",
-    "mountaineering-subtitle": "Una colección de mis expediciones de montañismo y aventuras alpinas alrededor del mundo",
-    "ready-for-adventure": "¿Listo para tu Próxima Aventura?",
-    "contact-for-expedition": "Ponte en contacto para discutir planificación de expediciones y consultoría de montañismo.",
-    "viewPortfolio": "Ver Portafolio",
-    "whatIWorkWith": "Tecnologías con las que Trabajo",
+    "main": {
+        "iam": "Soy",
+        "engineer": "Un Ingeniero de Software",
+        "downloadCV": "Descargar CV",
+        "seeExperience": "Ver mi experiencia",
+        "whatIWorkWith": "Tecnologías con las que Trabajo"
+    },
+    "realme": {
+        "mountaineer": "Montañista",
+        "photographer": "Fotógrafo",
+        "viewPortfolio": "Ver Portafolio"
+    },
+    "mountaineering": {
+        "portfolio": "Aventuras de Montaña",
+        "subtitle": "Una colección de mis expediciones de montañismo y aventuras alpinas alrededor del mundo",
+        "readyForAdventure": "¿Listo para tu Próxima Aventura?",
+        "contactForExpedition": "Ponte en contacto para discutir planificación de expediciones y consultoría de montañismo.",
+        "projects": [
+            {
+                "id": 1,
+                "title": "Nauhcampatépetl",
+                "description": "Mi primer aventura y ascenso en solitario fue aquí, en el 'Cofre de Perote'.  Lo repetiría dos veces más por distintas rutas.",
+                "image": "/images/mountains/nauhcampatepetl.jpg",
+                "location": "Veracruz, México",
+                "elevation": "4,282 m"
+            },
+            {
+                "id": 2,
+                "title": "La Malinche",
+                "description": "Ascenso al volcán Matlalcueye, clásico de Tlaxcala y Puebla, sexta cima más alta de México.",
+                "image": "/images/mountains/malinche.jpg",
+                "location": "Tlaxcala/Puebla, México",
+                "elevation": "4,461 m"
+            },
+            {
+                "id": 3,
+                "title": "Iztaccíhuatl",
+                "description": "Travesía por la 'Mujer Dormida', tercera cima más alta de México.",
+                "image": "/images/mountains/iztaccihuatl.jpg",
+                "location": "Edo. de México/Puebla, México",
+                "elevation": "5,230 m"
+            },
+            {
+                "id": 4,
+                "title": "Volcancillo",
+                "description": "Cerro vecino del Cofre de Perote con vistas del altiplano veracruzano.",
+                "image": "/images/mountains/volcancillo.jpg",
+                "location": "Perote, Veracruz, México",
+                "elevation": "3,200 m"
+            },
+            {
+                "id": 5,
+                "title": "Sierra Negra",
+                "description": "Cumbre del volcán Sierra Negra, quita cima más alta de México, hogar del Gran Telescopio Milimétrico.",
+                "image": "/images/mountains/sierranegra.jpg",
+                "location": "Atlitzin, México",
+                "elevation": "4,680 m"
+            },
+            {
+                "id": 6,
+                "title": "Fujisan",
+                "description": "Ascenso al monte Fuji, el pico más icónico de Japón. Hice cumbre dos veces, dos días consecutivos.",
+                "image": "/images/mountains/fujisan.jpg",
+                "location": "Honshū, Japón",
+                "elevation": "3,776 m"
+            },
+            {
+                "id": 7,
+                "title": "Mulhacén",
+                "description": "Cima del Mulhacén, la más alta de la península ibérica.",
+                "image": "/images/mountains/mulhacen.jpg",
+                "location": "Sierra Nevada, España",
+                "elevation": "3,479 m"
+            },
+            {
+                "id": 8,
+                "title": "Pico Veleta",
+                "description": "Ascenso al Veleta, segunda cumbre de Sierra Nevada.",
+                "image": "/images/mountains/picoveleta.jpg",
+                "location": "Sierra Nevada, España",
+                "elevation": "3,396 m"
+            },
+            {
+                "id": 9,
+                "title": "Teide",
+                "description": "Ascenso al Teide, el pico más alto de España.",
+                "image": "/images/mountains/teide.jpg",
+                "location": "Tenerife, España",
+                "elevation": "3,718 m"
+            },
+            {
+                "id": 10,
+                "title": "Bobotov Kuk",
+                "description": "Cima del Bobotov Kuk, punto más alto de Montenegro.",
+                "image": "/images/mountains/bobotovkuk.jpg",
+                "location": "Durmitor, Montenegro",
+                "elevation": "2,523 m"
+            },
+            {
+                "id": 11,
+                "title": "Musala",
+                "description": "Ascenso al Musala, techo de los Balcanes, pico más alto de Bulgaria.",
+                "image": "/images/mountains/musala.jpg",
+                "location": "Rila, Bulgaria",
+                "elevation": "2,925 m"
+            },
+            {
+                "id": 12,
+                "title": "Zugspitze via Höllental",
+                "description": "Cima del Zugspitze, el punto más alto de Alemania, cruzando el Valle del Infierno (Höllental), segunda ruta más difícil para subir allí.",
+                "image": "/images/mountains/zugspitze.jpg",
+                "location": "Alpes Bávaros, Alemania",
+                "elevation": "2,962 m"
+            },
+            {
+                "id": 13,
+                "title": "Alpspitze",
+                "description": "Ascenso al Alpspitze, hermana menor del Zugspitze, desde Hammersbach.",
+                "image": "/images/mountains/alpspitze.jpg",
+                "location": "Alpes Bávaros, Alemania",
+                "elevation": "2,628 m"
+            },
+            {
+                "id": 14,
+                "title": "La Derrumbada Roja",
+                "description": "Ascenso a La Derrumbada Roja, domo volcánico en Puebla.",
+                "image": "/images/mountains/derrumbadaroja.jpg",
+                "location": "Puebla, México",
+                "elevation": "3,480 m"
+            },
+            {
+                "id": 15,
+                "title": "La Maliciosa",
+                "description": "Mi favorita en la Sierra de Guadarrama, la he subido múltiples veces por sus varias rutas, incluyendo la ruta alpina en invierno por el 'Tubo de Todos'.",
+                "image": "/images/mountains/maliciosa.jpg",
+                "location": "Sierra de Guadarrama, España",
+                "elevation": "2,227 m"
+            },
+            {
+                "id": 16,
+                "title": "La Peñota",
+                "description": "Ascenso a La Peñota, Sierra de Guadarrama.",
+                "image": "/images/mountains/lapenota.jpg",
+                "location": "Sierra de Guadarrama, España",
+                "elevation": "1,945 m"
+            },
+            {
+                "id": 17,
+                "title": "Abantos",
+                "description": "Ruta por Abantos, mirador de San Lorenzo de El Escorial.",
+                "image": "/images/mountains/abantos.jpg",
+                "location": "Sierra de Guadarrama, España",
+                "elevation": "1,753 m"
+            },
+            {
+                "id": 18,
+                "title": "Monte Parnaso",
+                "description": "Aventura de montañismo en una de las cumbres clásicas de Grecia.",
+                "image": "/images/mountains/parnassus.jpg",
+                "location": "Fócida/Beocia, Grecia",
+                "elevation": "2,457 m"
+            },
+            {
+                "id": 19,
+                "title": "Jubiläumsgrat",
+                "description": "La clásica cresta de alta montaña entre Zugspitze y Alpspitze, ruta más dificil para llegar al punto más alto de Alemania.",
+                "image": "/images/mountains/jubilaeumsgrat.jpg",
+                "location": "Alpes Bávaros, Alemania",
+                "elevation": "hasta 2,962 m"
+            },
+            {
+                "id": 20,
+                "title": "Hallasan",
+                "description": "Cima del Hallasan, el punto más alto de Corea del Sur.",
+                "image": "/images/mountains/hallasan.jpg",
+                "location": "Jeju, Corea del Sur",
+                "elevation": "1,947 m"
+            },
+            {
+                "id": 21,
+                "title": "Seongsan Ilchulbong",
+                "description": "Cono de toba volcánica en la isla de Jeju.",
+                "image": "/images/mountains/seongsanilchulbong.jpg",
+                "location": "Jeju, Corea del Sur",
+                "elevation": "182 m"
+            },
+            {
+                "id": 22,
+                "title": "Volcán Taal",
+                "description": "Volcán activo con cráter en el lago Taal.",
+                "image": "/images/mountains/taal.jpg",
+                "location": "Batangas, Filipinas",
+                "elevation": "311 m"
+            },
+            {
+                "id": 23,
+                "title": "Huangshan",
+                "description": "Famosa por pinos retorcidos, picos de granito y mares de nubes.",
+                "image": "/images/mountains/huangshan.jpg",
+                "location": "Anhui, China",
+                "elevation": "1,864 m"
+            },
+            {
+                "id": 24,
+                "title": "Lantau Peak",
+                "description": "Segunda cima más alta de Hong Kong, con vistas al Buda Tian Tan.",
+                "image": "/images/mountains/lantaupeak.jpg",
+                "location": "Hong Kong, China",
+                "elevation": "934 m"
+            },
+            {
+                "id": 25,
+                "title": "Monte Wugong",
+                "description": "Conocido por sus praderas alpinas y mares de nubes.",
+                "image": "/images/mountains/wugongshan.jpg",
+                "location": "Jiangxi, China",
+                "elevation": "1,918 m"
+            },
+            {
+                "id": 26,
+                "title": "Monte Qixing",
+                "description": "Pico más alto de Taipéi en el Parque Nacional Yangmingshan; volcán dormido con fumarolas.",
+                "image": "/images/mountains/qixing.jpg",
+                "location": "Taipéi, Taiwán",
+                "elevation": "1,120 m"
+            },
+            {
+                "id": 27,
+                "title": "Leiterspitze",
+                "description": "Cima alpina que hicimos una tarde sin quehacer en un ascenso muy rápido.",
+                "image": "/images/mountains/leiterspitze.jpg",
+                "location": "Tirol, Austria",
+                "elevation": "2,750 m"
+            },
+            {
+                "id": 28,
+                "title": "Vía ferrata Kühtai",
+                "description": "Ruta de alta montaña con pasos aéreos/expuestos; considerada difícil, con tramos grado D/E.",
+                "image": "/images/mountains/kuhtai.jpg",
+                "location": "Tirol, Austria",
+                "elevation": "hasta 2,807 m"
+            },
+            {
+                "id": 29,
+                "title": "Großer Donnerkogel",
+                "description": "Ascenso vía Seeklausalm, haciendo vivoac en el bosque y subiendo la escalera al cielo, ¡fué una buena trepada!",
+                "image": "/images/mountains/donnerkogel.jpg",
+                "location": "Salzkammergut, Austria",
+                "elevation": "2,055 m"
+            },
+            {
+                "id": 30,
+                "title": "Monte Perdido",
+                "description": "Ascenso clásico de los Pirineos, comenzando desde el Valle de Ordesa, via la senda de los Cazadores y el refugio de Goritz. Algo cansada :P",
+                "image": "/images/mountains/monteperdido.jpg",
+                "location": "Valle de Ordesa, España",
+                "elevation": "3,355 m"
+            },
+            {
+                "id": 31,
+                "title": "Pa de Figa",
+                "description": "Parte meridional del Puig Major, máxima elevación de la isla de Mallorca. Escalada en multilargo de 300 metros.",
+                "image": "/images/mountains/padefiga.jpg",
+                "location": "Mallorca, España",
+                "elevation": "1,256 m"
+            },
+            {
+                "id": 32,
+                "title": "Pico Aneto",
+                "description": "El más elevado de los Pirineos y el segundo más alto de la península ibérica.",
+                "image": "/images/mountains/aneto.jpg",
+                "location": "Macizo de la Maladeta, Huesca, España",
+                "elevation": "3,404 m"
+            }
+        ]
+    },
     "techSkills": {
         "programmingLanguages": "Lenguajes de Programación",
-        "frontendFrameworks": "Frameworks de Frontend & Tecnologías Web",
-        "backendFrameworks": "Frameworks de Backend",
-        "apiTechnologies": "Tecnologías de API",
+        "frontendFrameworks": "Frameworks Frontend y Tecnologías Web",
+        "backendFrameworks": "Frameworks Backend",
+        "apiTechnologies": "Tecnologías API",
         "databases": "Bases de Datos",
-        "devOpsTools": "DevOps y Nube"
+        "devOpsTools": "DevOps y Cloud"
     },
     "footer": {
         "name": "Javier Caballero",
@@ -34,6 +289,18 @@
         "githubLabel": "Visitar perfil de GitHub",
         "stackoverflowLabel": "Visitar perfil de Stack Overflow",
         "copyright": "© 2025 jknight. Todos los derechos reservados",
-        "madeWith": "Hecho con ❤️ por Javier Caballero"
+        "madeWith": "Hecho con ❤️ por ",
+        "me": "mí"
+    },
+    "others": {
+        "welcome": "Bienvenido a JKnight.eu",
+        "subtitle": "Una página de marketing moderna construida con Material UI y Next.js.",
+        "getStarted": "Comenzar",
+        "developer": "Un Desarrollador de Software",
+        "home": "Inicio",
+        "features": "Características",
+        "contact": "Contacto",
+        "english": "INGLÉS",
+        "spanish": "ESPAÑOL"
     }
 }
