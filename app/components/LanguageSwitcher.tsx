@@ -1,16 +1,24 @@
 'use client';
 
-import { Button, Box, Tooltip, IconButton } from '@mui/material';
+import { Button, Box, Breadcrumbs, Tooltip, IconButton, Link } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import HomeIcon from '@mui/icons-material/Home';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useRouter, usePathname } from 'next/navigation';
-import { useLocale } from 'next-intl'; 
+import { useTranslations, useLocale } from 'next-intl'; 
 import { useTransition, useEffect } from 'react';
 import { validLocales } from '@/i18n';
+
+interface BreadcrumbItem {
+    label: string;
+    href?: string;
+}
 
 export default function LanguageSwitcher() {
     const router = useRouter();
     const pathname = usePathname();
     const locale = useLocale();
+    const t = useTranslations('navigation');
     const [isPending, startTransition] = useTransition();
 
     // Restore scroll position after locale change
@@ -42,6 +50,33 @@ export default function LanguageSwitcher() {
     const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
     const isNotHome = pathWithoutLocale !== '/';
 
+    const generateBreadcrumbs = (): BreadcrumbItem[] => {
+        const pathSegments = pathWithoutLocale.split('/').filter(Boolean);
+        const breadcrumbs: BreadcrumbItem[] = [
+            { label: t('home'), href: `/${locale}` }
+        ];
+
+        // Build breadcrumbs based on path segments
+        pathSegments.forEach((segment, index) => {
+            const href = `/${locale}/${pathSegments.slice(0, index + 1).join('/')}`;
+            
+            switch (segment) {
+                case 'realme':
+                    breadcrumbs.push({ label: t('realme'), href });
+                    break;
+                case 'mountaineering':
+                    breadcrumbs.push({ label: t('mountaineering') }); // No href for current page
+                    break;
+                default:
+                    breadcrumbs.push({ label: segment, href });
+            }
+        });
+
+        return breadcrumbs;
+    };
+
+    const breadcrumbs = generateBreadcrumbs();
+
     const handleBack = () => {
         router.back();
     };
@@ -50,21 +85,23 @@ export default function LanguageSwitcher() {
     return (
         <>
             {isNotHome ? 
-                <Box sx={{ position: 'fixed', top: 20, left: 20, zIndex: 1000, display: 'flex', gap: 1 }}>
-                    <Tooltip title='back'>
-                        <IconButton
-                            onClick={handleBack}
-                            sx={{
-                                color: 'text.primary',
-                                '&:hover': {
-                                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                                },
-                            }}
-                        >
-                            <ArrowBackIcon />
-                        </IconButton>
-                    </Tooltip>
-                </Box>
+                <>
+                    <Box sx={{ position: 'fixed', top: 20, left: 20, zIndex: 1000, display: 'flex', gap: 1 }}>
+                        <Tooltip title='back'>
+                            <IconButton
+                                onClick={handleBack}
+                                sx={{
+                                    color: 'text.primary',
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                                    },
+                                }}
+                            >
+                                <ArrowBackIcon />
+                            </IconButton>
+                        </Tooltip>
+                    </Box>
+                </>
             : null }
             <Box sx={{ position: 'fixed', top: 20, right: 20, zIndex: 1000, display: 'flex', gap: 1 }}>
                 {validLocales.map((loc) => {
