@@ -4,7 +4,7 @@ import { Container, Box, Typography, Button } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import LanguageSwitcher from '../components/LanguageSwitcher';
+import Header from '../components/Header';
 import TechSkills from '../components/TechSkills';
 import Footer from '../components/Footer';
 import { boxConfig, containerConfig, containerGradient } from '../styles/config';
@@ -33,7 +33,7 @@ export default function Home() {
 
     return (
         <main>
-            <LanguageSwitcher />
+            <Header />
 
             <Container id="main" maxWidth={false} sx={{ ...containerConfig, background: containerGradient.topToBottom }}>
                 <Box sx={boxConfig}>

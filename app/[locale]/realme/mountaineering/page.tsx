@@ -2,7 +2,8 @@
 
 import { Container, Box, Typography, Card, CardMedia, CardContent, Grid } from '@mui/material';
 import { useTranslations } from 'next-intl';
-import LanguageSwitcher from '../../../components/LanguageSwitcher';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 
 export default function MountaineeringPage() {
     const t = useTranslations('mountaineering');
@@ -18,7 +19,7 @@ export default function MountaineeringPage() {
 
     return (
         <main>
-            <LanguageSwitcher />
+            <Header />
 
             <Container maxWidth={false} sx={{
                 width: '100vw',
@@ -104,6 +105,10 @@ export default function MountaineeringPage() {
                         {t('contactForExpedition')}
                     </Typography>
                 </Box>
+            </Container>
+
+            <Container maxWidth={false} sx={{ width: '100vw', background: 'linear-gradient(to top, #fff, #000)', color: '#fff', py: 4 }}>
+                <Footer />
             </Container>
         </main>
     );

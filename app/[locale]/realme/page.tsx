@@ -2,7 +2,7 @@
 
 import { Container, Box, Typography, Button } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import LanguageSwitcher from '../../components/LanguageSwitcher';
+import Header from '../../components/Header';
 import { useTranslations, useLocale } from 'next-intl';
 import { boxConfig, containerConfig, containerGradient } from '../../styles/config';
 import Footer from '../../components/Footer';
@@ -14,7 +14,7 @@ export default function RealMe() {
 
     return (
         <main>
-          <LanguageSwitcher />
+          <Header />
 
           <Container id="mountaineer" maxWidth={false} sx={{...containerConfig, background: containerGradient.bottomToTop }}>
             <Box sx={boxConfig}>

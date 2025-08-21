@@ -1,5 +1,6 @@
 import { getRequestConfig } from 'next-intl/server';
 
+// IMPOTANT: Website locales are defined here:
 export const validLocales = ['en', 'es'];
 export const defaultLocale = 'en';
 
