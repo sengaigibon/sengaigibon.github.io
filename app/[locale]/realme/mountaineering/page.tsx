@@ -4,7 +4,6 @@ import { Container, Box, Typography, Card, CardMedia, CardContent, Grid } from '
 import { useTranslations } from 'next-intl';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
-import { containerGradient } from '../../../styles/config';
 
 export default function MountaineeringPage() {
     const t = useTranslations('mountaineering');
