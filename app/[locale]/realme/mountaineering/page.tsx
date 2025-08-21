@@ -24,28 +24,16 @@ export default function MountaineeringPage() {
             <Container maxWidth={false} sx={{
                 width: '100vw',
                 background: 'linear-gradient(to bottom, #fff, #000)',
-                p: 8,
+                p: 6
             }}>
-                <Box sx={{ textAlign: 'center', mb: 6 }}>
-                    <Typography
-                        variant="h2"
-                        component="h1"
-                        gutterBottom
-                        sx={{
-                            fontWeight: 'bold',
-                            background: 'linear-gradient(45deg, #2E7D32, #000000ff)',
-                            backgroundClip: 'text',
-                            WebkitBackgroundClip: 'text',
-                            color: 'transparent',
-                            mb: 2
-                        }}
-                    >
+                <Box sx={{ textAlign: 'center', mb: 6, pt: 3}}>
+                    <Typography variant="h3" color="text.secondary">
                         {t('portfolio')}
                     </Typography>
                     <Typography
                         variant="h6"
                         color="text.secondary"
-                        sx={{ maxWidth: '600px', mx: 'auto' }}
+                        sx={{ maxWidth: '600px', mx: 'auto', pt: 3}}
                     >
                         {t('subtitle')}
                     </Typography>
