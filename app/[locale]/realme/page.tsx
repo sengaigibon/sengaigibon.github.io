@@ -30,16 +30,15 @@ export default function RealMe() {
                     className="blackButton"
                     onClick={() => router.push(`/${locale}/realme/mountaineering`)}
                     >
-                    {t('realme.viewPortfolio')}
+                        {t('realme.viewPortfolio')}
                     </Button>
-                </Box>
-                <Box sx={{ textAlign: 'center', mb: 4 }}>
+
                     <Button 
-                        variant="outlined" 
+                        variant="contained"
+                        className="blackButton"
                         onClick={() => router.push(`/${locale}/realme/mountaineering/timeline`)}
-                        sx={{ mr: 2 }}
                     >
-                        📅 View Timeline
+                        {t('mountaineering.timeline.view')}
                     </Button>
                 </Box>
             </Box>
