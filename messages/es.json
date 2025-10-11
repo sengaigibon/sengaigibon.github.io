@@ -16,6 +16,9 @@
         "subtitle": "Una colección de mis expediciones de montañismo y aventuras alpinas alrededor del mundo",
         "readyForAdventure": "¿Listo para tu Próxima Aventura?",
         "contactForExpedition": "Ponte en contacto para discutir planificación de expediciones y consultoría de montañismo.",
+        "timeline": {
+            "view": "Ver Cronología"
+        },
         "projects": [
             {
                 "id": 1,

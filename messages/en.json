@@ -16,6 +16,9 @@
         "subtitle": "A collection of my mountaineering expeditions and alpine adventures around the world",
         "readyForAdventure": "Ready for Your Next Adventure?",
         "contactForExpedition": "Get in touch to discuss expedition planning and mountaineering consulting.",
+        "timeline": {
+            "view": "View Timeline"
+        },
         "projects": [
             {
                 "id": 1,
