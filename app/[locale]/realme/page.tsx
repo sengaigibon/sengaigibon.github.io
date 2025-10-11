@@ -33,6 +33,15 @@ export default function RealMe() {
                     {t('realme.viewPortfolio')}
                     </Button>
                 </Box>
+                <Box sx={{ textAlign: 'center', mb: 4 }}>
+                    <Button 
+                        variant="outlined" 
+                        onClick={() => router.push(`/${locale}/realme/mountaineering/timeline`)}
+                        sx={{ mr: 2 }}
+                    >
+                        📅 View Timeline
+                    </Button>
+                </Box>
             </Box>
         </Container>
 
