@@ -14,20 +14,25 @@ import Footer from '../../../../components/Footer';
 import { containerGradient } from '../../../../styles/config';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import TerrainIcon from '@mui/icons-material/Terrain';
+import { CalendarToday } from '@mui/icons-material';
 
 export default function MountaineeringTimeline() {
     const t = useTranslations('mountaineering');
-    const projects = t.raw('projects') as Array<{
+    const adventures = t.raw('adventures') as Array<{
         id: number;
         title: string;
-        description: string;
-        image?: string;
-        location?: string;
-        elevation?: string;
+        date: string;
+        distance: number;
+        elevation: number;
+        gain: number;
+        link?: string;
     }>;
 
     // Sort projects by ID to show chronological order
-    const sortedProjects = [...projects].sort((a, b) => a.id - b.id);
+    const sortedAdentures = [...adventures].sort((a, b) => {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+        // return b.elevation - a.elevation;
+    });
 
     const getTimelineDotColor = (index: number) => {
         const colors = ['primary', 'secondary', 'error', 'warning', 'info', 'success'] as const;
@@ -59,8 +64,8 @@ export default function MountaineeringTimeline() {
 
                     {/* Timeline */}
                     <Timeline position="alternate">
-                        {sortedProjects.map((project, index) => (
-                            <TimelineItem key={project.id}>
+                        {sortedAdentures.map((adv, index) => (
+                            <TimelineItem key={adv.id}>
                                 {/* Opposite Content - Project Number & Basic Info */}
                                 <TimelineOppositeContent
                                     sx={{ 
@@ -71,25 +76,12 @@ export default function MountaineeringTimeline() {
                                     variant="body2" 
                                     color="text.secondary"
                                 >
-                                    <Typography variant="h6" color="primary">
-                                        Adventure #{project.id}
-                                    </Typography>
-                                    {project.location && (
-                                        <Box sx={{ display: 'flex', alignItems: 'center', mt: 1, justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
-                                            <LocationOnIcon fontSize="small" sx={{ mr: 0.5 }} />
-                                            <Typography variant="caption">
-                                                {project.location}
-                                            </Typography>
-                                        </Box>
-                                    )}
-                                    {project.elevation && (
-                                        <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5, justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
-                                            <TerrainIcon fontSize="small" sx={{ mr: 0.5 }} />
-                                            <Typography variant="caption">
-                                                {project.elevation}
-                                            </Typography>
-                                        </Box>
-                                    )}
+                                    <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5, justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
+                                        <CalendarToday fontSize="medium" sx={{ mr: 0.5 }} />
+                                        <Typography variant="h6">
+                                            {new Date(adv.date).toLocaleDateString()}
+                                        </Typography>
+                                    </Box>
                                 </TimelineOppositeContent>
 
                                 {/* Timeline Separator */}
@@ -103,7 +95,7 @@ export default function MountaineeringTimeline() {
                                             borderColor: 'background.paper'
                                         }}
                                     />
-                                    {index < sortedProjects.length - 1 && (
+                                    {index < sortedAdentures.length - 1 && (
                                         <TimelineConnector sx={{ bgcolor: 'grey.300' }} />
                                     )}
                                 </TimelineSeparator>
@@ -119,55 +111,35 @@ export default function MountaineeringTimeline() {
                                             boxShadow: 6
                                         }
                                     }}>
-                                        {/* Mountain Image */}
-                                        {project.image && (
-                                            <CardMedia
-                                                component="img"
-                                                height="200"
-                                                image={project.image}
-                                                alt={project.title}
-                                                sx={{ 
-                                                    objectFit: 'cover',
-                                                    filter: 'brightness(0.9)'
-                                                }}
-                                            />
-                                        )}
                                         
                                         {/* Card Content */}
                                         <Box sx={{ p: 3 }}>
-                                            <Typography variant="h5" component="h3" gutterBottom>
-                                                {project.title}
-                                            </Typography>
-                                            
-                                            {/* Mobile-only location and elevation */}
+                                            <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5, justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
+                                                <Typography variant="h5" component="h3" gutterBottom>
+                                                    {adv.title}
+                                                </Typography>
+                                                <TerrainIcon fontSize="medium" sx={{ ml: 1, mr: 0.5 }} />
+                                                <Typography variant="h6">
+                                                    {adv.elevation} m
+                                                </Typography>
+                                            </Box>
+                                            {/* Mobile-only */}
                                             <Box sx={{ 
                                                 display: { xs: 'flex', md: 'none' }, 
                                                 gap: 1, 
                                                 mb: 2,
                                                 flexWrap: 'wrap'
                                             }}>
-                                                {project.location && (
-                                                    <Chip
-                                                        icon={<LocationOnIcon />}
-                                                        label={project.location}
-                                                        size="small"
-                                                        variant="outlined"
-                                                    />
-                                                )}
-                                                {project.elevation && (
+                                                {adv.elevation && (
                                                     <Chip
                                                         icon={<TerrainIcon />}
-                                                        label={project.elevation}
+                                                        label={adv.elevation}
                                                         size="small"
                                                         variant="outlined"
                                                         color="primary"
                                                     />
                                                 )}
                                             </Box>
-                                            
-                                            <Typography variant="body1" color="text.secondary">
-                                                {project.description}
-                                            </Typography>
                                         </Box>
                                     </Card>
                                 </TimelineContent>
@@ -175,15 +147,6 @@ export default function MountaineeringTimeline() {
                         ))}
                     </Timeline>
 
-                    {/* Call to Action */}
-                    <Box sx={{ textAlign: 'center', mt: 6 }}>
-                        <Typography variant="h4" gutterBottom>
-                            {t('readyForAdventure')}
-                        </Typography>
-                        <Typography variant="body1" color="text.secondary">
-                            {t('contactForExpedition')}
-                        </Typography>
-                    </Box>
                 </Container>
             </Container>
 
