@@ -25,7 +25,7 @@
                 "title": "Nauhcampatépetl",
                 "date": "2002-08-01",
                 "distance": 11.19,
-                "elevation": 1195,
+                "elevation": 4282,
                 "gain": 1200
             },
             {
@@ -38,11 +38,11 @@
             },
             {
                 "id": 3,
-                "title": "Iztaccíhuatl",
+                "title": "Refugio del Teyotl (Iztaccíhuatl)",
                 "date": "2012-11-01",
-                "distance": 0,
-                "elevation": 5230,
-                "gain": 0
+                "distance": 25.2,
+                "elevation": 4321,
+                "gain": 1721
             },
             {
                 "id": 4,
@@ -50,15 +50,16 @@
                 "date": "2020-10-10",
                 "distance": 5.62,
                 "elevation": 3200,
-                "gain": 284
+                "gain": 284,
+                "link": "https://www.wikiloc.com/hiking-trails/volcancillo-veracruz-59429688"
             },
             {
                 "id": 5,
                 "title": "Sierra Negra",
-                "date": "?",
-                "distance": 0,
+                "date": "2020-01-05",
+                "distance": 18,
                 "elevation": 4680,
-                "gain": 0
+                "gain": 1000
             },
             {
                 "id": 6,
@@ -71,23 +72,24 @@
             {
                 "id": 7,
                 "title": "Mulhacén",
-                "date": "2014-09",
-                "distance": 0,
-                "elevation": 3479,
-                "gain": 0
+                "date": "2024-06-02",
+                "distance": 25.87,
+                "elevation": 3480,
+                "gain": 2048
             },
             {
                 "id": 8,
                 "title": "Pico Veleta",
-                "date": "2014-09",
-                "distance": 0,
+                "date": "2019-04-17",
+                "distance": 17.4,
                 "elevation": 3396,
-                "gain": 0
+                "gain": 1178,
+                "link": "https://www.wikiloc.com/hiking-trails/subida-al-veleta-35336919"
             },
             {
                 "id": 9,
                 "title": "Teide",
-                "date": "2014-10",
+                "date": "2025-02-17",
                 "distance": 0,
                 "elevation": 3718,
                 "gain": 0
@@ -95,82 +97,92 @@
             {
                 "id": 10,
                 "title": "Bobotov Kuk",
-                "date": "2015-07",
-                "distance": 0,
+                "date": "2021-10-01",
+                "distance": 17.85,
                 "elevation": 2523,
-                "gain": 0
+                "gain": 1383,
+                "link": "https://www.wikiloc.com/hiking-trails/bobotov-kuk-from-zabljak-87664942"
             },
             {
                 "id": 11,
                 "title": "Musala",
-                "date": "2015-08",
-                "distance": 0,
+                "date": "2021-09-25",
+                "distance": 19,
                 "elevation": 2925,
-                "gain": 0
+                "gain": 1669,
+                "link": "https://www.wikiloc.com/hiking-trails/from-borovets-to-musala-to-yastrebetz-59428337"
             },
             {
                 "id": 12,
                 "title": "Zugspitze via Höllental",
-                "date": "2016-06",
-                "distance": 0,
+                "date": "2025-06-20",
+                "distance": 15.32,
                 "elevation": 2962,
-                "gain": 0
+                "gain": 2289,
+                "link": "https://www.wikiloc.com/via-ferrata-trails/from-hammersbach-to-zugspitze-hollental-via-ferrata-219355147"
             },
             {
                 "id": 13,
                 "title": "Alpspitze",
-                "date": "2016-06",
-                "distance": 0,
+                "date": "2025-07-08",
+                "distance": 11.2,
                 "elevation": 2628,
-                "gain": 0
+                "gain": 1844,
+                "link": "https://www.wikiloc.com/mountaineering-trails/hammersbach-alpspitze-jubilaumsgrat-zugspitze-221068291"
             },
             {
                 "id": 14,
                 "title": "La Derrumbada Roja",
-                "date": "2016-12",
-                "distance": 0,
+                "date": "2021-04-20",
+                "distance": 11.77,
                 "elevation": 3480,
-                "gain": 0
+                "gain": 1099,
+                "link": "https://www.wikiloc.com/hiking-trails/2021-04-21-derrumbada-roja-81271042"
             },
             {
                 "id": 15,
                 "title": "La Maliciosa",
-                "date": "---",
-                "distance": 0,
+                "date": "2019-08-01",
+                "distance": 13.98,
                 "elevation": 2227,
-                "gain": 0
+                "gain": 1020,
+                "link": "https://www.wikiloc.com/hiking-trails/navacerrada-to-maliciosa-81442794"
             },
             {
                 "id": 16,
                 "title": "La Peñota",
-                "date": "---",
-                "distance": 0,
+                "date": "2020-07-10",
+                "distance": 10.32,
                 "elevation": 1945,
-                "gain": 0
+                "gain": 800,
+                "link": "https://www.wikiloc.com/hiking-trails/la-penota-from-cercedilla-59426655"
             },
             {
                 "id": 17,
                 "title": "Abantos",
-                "date": "---",
-                "distance": 0,
+                "date": "2020-07-20",
+                "distance": 9.64,
                 "elevation": 1753,
-                "gain": 0
+                "gain": 649,
+                "link": "https://www.wikiloc.com/hiking-trails/el-escorial-mount-abantos-59427785"
             },
             {
                 "id": 18,
                 "title": "Mount Parnassus",
-                "date": "---",
-                "distance": 0,
+                "date": "2020-08-20",
+                "distance": 25.7,
                 "elevation": 2457,
-                "gain": 0
+                "gain": 1897,
+                "link": "https://www.wikiloc.com/mountaineering-trails/mount-parnassus-from-arachova-59425416"
             },
             {
                 "id": 19,
-                "title": "Jubiläumsgrat",
-                "date": "2017-08",
-                "distance": 0,
-                "elevation": 2962,
-                "gain": 0
+                "title": "Jubiläumsgrat - Zugspitze",
+                "date": "2025-07-08",
+                "distance": 19.13,
+                "elevation": 2953,
+                "gain": 2888,
+                "link": "https://www.wikiloc.com/mountaineering-trails/hammersbach-alpspitze-jubilaumsgrat-zugspitze-221068291"
             }
         ],
         "projects": [
