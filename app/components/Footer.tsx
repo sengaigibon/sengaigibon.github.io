@@ -15,7 +15,8 @@ export default function Footer() {
           flexDirection: 'column', 
           alignItems: 'center', 
           textAlign: 'center',
-          gap: 1
+          gap: 1,
+          color: 'rgba(0, 0, 0, 0.6)'
         }}>
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {t('name')}
@@ -23,21 +24,21 @@ export default function Footer() {
 
           <Box sx={{ display: 'flex', gap: 1 }}>
             <IconButton 
-              sx={{ color: '#fff', '&:hover': { color: '#0077b5' } }}
+              sx={{ color: 'rgba(0, 0, 0, 0.6)', '&:hover': { color: '#0077b5' } }}
               onClick={() => window.open('https://www.linkedin.com/in/jrcaballerob/', '_blank', 'noopener,noreferrer')}
               aria-label={t('linkedinLabel')}
             >
               <LinkedInIcon fontSize="medium" />
             </IconButton>
             <IconButton 
-              sx={{ color: '#fff', '&:hover': { color: '#333' } }}
+              sx={{ color: 'rgba(0, 0, 0, 0.6)', '&:hover': { color: '#333' } }}
               onClick={() => window.open('https://github.com/sengaigibon', '_blank', 'noopener,noreferrer')}
               aria-label={t('githubLabel')}
             >
               <GitHubIcon fontSize="medium" />
             </IconButton>
             <IconButton 
-              sx={{ color: '#fff', '&:hover': { color: '#f48024' } }}
+              sx={{ color: 'rgba(0, 0, 0, 0.6)', '&:hover': { color: '#f48024' } }}
               onClick={() => window.open('https://stackoverflow.com/users/5519402/hiperboreo', '_blank', 'noopener,noreferrer')}
               aria-label={t('stackoverflowLabel')}
             >
