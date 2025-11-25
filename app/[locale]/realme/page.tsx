@@ -13,10 +13,18 @@ export default function RealMe() {
     const router = useRouter();
 
     return (
+        <div className="min-h-screen relative"
+        style={{
+            backgroundImage: 'url("/images/vortex-background.svg")',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
+        }}
+        >
         <main>
           <Header />
 
-          <Container id="mountaineer" maxWidth={false} sx={{...containerConfig, background: containerGradient.bottomToTop }}>
+          <Container id="mountaineer" maxWidth={false} sx={{...containerConfig}}>
             <Box sx={boxConfig}>
                 <Typography variant="h5" component="h1" gutterBottom>
                     {t('main.iam')}
@@ -36,7 +44,7 @@ export default function RealMe() {
             </Box>
         </Container>
 
-        <Container id="photographer" maxWidth={false} sx={{...containerConfig, background: containerGradient.topToBottom }}>
+        <Container id="photographer" maxWidth={false} sx={{...containerConfig}}>
             <Box sx={boxConfig}>
                 <Typography variant="h5" component="h1" gutterBottom>
                     {t('main.iam')}
@@ -56,10 +64,11 @@ export default function RealMe() {
             </Box>
         </Container> 
         
-        <Container maxWidth={false} sx={{ width: '100vw', background: containerGradient.bottomToTop, color: '#fff', py: 4 }}>
+        <Container maxWidth={false} sx={{ width: '100vw', py: 4 }}>
             <Footer />
         </Container>
 
         </main>
+        </div>
     );
 }

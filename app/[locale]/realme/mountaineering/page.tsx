@@ -18,12 +18,19 @@ export default function MountaineeringPage() {
     }>;
 
     return (
+        <div className="min-h-screen relative"
+        style={{
+            backgroundImage: 'url("/images/vortex-background.svg")',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
+        }}
+        >
         <main>
             <Header />
 
             <Container maxWidth={false} sx={{
                 width: '100vw',
-                background: 'linear-gradient(to bottom, #fff, #000)',
                 p: 6
             }}>
                 <Box sx={{ textAlign: 'center', mb: 6, pt: 3}}>
@@ -95,9 +102,10 @@ export default function MountaineeringPage() {
                 </Box>
             </Container>
 
-            <Container maxWidth={false} sx={{ width: '100vw', background: 'linear-gradient(to top, #fff, #000)', color: '#fff', py: 4 }}>
+            <Container maxWidth={false} sx={{ width: '100vw', py: 4 }}>
                 <Footer />
             </Container>
         </main>
+        </div>
     );
 }
