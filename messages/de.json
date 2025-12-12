@@ -1,0 +1,311 @@
+{
+    "main": {
+        "iam": "Ich bin",
+        "engineer": "Softwareentwickler",
+        "downloadCV": "Lebenslauf herunterladen",
+        "seeExperience": "Meine Erfahrung ansehen",
+        "whatIWorkWith": "Technologien, mit denen ich arbeite"
+    },
+    "realme": {
+        "mountaineer": "Bergsteiger",
+        "photographer": "Fotograf",
+        "viewPortfolio": "Portfolio ansehen"
+    },
+    "mountaineering": {
+        "portfolio": "Bergabenteuer",
+        "subtitle": "Eine Sammlung meiner Bergexpeditionen und alpinen Abenteuer rund um die Welt",
+        "readyForAdventure": "Bereit für dein nächstes Abenteuer?",
+        "contactForExpedition": "Kontaktiere mich für Expeditionsplanung und Bergsteiger-Beratung.",
+        "projects": [
+            {
+                "id": 1,
+                "title": "Nauhcampatépetl",
+                "description": "Mein erstes Solo-Abenteuer und meine erste Besteigung war hier am 'Cofre de Perote'. Ich habe sie später noch zweimal über verschiedene Routen wiederholt.",
+                "image": "/images/mountains/nauhcampatepetl.jpg",
+                "location": "Veracruz, Mexiko",
+                "elevation": "4.282 m"
+            },
+            {
+                "id": 2,
+                "title": "La Malinche",
+                "description": "Besteigung des Matlalcueye-Vulkans, ein Klassiker in Tlaxcala und Puebla, der sechsthöchste Berg Mexikos.",
+                "image": "/images/mountains/malinche.jpg",
+                "location": "Tlaxcala/Puebla, Mexiko",
+                "elevation": "4.461 m"
+            },
+            {
+                "id": 3,
+                "title": "Iztaccíhuatl",
+                "description": "Durchquerung der 'Schlafenden Frau', des dritthöchsten Bergs Mexikos.",
+                "image": "/images/mountains/iztaccihuatl.jpg",
+                "location": "México/Puebla, Mexiko",
+                "elevation": "5.230 m"
+            },
+            {
+                "id": 4,
+                "title": "Volcancillo",
+                "description": "Nachbarhügel des Cofre de Perote mit Blick auf die Hochebene von Veracruz.",
+                "image": "/images/mountains/volcancillo.jpg",
+                "location": "Perote, Veracruz, Mexiko",
+                "elevation": "3.200 m"
+            },
+            {
+                "id": 5,
+                "title": "Sierra Negra",
+                "description": "Gipfel des Sierra Negra Vulkans, fünft-höchster Berg Mexikos und Standort des Large Millimeter Telescope.",
+                "image": "/images/mountains/sierranegra.jpg",
+                "location": "Atlitzin, Mexiko",
+                "elevation": "4.680 m"
+            },
+            {
+                "id": 6,
+                "title": "Fujisan",
+                "description": "Besteigung des Fuji, des bekanntesten Berges Japans. Ich stand zweimal an aufeinanderfolgenden Tagen oben.",
+                "image": "/images/mountains/fujisan.jpg",
+                "location": "Honshū, Japan",
+                "elevation": "3.776 m"
+            },
+            {
+                "id": 7,
+                "title": "Mulhacén",
+                "description": "Gipfel des Mulhacén, höchster Berg der Iberischen Halbinsel.",
+                "image": "/images/mountains/mulhacen.jpg",
+                "location": "Sierra Nevada, Spanien",
+                "elevation": "3.479 m"
+            },
+            {
+                "id": 8,
+                "title": "Pico Veleta",
+                "description": "Besteigung des Veleta, zweithöchster Gipfel der Sierra Nevada.",
+                "image": "/images/mountains/picoveleta.jpg",
+                "location": "Sierra Nevada, Spanien",
+                "elevation": "3.396 m"
+            },
+            {
+                "id": 9,
+                "title": "Teide",
+                "description": "Besteigung des Teide, höchster Berg Spaniens.",
+                "image": "/images/mountains/teide.jpg",
+                "location": "Teneriffa, Spanien",
+                "elevation": "3.718 m"
+            },
+            {
+                "id": 10,
+                "title": "Bobotov Kuk",
+                "description": "Gipfel des Bobotov Kuk, höchster Punkt Montenegros.",
+                "image": "/images/mountains/bobotovkuk.jpg",
+                "location": "Durmitor, Montenegro",
+                "elevation": "2.523 m"
+            },
+            {
+                "id": 11,
+                "title": "Musala",
+                "description": "Besteigung des Musala, des höchsten Bergs des Balkans und Bulgariens.",
+                "image": "/images/mountains/musala.jpg",
+                "location": "Rila-Gebirge, Bulgarien",
+                "elevation": "2.925 m"
+            },
+            {
+                "id": 12,
+                "title": "Zugspitze über das Höllental",
+                "description": "Besteigung der Zugspitze, höchster Berg Deutschlands, über das Höllental – die zweitschwierigste Route dorthin.",
+                "image": "/images/mountains/zugspitze.jpg",
+                "location": "Bayerische Alpen, Deutschland",
+                "elevation": "2.962 m"
+            },
+            {
+                "id": 13,
+                "title": "Alpspitze",
+                "description": "Besteigung der Alpspitze, der kleinen Schwester der Zugspitze, von Hammersbach aus.",
+                "image": "/images/mountains/alpspitze.jpg",
+                "location": "Bayerische Alpen, Deutschland",
+                "elevation": "2.628 m"
+            },
+            {
+                "id": 14,
+                "title": "La Derrumbada Roja",
+                "description": "Besteigung der La Derrumbada Roja, einer vulkanischen Kuppel in Puebla.",
+                "image": "/images/mountains/derrumbadaroja.jpg",
+                "location": "Puebla, Mexiko",
+                "elevation": "3.480 m"
+            },
+            {
+                "id": 15,
+                "title": "La Maliciosa",
+                "description": "Mein Liebling in der Sierra de Guadarrama; ich war mehrfach dort, auch im Winter über den 'Tubo de Todos'.",
+                "image": "/images/mountains/maliciosa.jpg",
+                "location": "Sierra de Guadarrama, Spanien",
+                "elevation": "2.227 m"
+            },
+            {
+                "id": 16,
+                "title": "La Peñota",
+                "description": "Besteigung der La Peñota, ein natürlicher Balkon der Guadarrama.",
+                "image": "/images/mountains/lapenota.jpg",
+                "location": "Sierra de Guadarrama, Spanien",
+                "elevation": "1.945 m"
+            },
+            {
+                "id": 17,
+                "title": "Abantos",
+                "description": "Route auf den Abantos mit Aussicht über San Lorenzo de El Escorial.",
+                "image": "/images/mountains/abantos.jpg",
+                "location": "Sierra de Guadarrama, Spanien",
+                "elevation": "1.753 m"
+            },
+            {
+                "id": 18,
+                "title": "Parnass",
+                "description": "Bergtour auf einen der klassischen griechischen Gipfel.",
+                "image": "/images/mountains/parnassus.jpg",
+                "location": "Phokis/Böotien, Griechenland",
+                "elevation": "2.457 m"
+            },
+            {
+                "id": 19,
+                "title": "Jubiläumsgrat",
+                "description": "Der klassische hochalpine Grat zwischen Zugspitze und Alpspitze – die schwierigste Route auf Deutschlands höchsten Berg.",
+                "image": "/images/mountains/jubilaeumsgrat.jpg",
+                "location": "Bayerische Alpen, Deutschland",
+                "elevation": " bis 2.962 m"
+            },
+            {
+                "id": 20,
+                "title": "Hallasan",
+                "description": "Gipfel des Hallasan, höchster Berg Südkoreas.",
+                "image": "/images/mountains/hallasan.jpg",
+                "location": "Jeju, Südkorea",
+                "elevation": "1.947 m"
+            },
+            {
+                "id": 21,
+                "title": "Seongsan Ilchulbong",
+                "description": "Vulkanischer Tuffkegel, berühmt für Sonnenaufgänge.",
+                "image": "/images/mountains/seongsanilchulbong.jpg",
+                "location": "Jeju, Südkorea",
+                "elevation": "182 m"
+            },
+            {
+                "id": 22,
+                "title": "Taal-Vulkan",
+                "description": "Aktiver Vulkan mit Kratersee im Taal-See.",
+                "image": "/images/mountains/taal.jpg",
+                "location": "Batangas, Philippinen",
+                "elevation": "311 m"
+            },
+            {
+                "id": 23,
+                "title": "Huangshan",
+                "description": "Berühmt für verdrehte Kiefern, Granitgipfel und Wolkenmeere.",
+                "image": "/images/mountains/huangshan.jpg",
+                "location": "Anhui, China",
+                "elevation": "1.864 m"
+            },
+            {
+                "id": 24,
+                "title": "Lantau Peak",
+                "description": "Zweithöchster Berg Hongkongs mit Blick auf den Tian Tan Buddha.",
+                "image": "/images/mountains/lantaupeak.jpg",
+                "location": "Hongkong, China",
+                "elevation": "934 m"
+            },
+            {
+                "id": 25,
+                "title": "Wugongshan",
+                "description": "Bekannt für alpine Wiesen und Wolkenmeere; spektakuläre Gratüberschreitungen.",
+                "image": "/images/mountains/wugongshan.jpg",
+                "location": "Jiangxi, China",
+                "elevation": "1.918 m"
+            },
+            {
+                "id": 26,
+                "title": "Qixing Shan",
+                "description": "Höchster Gipfel in Taipeh im Yangmingshan-Nationalpark; ruhender Vulkan mit Fumarolen.",
+                "image": "/images/mountains/qixing.jpg",
+                "location": "Taipeh, Taiwan",
+                "elevation": "1.120 m"
+            },
+            {
+                "id": 27,
+                "title": "Leiterspitze",
+                "description": "Alpiner Gipfel, den wir an einem freien Nachmittag sehr schnell bestiegen haben.",
+                "image": "/images/mountains/leiterspitze.jpg",
+                "location": "Tirol, Österreich",
+                "elevation": "2.750 m"
+            },
+            {
+                "id": 28,
+                "title": "Klettersteig Kühtai",
+                "description": "Hochalpiner Klettersteig mit luftigen Passagen; als schwierig eingestuft (D/E).",
+                "image": "/images/mountains/kuhtai.jpg",
+                "location": "Tirol, Österreich",
+                "elevation": "bis 2.807 m"
+            },
+            {
+                "id": 29,
+                "title": "Großer Donnerkogel",
+                "description": "Aufstieg über die Seeklausalm, Biwak im Wald und die Himmelsleiter – ein toller Scramble!",
+                "image": "/images/mountains/donnerkogel.jpg",
+                "location": "Salzkammergut, Österreich",
+                "elevation": "2.055 m"
+            },
+            {
+                "id": 30,
+                "title": "Monte Perdido",
+                "description": "Klassische Pyrenäen-Besteigung ab dem Ordesa-Tal über den Jägersteig und die Góriz-Hütte. Ziemlich anstrengend :P",
+                "image": "/images/mountains/monteperdido.jpg",
+                "location": "Ordesa-Tal, Spanien",
+                "elevation": "3.355 m"
+            },
+            {
+                "id": 31,
+                "title": "Pa de Figa",
+                "description": "Südlicher Teil des Puig Major, höchster Punkt Mallorcas. 300-Meter-Mehrseillängen-Kletterei.",
+                "image": "/images/mountains/padefiga.jpg",
+                "location": "Mallorca, Spanien",
+                "elevation": "1.256 m"
+            },
+            {
+                "id": 32,
+                "title": "Pico Aneto",
+                "description": "Höchster Berg der Pyrenäen und zweithöchster der Iberischen Halbinsel.",
+                "image": "/images/mountains/aneto.jpg",
+                "location": "Maladeta-Massiv, Huesca, Spanien",
+                "elevation": "3.404 m"
+            }
+        ]
+    },
+    "techSkills": {
+        "programmingLanguages": "Programmiersprachen",
+        "frontendFrameworks": "Frontend-Frameworks & Webtechnologien",
+        "backendFrameworks": "Backend-Frameworks",
+        "apiTechnologies": "API-Technologien",
+        "databases": "Datenbanken",
+        "devOpsTools": "DevOps & Cloud"
+    },
+    "footer": {
+        "name": "Javier Caballero",
+        "linkedinLabel": "LinkedIn-Profil besuchen",
+        "githubLabel": "GitHub-Profil besuchen",
+        "stackoverflowLabel": "Stack Overflow-Profil besuchen",
+        "copyright": "© 2025 jknight. Alle Rechte vorbehalten",
+        "madeWith": "Mit ❤️ gemacht von ",
+        "me": "mir"
+    },
+    "navigation": {
+        "home": "Startseite",
+        "realme": "Ich",
+        "mountaineering": "Bergsteigen"
+    },
+    "others": {
+        "welcome": "Willkommen auf JKnight.eu",
+        "subtitle": "Eine moderne Marketing-Seite, gebaut mit Material UI und Next.js.",
+        "getStarted": "Loslegen",
+        "developer": "Softwareentwickler",
+        "home": "Nach oben",
+        "features": "Features",
+        "contact": "Kontakt",
+        "english": "ENGLISCH",
+        "spanish": "SPANISCH"
+    }
+}
