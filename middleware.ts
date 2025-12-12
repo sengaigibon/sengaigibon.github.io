@@ -11,7 +11,7 @@ export const config = {
 
         // Set a cookie to remember the previous locale for
         // all requests that have a locale prefix
-        '/(en|es)/:path*',
+        '/(en|es|de)/:path*',
 
         // Enable redirects that add missing locales
         // (e.g. `/pathnames` -> `/en/pathnames`)
