@@ -14,3 +14,13 @@ Congratulations! You should have an URL like:
 ```bash
 http://localhost:3000/en/
 ```
+
+## Weather dashboard
+
+- Route: `/check-weather` (will redirect to `/<locale>/check-weather`)
+- Requires env var: `METEOBLUE_API_KEY`
+	- Local: put it in `.env.local` (this repo already ignores `.env*.local`)
+		```bash
+		METEOBLUE_API_KEY=your_key_here
+		```
+- With `output: 'export'`, weather data is generated at build time (so the key must be present when running `pnpm build`).

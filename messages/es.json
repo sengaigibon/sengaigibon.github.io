@@ -11,6 +11,13 @@
         "photographer": "Fotógrafo",
         "viewPortfolio": "Ver Portafolio"
     },
+    "checkWeather": {
+        "title": "Consultar el tiempo",
+        "subtitle": "Hoy y los próximos 3 días",
+        "navWeather": "Tiempo",
+        "loading": "Cargando el tiempo...",
+        "error": "No se pudo cargar el tiempo"
+    },
     "mountaineering": {
         "portfolio": "Aventuras de Montaña",
         "subtitle": "Una colección de mis expediciones de montañismo y aventuras alpinas alrededor del mundo",
@@ -295,7 +302,8 @@
     "navigation": {
         "home": "Home",
         "realme": "Me",
-        "mountaineering": "Montañismo"
+        "mountaineering": "Montañismo",
+        "checkWeather": "Consultar el tiempo"
     },
     "others": {
         "welcome": "Bienvenido a JKnight.eu",

@@ -11,6 +11,13 @@
         "photographer": "A Photographer",
         "viewPortfolio": "View Portfolio"
     },
+    "checkWeather": {
+        "title": "Check Weather",
+        "subtitle": "Today and next 3 days",
+        "navWeather": "Weather",
+        "loading": "Loading weather...",
+        "error": "Failed to load weather"
+    },
     "mountaineering": {
         "portfolio": "Mountain Adventures",
         "subtitle": "A collection of my mountaineering expeditions and alpine adventures around the world",
@@ -295,7 +302,8 @@
     "navigation": {
         "home": "Home",
         "realme": "Me",
-        "mountaineering": "Mountaineering"
+        "mountaineering": "Mountaineering",
+        "checkWeather": "Check weather"
     },
     "others": {
         "welcome": "Welcome to JKnight.eu",

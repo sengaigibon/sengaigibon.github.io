@@ -11,6 +11,13 @@
         "photographer": "Fotograf",
         "viewPortfolio": "Portfolio ansehen"
     },
+    "checkWeather": {
+        "title": "Wetter prüfen",
+        "subtitle": "Heute und die nächsten 3 Tage",
+        "navWeather": "Wetter",
+        "loading": "Wetter wird geladen...",
+        "error": "Wetter konnte nicht geladen werden"
+    },
     "mountaineering": {
         "portfolio": "Bergabenteuer",
         "subtitle": "Eine Sammlung meiner Bergexpeditionen und alpinen Abenteuer rund um die Welt",
@@ -295,7 +302,8 @@
     "navigation": {
         "home": "Startseite",
         "realme": "Ich",
-        "mountaineering": "Bergsteigen"
+        "mountaineering": "Bergsteigen",
+        "checkWeather": "Wetter prüfen"
     },
     "others": {
         "welcome": "Willkommen auf JKnight.eu",
