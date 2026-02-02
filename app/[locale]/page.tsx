@@ -16,7 +16,6 @@ import { boxConfig, containerConfig } from '../styles/config';
 export default function Home() {
     const t = useTranslations('main');
     const locale = useLocale();
-    const router = useRouter();
     const [showInfographic, setShowInfographic] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
