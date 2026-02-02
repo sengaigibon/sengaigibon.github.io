@@ -6,18 +6,22 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
 import { useTranslations, useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Header from '../components/Header';
 import TechSkills from '../components/TechSkills';
 import Footer from '../components/Footer';
 import { boxConfig, containerConfig } from '../styles/config';
+import { slideThumbnails } from '@/lib/slideDeck';
 
 export default function Home() {
     const t = useTranslations('main');
     const locale = useLocale();
     const [showInfographic, setShowInfographic] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const carouselRef = useRef<HTMLDivElement>(null);
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
 
     const infographics = [
         '/images/infographics/fullstack-1.png',
@@ -35,6 +39,33 @@ export default function Home() {
     const handleOpenInfographic = () => {
         setCurrentImageIndex(0);
         setShowInfographic(true);
+    };
+
+    const handleMouseDown = (e: React.MouseEvent) => {
+        if (!carouselRef.current) return;
+        setIsDragging(true);
+        setStartX(e.clientX);
+        setScrollLeft(carouselRef.current.scrollLeft);
+        carouselRef.current.style.scrollBehavior = 'auto';
+    };
+
+    const handleMouseLeave = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+        if (carouselRef.current) {
+            carouselRef.current.style.scrollBehavior = 'smooth';
+        }
+    };
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        if (!isDragging || !carouselRef.current) return;
+        e.preventDefault();
+        const x = e.clientX;
+        const walk = (startX - x);
+        carouselRef.current.scrollLeft = scrollLeft + walk;
     };
 
     const getCVUrl = () => {
@@ -95,6 +126,73 @@ export default function Home() {
                                     >
                                         {t('seeExperience')}&nbsp;<LinkedInIcon />
                                     </Button>
+                                </Box>
+                            </Box>
+                        </Container>
+
+                        <Container id="technicalApproach" maxWidth={false} sx={{ width: '100vw', textAlign: 'center', pb: 12 }}>
+                            <Box sx={{ pt: 1 }}>
+                                <Typography variant="h2" color="text.secondary" fontSize="48px">
+                                    {t('technicalApproach')}
+                                </Typography>
+                            </Box>
+                            <Box sx={{ 
+                                display: 'flex', 
+                                justifyContent: 'center',
+                                p: 6,
+                                width: '100%'
+                            }}>
+                                <Box
+                                    ref={carouselRef}
+                                    onMouseDown={handleMouseDown}
+                                    onMouseLeave={handleMouseLeave}
+                                    onMouseUp={handleMouseUp}
+                                    onMouseMove={handleMouseMove}
+                                    sx={{
+                                        width: '100%',
+                                        overflowX: 'auto',
+                                        display: 'flex',
+                                        gap: 3,
+                                        cursor: isDragging ? 'grabbing' : 'grab',
+                                        '&::-webkit-scrollbar': {
+                                            height: 8,
+                                        },
+                                        '&::-webkit-scrollbar-track': {
+                                            bgcolor: 'rgba(0, 0, 0, 0.1)',
+                                            borderRadius: 4,
+                                        },
+                                        '&::-webkit-scrollbar-thumb': {
+                                            bgcolor: 'rgba(0, 0, 0, 0.3)',
+                                            borderRadius: 4,
+                                            '&:hover': {
+                                                bgcolor: 'rgba(0, 0, 0, 0.5)',
+                                            },
+                                        },
+                                        userSelect: 'none',
+                                    }}
+                                >
+                                    {slideThumbnails.map((slide, index) => (
+                                        <Box
+                                            key={index}
+                                            sx={{
+                                                minWidth: '400px',
+                                                flexShrink: 0,
+                                            }}
+                                        >
+                                            <img
+                                                src={slide}
+                                                alt={`Slide ${index + 1}`}
+                                                draggable={false}
+                                                style={{
+                                                    width: '100%',
+                                                    height: 'auto',
+                                                    borderRadius: '8px',
+                                                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                                                    pointerEvents: 'none',
+                                                }}
+                                            />
+                                        </Box>
+                                    ))}
                                 </Box>
                             </Box>
                         </Container>
