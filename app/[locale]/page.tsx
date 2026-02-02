@@ -5,7 +5,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { useRef, useState } from 'react';
 import Header from '../components/Header';
 import TechSkills from '../components/TechSkills';
@@ -15,11 +15,13 @@ import { slideThumbnails } from '@/lib/slideDeck';
 
 export default function Home() {
     const t = useTranslations('main');
-    const locale = useLocale();
     const [showInfographic, setShowInfographic] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [showSlideModal, setShowSlideModal] = useState(false);
+    const [selectedSlideIndex, setSelectedSlideIndex] = useState(0);
     const carouselRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState(false);
+    const [hasDragged, setHasDragged] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
 
@@ -44,6 +46,7 @@ export default function Home() {
     const handleMouseDown = (e: React.MouseEvent) => {
         if (!carouselRef.current) return;
         setIsDragging(true);
+        setHasDragged(false);
         setStartX(e.clientX);
         setScrollLeft(carouselRef.current.scrollLeft);
         carouselRef.current.style.scrollBehavior = 'auto';
@@ -65,24 +68,21 @@ export default function Home() {
         e.preventDefault();
         const x = e.clientX;
         const walk = (startX - x);
+        if (Math.abs(walk) > 5) {
+            setHasDragged(true);
+        }
         carouselRef.current.scrollLeft = scrollLeft + walk;
     };
 
-    const getCVUrl = () => {
-        // Op1: Locale-specific CVs
-        // return `/cv-${locale}.pdf`;
-
-        // Op2: Single CV 
-        return '/javier-caballero-cv-en.pdf';
+    const handleSlideClick = (index: number) => {
+        if (!hasDragged) {
+            setSelectedSlideIndex(index);
+            setShowSlideModal(true);
+        }
     };
 
-    const handleCVDownload = () => {
-        const link = document.createElement('a');
-        link.href = getCVUrl();
-        link.download = `javier-caballero-cv-${locale}.pdf`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    const getFullSizeImage = (thumbnailPath: string) => {
+        return thumbnailPath.replace('thumbnail-', '');
     };
 
     return (
@@ -131,7 +131,7 @@ export default function Home() {
                         </Container>
 
                         <Container id="technicalApproach" maxWidth={false} sx={{ width: '100vw', textAlign: 'center', pb: 12 }}>
-                            <Box sx={{ pt: 1 }}>
+                            <Box sx={{ pt: 1}}>
                                 <Typography variant="h2" color="text.secondary" fontSize="48px">
                                     {t('technicalApproach')}
                                 </Typography>
@@ -139,7 +139,7 @@ export default function Home() {
                             <Box sx={{ 
                                 display: 'flex', 
                                 justifyContent: 'center',
-                                p: 6,
+                                p: 6, pt: 10,
                                 width: '100%'
                             }}>
                                 <Box
@@ -174,9 +174,11 @@ export default function Home() {
                                     {slideThumbnails.map((slide, index) => (
                                         <Box
                                             key={index}
+                                            onClick={() => handleSlideClick(index)}
                                             sx={{
                                                 minWidth: '400px',
                                                 flexShrink: 0,
+                                                cursor: 'pointer',
                                             }}
                                         >
                                             <img
@@ -188,7 +190,6 @@ export default function Home() {
                                                     height: 'auto',
                                                     borderRadius: '8px',
                                                     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-                                                    pointerEvents: 'none',
                                                 }}
                                             />
                                         </Box>
@@ -301,6 +302,55 @@ export default function Home() {
                             >
                                 {currentImageIndex + 1} / {infographics.length}
                             </Typography>
+                        </Box>
+                    </Modal>
+
+                    <Modal
+                        open={showSlideModal}
+                        onClose={() => setShowSlideModal(false)}
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                position: 'relative',
+                                maxWidth: '90vw',
+                                maxHeight: '90vh',
+                                bgcolor: 'background.paper',
+                                borderRadius: 2,
+                                boxShadow: 24,
+                                p: 2,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <IconButton
+                                onClick={() => setShowSlideModal(false)}
+                                sx={{
+                                    position: 'absolute',
+                                    top: 8,
+                                    right: 8,
+                                    color: 'text.secondary',
+                                    zIndex: 1,
+                                }}
+                            >
+                                <CloseIcon />
+                            </IconButton>
+
+                            <img
+                                src={getFullSizeImage(slideThumbnails[selectedSlideIndex])}
+                                alt={`Slide ${selectedSlideIndex + 1}`}
+                                style={{
+                                    maxWidth: '100%',
+                                    maxHeight: 'calc(90vh - 32px)',
+                                    objectFit: 'contain',
+                                    display: 'block',
+                                }}
+                            />
                         </Box>
                     </Modal>
                 </div>
