@@ -1,34 +1,88 @@
 'use client';
 
-import { Container, Box, Typography, Button } from '@mui/material';
+import { Container, Box, Typography, Button, Modal, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { useTranslations, useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import CloseIcon from '@mui/icons-material/Close';
+import { useTranslations } from 'next-intl';
+import { useRef, useState } from 'react';
 import Header from '../components/Header';
 import TechSkills from '../components/TechSkills';
 import Footer from '../components/Footer';
 import { boxConfig, containerConfig } from '../styles/config';
+import { slideThumbnails } from '@/lib/slideDeck';
 
 export default function Home() {
     const t = useTranslations('main');
-    const locale = useLocale();
-    const router = useRouter();
+    const [showInfographic, setShowInfographic] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [showSlideModal, setShowSlideModal] = useState(false);
+    const [selectedSlideIndex, setSelectedSlideIndex] = useState(0);
+    const carouselRef = useRef<HTMLDivElement>(null);
+    const [isDragging, setIsDragging] = useState(false);
+    const [hasDragged, setHasDragged] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
 
-    const getCVUrl = () => {
-        // Op1: Locale-specific CVs
-        // return `/cv-${locale}.pdf`;
+    const infographics = [
+        '/images/infographics/fullstack-1.png',
+        '/images/infographics/fullstack-2.png'
+    ];
 
-        // Op2: Single CV 
-        return '/javier-caballero-cv-en.pdf';
+    const handlePrevious = () => {
+        setCurrentImageIndex((prev) => (prev === 0 ? infographics.length - 1 : prev - 1));
     };
 
-    const handleCVDownload = () => {
-        const link = document.createElement('a');
-        link.href = getCVUrl();
-        link.download = `javier-caballero-cv-${locale}.pdf`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    const handleNext = () => {
+        setCurrentImageIndex((prev) => (prev === infographics.length - 1 ? 0 : prev + 1));
+    };
+
+    const handleOpenInfographic = () => {
+        setCurrentImageIndex(0);
+        setShowInfographic(true);
+    };
+
+    const handleMouseDown = (e: React.MouseEvent) => {
+        if (!carouselRef.current) return;
+        setIsDragging(true);
+        setHasDragged(false);
+        setStartX(e.clientX);
+        setScrollLeft(carouselRef.current.scrollLeft);
+        carouselRef.current.style.scrollBehavior = 'auto';
+    };
+
+    const handleMouseLeave = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+        if (carouselRef.current) {
+            carouselRef.current.style.scrollBehavior = 'smooth';
+        }
+    };
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        if (!isDragging || !carouselRef.current) return;
+        e.preventDefault();
+        const x = e.clientX;
+        const walk = (startX - x);
+        if (Math.abs(walk) > 5) {
+            setHasDragged(true);
+        }
+        carouselRef.current.scrollLeft = scrollLeft + walk;
+    };
+
+    const handleSlideClick = (index: number) => {
+        if (!hasDragged) {
+            setSelectedSlideIndex(index);
+            setShowSlideModal(true);
+        }
+    };
+
+    const getFullSizeImage = (thumbnailPath: string) => {
+        return thumbnailPath.replace('thumbnail-', '');
     };
 
     return (
@@ -60,11 +114,11 @@ export default function Home() {
                                     px: { xs: '20px', sm: 0 },
                                     flexDirection: { xs: 'column', sm: 'row' } 
                                 }}>
-                                    <Button id="download-cv" variant="contained" className="blackButton"
-                                        onClick={handleCVDownload}
+                                    <Button id="my-infographics" variant="contained" className="blackButton"
+                                        onClick={handleOpenInfographic}
                                         sx={{ minWidth: { xs: '100%', sm: 'auto' } }} 
                                     >
-                                        {t('downloadCV')}
+                                        {t('myInfographics')}
                                     </Button>
                                     <Button id="see-experience" variant="contained" className="blackButton"
                                         onClick={() => window.open('https://www.linkedin.com/in/jrcaballerob/', '_blank', 'noopener,noreferrer')}
@@ -72,6 +126,74 @@ export default function Home() {
                                     >
                                         {t('seeExperience')}&nbsp;<LinkedInIcon />
                                     </Button>
+                                </Box>
+                            </Box>
+                        </Container>
+
+                        <Container id="technicalApproach" maxWidth={false} sx={{ width: '100vw', textAlign: 'center', pb: 12 }}>
+                            <Box sx={{ pt: 1}}>
+                                <Typography variant="h2" color="text.secondary" fontSize="48px">
+                                    {t('technicalApproach')}
+                                </Typography>
+                            </Box>
+                            <Box sx={{ 
+                                display: 'flex', 
+                                justifyContent: 'center',
+                                p: 6, pt: 10,
+                                width: '100%'
+                            }}>
+                                <Box
+                                    ref={carouselRef}
+                                    onMouseDown={handleMouseDown}
+                                    onMouseLeave={handleMouseLeave}
+                                    onMouseUp={handleMouseUp}
+                                    onMouseMove={handleMouseMove}
+                                    sx={{
+                                        width: '100%',
+                                        overflowX: 'auto',
+                                        display: 'flex',
+                                        gap: 3,
+                                        cursor: isDragging ? 'grabbing' : 'grab',
+                                        '&::-webkit-scrollbar': {
+                                            height: 8,
+                                        },
+                                        '&::-webkit-scrollbar-track': {
+                                            bgcolor: 'rgba(0, 0, 0, 0.1)',
+                                            borderRadius: 4,
+                                        },
+                                        '&::-webkit-scrollbar-thumb': {
+                                            bgcolor: 'rgba(0, 0, 0, 0.3)',
+                                            borderRadius: 4,
+                                            '&:hover': {
+                                                bgcolor: 'rgba(0, 0, 0, 0.5)',
+                                            },
+                                        },
+                                        userSelect: 'none',
+                                    }}
+                                >
+                                    {slideThumbnails.map((slide, index) => (
+                                        <Box
+                                            key={index}
+                                            onClick={() => handleSlideClick(index)}
+                                            sx={{
+                                                minWidth: '400px',
+                                                flexShrink: 0,
+                                                cursor: 'pointer',
+                                            }}
+                                        >
+                                            <img
+                                                src={slide}
+                                                alt={`Slide ${index + 1}`}
+                                                draggable={false}
+                                                style={{
+                                                    width: '100%',
+                                                    height: 'auto',
+                                                    borderRadius: '8px',
+                                                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                                                }}
+                                            />
+                                        </Box>
+                                    ))}
                                 </Box>
                             </Box>
                         </Container>
@@ -92,6 +214,145 @@ export default function Home() {
                         </Container>
 
                     </main>
+
+                    <Modal
+                        open={showInfographic}
+                        onClose={() => setShowInfographic(false)}
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                position: 'relative',
+                                maxWidth: '90vw',
+                                maxHeight: '90vh',
+                                bgcolor: 'background.paper',
+                                borderRadius: 2,
+                                boxShadow: 24,
+                                p: 2,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <IconButton
+                                onClick={() => setShowInfographic(false)}
+                                sx={{
+                                    position: 'absolute',
+                                    top: 8,
+                                    right: 8,
+                                    color: 'text.secondary',
+                                    zIndex: 1,
+                                }}
+                            >
+                                <CloseIcon />
+                            </IconButton>
+
+                            <IconButton
+                                onClick={handlePrevious}
+                                sx={{
+                                    position: 'absolute',
+                                    left: 16,
+                                    color: 'text.primary',
+                                    bgcolor: 'rgba(255, 255, 255, 0.8)',
+                                    '&:hover': {
+                                        bgcolor: 'rgba(255, 255, 255, 0.95)',
+                                    },
+                                }}
+                            >
+                                <ArrowBackIosNewIcon />
+                            </IconButton>
+
+                            <img
+                                src={infographics[currentImageIndex]}
+                                alt={`Infographic ${currentImageIndex + 1}`}
+                                style={{
+                                    maxWidth: '100%',
+                                    maxHeight: 'calc(90vh - 32px)',
+                                    objectFit: 'contain',
+                                    display: 'block',
+                                }}
+                            />
+
+                            <IconButton
+                                onClick={handleNext}
+                                sx={{
+                                    position: 'absolute',
+                                    right: 16,
+                                    color: 'text.primary',
+                                    bgcolor: 'rgba(255, 255, 255, 0.8)',
+                                    '&:hover': {
+                                        bgcolor: 'rgba(255, 255, 255, 0.95)',
+                                    },
+                                }}
+                            >
+                                <ArrowForwardIosIcon />
+                            </IconButton>
+
+                            <Typography
+                                sx={{
+                                    position: 'absolute',
+                                    bottom: 16,
+                                    color: 'text.secondary',
+                                    fontSize: '0.875rem',
+                                }}
+                            >
+                                {currentImageIndex + 1} / {infographics.length}
+                            </Typography>
+                        </Box>
+                    </Modal>
+
+                    <Modal
+                        open={showSlideModal}
+                        onClose={() => setShowSlideModal(false)}
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                position: 'relative',
+                                maxWidth: '90vw',
+                                maxHeight: '90vh',
+                                bgcolor: 'background.paper',
+                                borderRadius: 2,
+                                boxShadow: 24,
+                                p: 2,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <IconButton
+                                onClick={() => setShowSlideModal(false)}
+                                sx={{
+                                    position: 'absolute',
+                                    top: 8,
+                                    right: 8,
+                                    color: 'text.secondary',
+                                    zIndex: 1,
+                                }}
+                            >
+                                <CloseIcon />
+                            </IconButton>
+
+                            <img
+                                src={getFullSizeImage(slideThumbnails[selectedSlideIndex])}
+                                alt={`Slide ${selectedSlideIndex + 1}`}
+                                style={{
+                                    maxWidth: '100%',
+                                    maxHeight: 'calc(90vh - 32px)',
+                                    objectFit: 'contain',
+                                    display: 'block',
+                                }}
+                            />
+                        </Box>
+                    </Modal>
                 </div>
                 </div>
             
