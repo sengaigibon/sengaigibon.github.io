@@ -3,9 +3,30 @@ import { getLocale } from 'next-intl/server';
 import Script from 'next/script';
 import './globals.css';
 
+const BASE_URL = 'https://sengaigibon.github.io';
+
 export const metadata: Metadata = {
-    title: 'Javier Caballero - Portfolio',
-    description: 'Engineer, Mountaineer, Photographer - My personal portfolio',
+    metadataBase: new URL(BASE_URL),
+    title: {
+        default: 'Javier Caballero – Portfolio',
+        template: '%s | Javier Caballero',
+    },
+    description: 'Software Engineer, Mountaineer, and Photographer. Personal portfolio of Javier Caballero.',
+    authors: [{ name: 'Javier Caballero', url: BASE_URL }],
+    openGraph: {
+        type: 'website',
+        siteName: 'Javier Caballero – Portfolio',
+        title: 'Javier Caballero – Portfolio',
+        description: 'Software Engineer, Mountaineer, and Photographer. Personal portfolio of Javier Caballero.',
+        url: BASE_URL,
+        images: [{ url: '/images/infographics/fullstack-1.png', width: 1200, alt: 'Javier Caballero – Fullstack architecture infographic' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Javier Caballero – Portfolio',
+        description: 'Software Engineer, Mountaineer, and Photographer. Personal portfolio of Javier Caballero.',
+        images: ['/images/infographics/fullstack-1.png'],
+    },
 };
 
 export default async function RootLayout({

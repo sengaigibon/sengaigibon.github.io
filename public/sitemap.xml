@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <!-- Home -->
+  <url>
+    <loc>https://sengaigibon.github.io/en/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sengaigibon.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sengaigibon.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sengaigibon.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sengaigibon.github.io/en/"/>
+  </url>
+  <url>
+    <loc>https://sengaigibon.github.io/es/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sengaigibon.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sengaigibon.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sengaigibon.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sengaigibon.github.io/en/"/>
+  </url>
+  <url>
+    <loc>https://sengaigibon.github.io/de/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sengaigibon.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sengaigibon.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sengaigibon.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sengaigibon.github.io/en/"/>
+  </url>
+
+  <!-- Real Me -->
+  <url>
+    <loc>https://sengaigibon.github.io/en/realme/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sengaigibon.github.io/en/realme/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sengaigibon.github.io/es/realme/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sengaigibon.github.io/de/realme/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sengaigibon.github.io/en/realme/"/>
+  </url>
+  <url>
+    <loc>https://sengaigibon.github.io/es/realme/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sengaigibon.github.io/en/realme/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sengaigibon.github.io/es/realme/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sengaigibon.github.io/de/realme/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sengaigibon.github.io/en/realme/"/>
+  </url>
+  <url>
+    <loc>https://sengaigibon.github.io/de/realme/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sengaigibon.github.io/en/realme/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sengaigibon.github.io/es/realme/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sengaigibon.github.io/de/realme/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sengaigibon.github.io/en/realme/"/>
+  </url>
+
+  <!-- Mountaineering -->
+  <url>
+    <loc>https://sengaigibon.github.io/en/realme/mountaineering/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sengaigibon.github.io/en/realme/mountaineering/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sengaigibon.github.io/es/realme/mountaineering/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sengaigibon.github.io/de/realme/mountaineering/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sengaigibon.github.io/en/realme/mountaineering/"/>
+  </url>
+  <url>
+    <loc>https://sengaigibon.github.io/es/realme/mountaineering/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sengaigibon.github.io/en/realme/mountaineering/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sengaigibon.github.io/es/realme/mountaineering/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sengaigibon.github.io/de/realme/mountaineering/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sengaigibon.github.io/en/realme/mountaineering/"/>
+  </url>
+  <url>
+    <loc>https://sengaigibon.github.io/de/realme/mountaineering/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sengaigibon.github.io/en/realme/mountaineering/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sengaigibon.github.io/es/realme/mountaineering/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sengaigibon.github.io/de/realme/mountaineering/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sengaigibon.github.io/en/realme/mountaineering/"/>
+  </url>
+</urlset>
