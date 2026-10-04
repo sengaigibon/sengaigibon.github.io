@@ -5,7 +5,31 @@
         "downloadCV": "Download CV",
         "myInfographics": "My Infographics",
         "seeExperience": "See my experience",
-        "technicalApproach": "Professional Approach",
+        "recentPortfolio": "Recent Portfolio",
+        "techStack": "Tech stack",
+        "previewPlaceholder": "Interface preview placeholder",
+        "previousScreenshot": "Previous screenshot",
+        "nextScreenshot": "Next screenshot",
+        "visit": "Visit project",
+        "repository": "View repository",
+        "portfolio": {
+            "library": {
+                "summary": "A personal library and reading tracker for managing books, logging reading sessions, and reflecting on finished titles with ratings and notes.",
+                "screens": { "readerSelect": "Reader selection", "dashboard": "Dashboard", "bookList": "Book library", "editBook": "Edit book" }
+            },
+            "adventure": {
+                "summary": "A personal mountain journal combining expedition stories and photography with an interactive archive of GPX routes, maps, and elevation profiles.",
+                "screens": { "home": "Adventure journal", "storyDetail": "Expedition story", "routeDetail": "Route detail", "routeExplorer": "Route explorer", "profile": "Profile", "contact": "About and contact" }
+            },
+            "frasear": {
+                "summary": "An Android phrase book for saving meaningful quotes and thoughts with optional authors and tags. Browse random entries, search your collection, and import or export JSON backups; your data stays on your device.",
+                "screens": { "searchHome": "Phrase collection", "addPhrase": "Add a phrase", "menu": "More options", "about": "About Frasear", "searchResults": "Search results", "importConfirmation": "Import backup", "editPhrase": "Edit a phrase" }
+            },
+            "getThingsDone": {
+                "summary": "A cross-platform desktop task manager with task details, time tracking, and date-range reports, built around a local SQLite database.",
+                "screens": { "taskList": "Task list", "taskEntry": "Task entry", "reportsDialog": "Reports dialog", "reportsWindow": "Reports window", "taskDetails": "Task details", "editTime": "Edit time entry" }
+            }
+        },
         "whatIWorkWith": "Technologies I Work With"
     },
     "realme": {

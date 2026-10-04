@@ -5,7 +5,31 @@
         "downloadCV": "Lebenslauf herunterladen",
         "myInfographics": "Meine Infografiken",
         "seeExperience": "Meine Erfahrung ansehen",
-        "technicalApproach": "Professioneller Ansatz",
+        "recentPortfolio": "Aktuelles Portfolio",
+        "techStack": "Technologien",
+        "previewPlaceholder": "Platzhalter für die Oberflächenvorschau",
+        "previousScreenshot": "Vorheriger Screenshot",
+        "nextScreenshot": "Nächster Screenshot",
+        "visit": "Projekt besuchen",
+        "repository": "Repository ansehen",
+        "portfolio": {
+            "library": {
+                "summary": "Eine persönliche Bibliothek und Lesechronik zum Verwalten von Büchern, Festhalten von Lesesitzungen und Bewerten abgeschlossener Titel mit Notizen.",
+                "screens": { "readerSelect": "Leserauswahl", "dashboard": "Übersicht", "bookList": "Büchersammlung", "editBook": "Buch bearbeiten" }
+            },
+            "adventure": {
+                "summary": "Ein persönliches Bergtagebuch mit Expeditionsgeschichten und Fotografie sowie einem interaktiven Archiv aus GPX-Routen, Karten und Höhenprofilen.",
+                "screens": { "home": "Abenteuerjournal", "storyDetail": "Expeditionsbericht", "routeDetail": "Routendetails", "routeExplorer": "Routenübersicht", "profile": "Profil", "contact": "Über mich und Kontakt" }
+            },
+            "frasear": {
+                "summary": "Ein digitales Phrasenbuch für Android, in dem sich Zitate und Gedanken mit optionalen Autorenangaben und Tags speichern lassen. Einträge durchsuchen, zufällige Zitate entdecken sowie JSON-Sicherungen importieren und exportieren; die Daten bleiben auf dem Gerät.",
+                "screens": { "searchHome": "Zitatensammlung", "addPhrase": "Zitat hinzufügen", "menu": "Weitere Optionen", "about": "Über Frasear", "searchResults": "Suchergebnisse", "importConfirmation": "Sicherung importieren", "editPhrase": "Zitat bearbeiten" }
+            },
+            "getThingsDone": {
+                "summary": "Eine plattformübergreifende Desktop-Aufgabenverwaltung mit Zeiterfassung und Datumsberichten, basierend auf einer lokalen SQLite-Datenbank.",
+                "screens": { "taskList": "Aufgabenliste", "taskEntry": "Aufgabe erfassen", "reportsDialog": "Berichtsdialog", "reportsWindow": "Berichte", "taskDetails": "Aufgabendetails", "editTime": "Zeiteintrag bearbeiten" }
+            }
+        },
         "whatIWorkWith": "Technologien, mit denen ich arbeite"
     },
     "realme": {

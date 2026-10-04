@@ -5,7 +5,31 @@
         "downloadCV": "Descargar CV",
         "myInfographics": "Mis Infografías",
         "seeExperience": "Ver mi experiencia",
-        "technicalApproach": "Enfoque Profesional",
+        "recentPortfolio": "Portafolio Reciente",
+        "techStack": "Tecnologías",
+        "previewPlaceholder": "Vista previa de interfaz provisional",
+        "previousScreenshot": "Captura anterior",
+        "nextScreenshot": "Captura siguiente",
+        "visit": "Visitar proyecto",
+        "repository": "Ver repositorio",
+        "portfolio": {
+            "library": {
+                "summary": "Una biblioteca personal y registro de lectura para organizar libros, guardar sesiones de lectura y reflexionar sobre los títulos terminados con notas y valoraciones.",
+                "screens": { "readerSelect": "Selección de lector", "dashboard": "Panel", "bookList": "Biblioteca de libros", "editBook": "Editar libro" }
+            },
+            "adventure": {
+                "summary": "Un diario personal de montaña que combina relatos de expediciones y fotografía con un archivo interactivo de rutas GPX, mapas y perfiles de elevación.",
+                "screens": { "home": "Diario de aventuras", "storyDetail": "Relato de expedición", "routeDetail": "Detalle de ruta", "routeExplorer": "Explorador de rutas", "profile": "Perfil", "contact": "Acerca de y contacto" }
+            },
+            "frasear": {
+                "summary": "Un libro de frases para Android donde guardar citas y pensamientos con autor y etiquetas opcionales. Explora entradas aleatorias, busca en tu colección e importa o exporta copias JSON; tus datos permanecen en el dispositivo.",
+                "screens": { "searchHome": "Colección de frases", "addPhrase": "Añadir frase", "menu": "Más opciones", "about": "Acerca de Frasear", "searchResults": "Resultados de búsqueda", "importConfirmation": "Importar copia", "editPhrase": "Editar frase" }
+            },
+            "getThingsDone": {
+                "summary": "Un gestor de tareas de escritorio multiplataforma con seguimiento del tiempo y reportes por fechas, respaldado por una base de datos SQLite local.",
+                "screens": { "taskList": "Lista de tareas", "taskEntry": "Nueva tarea", "reportsDialog": "Ventana de informes", "reportsWindow": "Informes", "taskDetails": "Detalles de tarea", "editTime": "Editar registro de tiempo" }
+            }
+        },
         "whatIWorkWith": "Tecnologías con las que Trabajo"
     },
     "realme": {
