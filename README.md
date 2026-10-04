@@ -1,8 +1,8 @@
 # Sengaigibon — Personal Portfolio
 
-A multilingual personal portfolio website built with Next.js, statically exported and deployed to GitHub Pages. It showcases professional experience, technical skills, mountaineering expeditions, and photography.
+A multilingual personal portfolio website built with Next.js, statically exported and deployed to GitHub Pages. It showcases professional experience, recent software projects, technical skills, mountaineering expeditions, and photography.
 
-**Live site:** [sengaigibon.github.io](https://sengaigibon.github.io)
+**Live sites:** [javiercaballero.dev](https://javiercaballero.dev) · [sengaigibon.github.io](https://sengaigibon.github.io)
 
 ---
 
@@ -44,7 +44,7 @@ public/                 # Static assets, images, resume PDF
 | Route | Description |
 |---|---|
 | `/` | Redirects to preferred locale |
-| `/en/` `/es/` `/de/` | Home — intro, infographics, slide deck, tech skills |
+| `/en/` `/es/` `/de/` | Home — intro, infographics, recent portfolio, tech skills |
 | `/{locale}/realme/` | Personal interests hub |
 | `/{locale}/realme/mountaineering/` | Mountain expedition portfolio |
 
@@ -93,6 +93,8 @@ Pushes to the `main` branch automatically trigger a GitHub Actions workflow that
 
 The `PAGES_BASE_PATH` environment variable is injected at build time to set the correct `basePath` for the GitHub Pages subdirectory.
 
+The portfolio is also available at the custom domain [javiercaballero.dev](https://javiercaballero.dev).
+
 ---
 
 ## Internationalization
@@ -104,22 +106,3 @@ The site supports three locales configured in [`routing.ts`](routing.ts):
 - `de` — German
 
 The middleware in [`middleware.ts`](middleware.ts) handles automatic locale detection and redirection. All user-facing strings live in [`messages/`](messages/).
-
----
-
-## Previous README
-
-> This is a Next.js website which can be deployed to GitHub Pages as a static site.
->
-> ### Running locally
->
-> 1. Clone the Git project into your local environment
-> 2. Install `pnpm`
-> 2. Install the project dependencies executing `pnpm install`
-> 3. Run it with `pnpm dev`
->
-> Congratulations! You should have an URL like:
->
-> ```bash
-> http://localhost:3000/en/
-> ```

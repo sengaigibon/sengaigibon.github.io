@@ -6,24 +6,17 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
 import { useTranslations } from 'next-intl';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Header from '../components/Header';
 import TechSkills from '../components/TechSkills';
+import RecentPortfolio from '../components/RecentPortfolio';
 import Footer from '../components/Footer';
 import { boxConfig, containerConfig } from '../styles/config';
-import { slideThumbnails } from '@/lib/slideDeck';
 
 export default function Home() {
     const t = useTranslations('main');
     const [showInfographic, setShowInfographic] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [showSlideModal, setShowSlideModal] = useState(false);
-    const [selectedSlideIndex, setSelectedSlideIndex] = useState(0);
-    const carouselRef = useRef<HTMLDivElement>(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [hasDragged, setHasDragged] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
 
     const infographics = [
         '/images/infographics/fullstack-1.png',
@@ -41,48 +34,6 @@ export default function Home() {
     const handleOpenInfographic = () => {
         setCurrentImageIndex(0);
         setShowInfographic(true);
-    };
-
-    const handleMouseDown = (e: React.MouseEvent) => {
-        if (!carouselRef.current) return;
-        setIsDragging(true);
-        setHasDragged(false);
-        setStartX(e.clientX);
-        setScrollLeft(carouselRef.current.scrollLeft);
-        carouselRef.current.style.scrollBehavior = 'auto';
-    };
-
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-        if (carouselRef.current) {
-            carouselRef.current.style.scrollBehavior = 'smooth';
-        }
-    };
-
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (!isDragging || !carouselRef.current) return;
-        e.preventDefault();
-        const x = e.clientX;
-        const walk = (startX - x);
-        if (Math.abs(walk) > 5) {
-            setHasDragged(true);
-        }
-        carouselRef.current.scrollLeft = scrollLeft + walk;
-    };
-
-    const handleSlideClick = (index: number) => {
-        if (!hasDragged) {
-            setSelectedSlideIndex(index);
-            setShowSlideModal(true);
-        }
-    };
-
-    const getFullSizeImage = (thumbnailPath: string) => {
-        return thumbnailPath.replace('thumbnail-', '');
     };
 
     return (
@@ -130,73 +81,7 @@ export default function Home() {
                             </Box>
                         </Container>
 
-                        <Container id="technicalApproach" maxWidth={false} sx={{ width: '100vw', textAlign: 'center', pb: 12 }}>
-                            <Box sx={{ pt: 1}}>
-                                <Typography variant="h2" color="text.secondary" fontSize="48px">
-                                    {t('technicalApproach')}
-                                </Typography>
-                            </Box>
-                            <Box sx={{ 
-                                display: 'flex', 
-                                justifyContent: 'center',
-                                p: 6, pt: 10,
-                                width: '100%'
-                            }}>
-                                <Box
-                                    ref={carouselRef}
-                                    onMouseDown={handleMouseDown}
-                                    onMouseLeave={handleMouseLeave}
-                                    onMouseUp={handleMouseUp}
-                                    onMouseMove={handleMouseMove}
-                                    sx={{
-                                        width: '100%',
-                                        overflowX: 'auto',
-                                        display: 'flex',
-                                        gap: 3,
-                                        cursor: isDragging ? 'grabbing' : 'grab',
-                                        '&::-webkit-scrollbar': {
-                                            height: 8,
-                                        },
-                                        '&::-webkit-scrollbar-track': {
-                                            bgcolor: 'rgba(0, 0, 0, 0.1)',
-                                            borderRadius: 4,
-                                        },
-                                        '&::-webkit-scrollbar-thumb': {
-                                            bgcolor: 'rgba(0, 0, 0, 0.3)',
-                                            borderRadius: 4,
-                                            '&:hover': {
-                                                bgcolor: 'rgba(0, 0, 0, 0.5)',
-                                            },
-                                        },
-                                        userSelect: 'none',
-                                    }}
-                                >
-                                    {slideThumbnails.map((slide, index) => (
-                                        <Box
-                                            key={index}
-                                            onClick={() => handleSlideClick(index)}
-                                            sx={{
-                                                minWidth: '400px',
-                                                flexShrink: 0,
-                                                cursor: 'pointer',
-                                            }}
-                                        >
-                                            <img
-                                                src={slide}
-                                                alt={`Slide ${index + 1}`}
-                                                draggable={false}
-                                                style={{
-                                                    width: '100%',
-                                                    height: 'auto',
-                                                    borderRadius: '8px',
-                                                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-                                                }}
-                                            />
-                                        </Box>
-                                    ))}
-                                </Box>
-                            </Box>
-                        </Container>
+                        <RecentPortfolio />
 
                         <Container id="skills" maxWidth={false} sx={{ width: '100vw', textAlign: 'center' }}>
                             <Box sx={{ pt: 1 }}>
@@ -305,54 +190,6 @@ export default function Home() {
                         </Box>
                     </Modal>
 
-                    <Modal
-                        open={showSlideModal}
-                        onClose={() => setShowSlideModal(false)}
-                        sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                position: 'relative',
-                                maxWidth: '90vw',
-                                maxHeight: '90vh',
-                                bgcolor: 'background.paper',
-                                borderRadius: 2,
-                                boxShadow: 24,
-                                p: 2,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <IconButton
-                                onClick={() => setShowSlideModal(false)}
-                                sx={{
-                                    position: 'absolute',
-                                    top: 8,
-                                    right: 8,
-                                    color: 'text.secondary',
-                                    zIndex: 1,
-                                }}
-                            >
-                                <CloseIcon />
-                            </IconButton>
-
-                            <img
-                                src={getFullSizeImage(slideThumbnails[selectedSlideIndex])}
-                                alt={`Slide ${selectedSlideIndex + 1}`}
-                                style={{
-                                    maxWidth: '100%',
-                                    maxHeight: 'calc(90vh - 32px)',
-                                    objectFit: 'contain',
-                                    display: 'block',
-                                }}
-                            />
-                        </Box>
-                    </Modal>
                 </div>
                 </div>
             
