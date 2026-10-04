@@ -35,8 +35,8 @@ const projects = [
         accent: '#bd563b',
         icon: FormatQuoteIcon,
         stack: ['Android', 'Kotlin', 'Jetpack Compose', 'Room / SQLite', 'Coroutines'],
-        href: 'https://frasear.io',
-        linkLabel: 'visit',
+        href: undefined,
+        linkLabel: undefined,
     },
     {
         id: 'getThingsDone',
