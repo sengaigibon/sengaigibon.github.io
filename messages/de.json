@@ -13,6 +13,10 @@
         "visit": "Projekt besuchen",
         "repository": "Repository ansehen",
         "portfolio": {
+            "orienteering": {
+                "summary": "Eine Android-App für das Orientierungslauf-Training. Lege eine Bahn aus GPS-Posten an und laufe sie mit deiner gedruckten Karte: Die App misst die Zeit, zeichnet deinen Track auf und zeigt jeden Posten über die Kamera an seiner echten Position, sobald du in der Nähe bist. Alle Daten bleiben auf dem Gerät.",
+                "screens": { "raceDetail": "Laufdetails", "mapEditor": "Auf der Karte bearbeiten", "courseCheck": "Bahn prüfen", "dashboard": "Lauf-Dashboard", "camera": "Kameraansicht (AR)", "raceMap": "Laufkarte", "results": "Ergebnisse", "trackMap": "GPS-Track" }
+            },
             "library": {
                 "summary": "Eine persönliche Bibliothek und Lesechronik zum Verwalten von Büchern, Festhalten von Lesesitzungen und Bewerten abgeschlossener Titel mit Notizen.",
                 "screens": { "readerSelect": "Leserauswahl", "dashboard": "Übersicht", "bookList": "Büchersammlung", "editBook": "Buch bearbeiten" }
