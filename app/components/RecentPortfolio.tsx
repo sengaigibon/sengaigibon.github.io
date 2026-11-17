@@ -6,11 +6,21 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import TerrainIcon from '@mui/icons-material/Terrain';
+import ExploreIcon from '@mui/icons-material/Explore';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import { useTranslations } from 'next-intl';
 
 const projects = [
+    {
+        id: 'orienteering',
+        name: 'Augmented Orienteering',
+        accent: '#c2007a',
+        icon: ExploreIcon,
+        stack: ['Android', 'Kotlin', 'Jetpack Compose', 'CameraX', 'Room / SQLite', 'osmdroid'],
+        href: undefined,
+        linkLabel: undefined,
+    },
     {
         id: 'library',
         name: 'Personal Library',
@@ -75,6 +85,17 @@ const frasearScreenshots = [
     '/images/portfolio/fraseario/fraseario-edit-phrase.jpg',
 ];
 
+const orienteeringScreenshots = [
+    '/images/portfolio/augmented-orienteering/augmented-orienteering-race-detail.jpg',
+    '/images/portfolio/augmented-orienteering/augmented-orienteering-map-editor.jpg',
+    '/images/portfolio/augmented-orienteering/augmented-orienteering-course-check.jpg',
+    '/images/portfolio/augmented-orienteering/augmented-orienteering-dashboard.jpg',
+    '/images/portfolio/augmented-orienteering/augmented-orienteering-camera-checkin.jpg',
+    '/images/portfolio/augmented-orienteering/augmented-orienteering-race-map.jpg',
+    '/images/portfolio/augmented-orienteering/augmented-orienteering-results.jpg',
+    '/images/portfolio/augmented-orienteering/augmented-orienteering-track-map.jpg',
+];
+
 const getThingsDoneScreenshots = [
     '/images/portfolio/get-things-done/get-things-done-task-list.png',
     '/images/portfolio/get-things-done/get-things-done-task-entry.png',
@@ -83,6 +104,17 @@ const getThingsDoneScreenshots = [
     '/images/portfolio/get-things-done/get-things-done-task-details.png',
     '/images/portfolio/get-things-done/get-things-done-edit-time.png',
 ];
+
+const screenshotsByProject: Record<string, string[]> = {
+    orienteering: orienteeringScreenshots,
+    library: libraryScreenshots,
+    adventure: adventureScreenshots,
+    frasear: frasearScreenshots,
+    getThingsDone: getThingsDoneScreenshots,
+};
+
+// Phone-format screenshots (portrait) need a taller frame than desktop ones.
+const phoneProjects = ['orienteering', 'frasear'];
 
 function InterfacePreview({ projectId, accent, label, screenLabels, previousScreenshotLabel, nextScreenshotLabel }: {
     projectId: string;
@@ -93,10 +125,8 @@ function InterfacePreview({ projectId, accent, label, screenLabels, previousScre
     nextScreenshotLabel: string;
 }) {
     const [activeScreenshotIndex, setActiveScreenshotIndex] = useState(0);
-    const screenshots = projectId === 'library' ? libraryScreenshots
-        : projectId === 'adventure' ? adventureScreenshots
-            : projectId === 'frasear' ? frasearScreenshots
-                : getThingsDoneScreenshots;
+    const screenshots = screenshotsByProject[projectId];
+    const isPhone = phoneProjects.includes(projectId);
     const rows = projectId === 'adventure' ? ['Pico Almanzor', 'Via Ferrata', 'Sierra Nevada']
         : projectId === 'frasear' ? ['Save a phrase', 'Add author and tags', 'Search your collection']
             : projectId === 'getThingsDone' ? ['Plan the week', 'Prepare next climb', 'Review notes']
@@ -105,9 +135,8 @@ function InterfacePreview({ projectId, accent, label, screenLabels, previousScre
     return (
         <Box sx={{
             width: '100%',
-            minHeight: projectId === 'adventure' ? { xs: 275, sm: 390 }
-                : projectId === 'frasear' ? { xs: 425, sm: 465 }
-                    : projectId === 'getThingsDone' ? { xs: 275, sm: 390 }
+            minHeight: isPhone ? { xs: 425, sm: 465 }
+                : projectId === 'adventure' || projectId === 'getThingsDone' ? { xs: 275, sm: 390 }
                     : { xs: 190, sm: 250 },
             p: { xs: 1.5, sm: 2.5 },
             bgcolor: '#e9ece7',
@@ -116,9 +145,8 @@ function InterfacePreview({ projectId, accent, label, screenLabels, previousScre
             overflow: 'hidden',
         }}>
             <Box sx={{
-                height: projectId === 'adventure' ? { xs: 230, sm: 340 }
-                    : projectId === 'frasear' ? { xs: 380, sm: 420 }
-                        : projectId === 'getThingsDone' ? { xs: 230, sm: 340 }
+                height: isPhone ? { xs: 380, sm: 420 }
+                    : projectId === 'adventure' || projectId === 'getThingsDone' ? { xs: 230, sm: 340 }
                         : { xs: 162, sm: 218 },
                 border: '1px solid #d9ddd7',
                 borderRadius: '5px',
@@ -126,7 +154,7 @@ function InterfacePreview({ projectId, accent, label, screenLabels, previousScre
                 overflow: 'hidden',
                 boxShadow: '0 8px 24px rgba(32, 41, 34, 0.10)',
             }}>
-                {projectId === 'library' || projectId === 'adventure' || projectId === 'frasear' || projectId === 'getThingsDone' ? (
+                {screenshots ? (
                     <Box sx={{ position: 'relative', width: '100%', height: '100%', bgcolor: '#e9eef0' }}>
                         <img
                             src={screenshots[activeScreenshotIndex]}
@@ -182,7 +210,7 @@ function InterfacePreview({ projectId, accent, label, screenLabels, previousScre
                     </>
                 )}
             </Box>
-            {projectId !== 'library' && projectId !== 'adventure' && projectId !== 'frasear' && projectId !== 'getThingsDone' && (
+            {!screenshots && (
                 <Typography sx={{ mt: 1, color: '#5b645d', fontSize: 11, textAlign: 'right' }}>{label}</Typography>
             )}
         </Box>
@@ -194,6 +222,16 @@ export default function RecentPortfolio() {
     const [activeIndex, setActiveIndex] = useState(0);
     const project = projects[activeIndex];
     const ProjectIcon = project.icon;
+    const orienteeringScreenLabels = [
+        t('portfolio.orienteering.screens.raceDetail'),
+        t('portfolio.orienteering.screens.mapEditor'),
+        t('portfolio.orienteering.screens.courseCheck'),
+        t('portfolio.orienteering.screens.dashboard'),
+        t('portfolio.orienteering.screens.camera'),
+        t('portfolio.orienteering.screens.raceMap'),
+        t('portfolio.orienteering.screens.results'),
+        t('portfolio.orienteering.screens.trackMap'),
+    ];
     const libraryScreenLabels = [
         t('portfolio.library.screens.readerSelect'),
         t('portfolio.library.screens.dashboard'),
@@ -332,10 +370,13 @@ export default function RecentPortfolio() {
                             projectId={project.id}
                             accent={project.accent}
                             label={t('previewPlaceholder')}
-                            screenLabels={project.id === 'adventure' ? adventureScreenLabels
-                                : project.id === 'frasear' ? frasearScreenLabels
-                                    : project.id === 'getThingsDone' ? getThingsDoneScreenLabels
-                                        : libraryScreenLabels}
+                            screenLabels={{
+                                orienteering: orienteeringScreenLabels,
+                                library: libraryScreenLabels,
+                                adventure: adventureScreenLabels,
+                                frasear: frasearScreenLabels,
+                                getThingsDone: getThingsDoneScreenLabels,
+                            }[project.id]}
                             previousScreenshotLabel={t('previousScreenshot')}
                             nextScreenshotLabel={t('nextScreenshot')}
                         />

@@ -13,6 +13,10 @@
         "visit": "Visitar proyecto",
         "repository": "Ver repositorio",
         "portfolio": {
+            "orienteering": {
+                "summary": "Una app Android para entrenar orientación. Define un recorrido con balizas GPS y córrelo con tu mapa impreso: la app te cronometra, graba tu track y usa la cámara para mostrar cada baliza en su sitio real cuando estás cerca. Todo se queda en tu dispositivo.",
+                "screens": { "raceDetail": "Detalle de la carrera", "mapEditor": "Editar en el mapa", "courseCheck": "Revisar el recorrido", "dashboard": "Panel de carrera", "camera": "Vista de cámara (RA)", "raceMap": "Mapa de carrera", "results": "Resultados", "trackMap": "Track GPS" }
+            },
             "library": {
                 "summary": "Una biblioteca personal y registro de lectura para organizar libros, guardar sesiones de lectura y reflexionar sobre los títulos terminados con notas y valoraciones.",
                 "screens": { "readerSelect": "Selección de lector", "dashboard": "Panel", "bookList": "Biblioteca de libros", "editBook": "Editar libro" }

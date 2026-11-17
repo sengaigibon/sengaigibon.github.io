@@ -13,6 +13,10 @@
         "visit": "Visit project",
         "repository": "View repository",
         "portfolio": {
+            "orienteering": {
+                "summary": "An Android app for orienteering training. Define a course as GPS markers, then run it with your printed map: the app times you, records your track, and uses the camera to show each control flag at its real spot once you're close. Everything stays on your device.",
+                "screens": { "raceDetail": "Race detail", "mapEditor": "Edit on the map", "courseCheck": "Check the course", "dashboard": "Race dashboard", "camera": "Camera view (AR)", "raceMap": "Race map", "results": "Run results", "trackMap": "GPS track" }
+            },
             "library": {
                 "summary": "A personal library and reading tracker for managing books, logging reading sessions, and reflecting on finished titles with ratings and notes.",
                 "screens": { "readerSelect": "Reader selection", "dashboard": "Dashboard", "bookList": "Book library", "editBook": "Edit book" }
