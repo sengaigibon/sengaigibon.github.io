@@ -1,16 +1,13 @@
 'use client';
 
 import { Container, Box, Typography, Button } from '@mui/material';
-import { useRouter } from 'next/navigation';
 import Header from '../../components/Header';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { boxConfig, containerConfig, containerGradient } from '../../styles/config';
 import Footer from '../../components/Footer';
 
 export default function RealMe() {
     const t = useTranslations();
-    const locale = useLocale();
-    const router = useRouter();
 
     return (
         <div className="min-h-screen relative"
@@ -36,7 +33,7 @@ export default function RealMe() {
                     <Button 
                     variant="contained" 
                     className="blackButton"
-                    onClick={() => router.push(`/${locale}/realme/mountaineering`)}
+                    onClick={() => window.open('https://deaventura.me', '_blank', 'noopener,noreferrer')}
                     >
                     {t('realme.viewPortfolio')}
                     </Button>
