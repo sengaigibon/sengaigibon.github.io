@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { Box, Button, Chip, Container, IconButton, Typography } from '@mui/material';
+import { useState, type ElementType } from 'react';
+import { Box, Button, Container, IconButton, Typography } from '@mui/material';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -11,15 +11,38 @@ import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import { useTranslations } from 'next-intl';
 
-const projects = [
+type Project = {
+    id: string;
+    name: string;
+    accent: string;
+    /** Fallback icon, used when the project has no logo of its own. */
+    icon: ElementType;
+    /** The app's own icon (square image); shown instead of `icon` in the tab and next to the title. */
+    logo?: string;
+    stack: string[];
+    /** 'phone' shows a phone mockup with the neighbouring screens fanned behind; 'browser' a desktop window. */
+    device: 'phone' | 'browser';
+    /** Screenshot paths, paired by position with the translation keys under portfolio.<id>.screens */
+    screenshots: string[];
+    screens: string[];
+    href?: string;
+    linkLabel?: string;
+};
+
+const projects: Project[] = [
     {
         id: 'orienteering',
         name: 'Augmented Orienteering',
         accent: '#c2007a',
         icon: ExploreIcon,
+        logo: '/images/portfolio/icons/augmented-orienteering.webp',
         stack: ['Android', 'Kotlin', 'Jetpack Compose', 'CameraX', 'Room / SQLite', 'osmdroid'],
-        href: undefined,
-        linkLabel: undefined,
+        device: 'phone',
+        screenshots: [
+            'race-detail', 'map-editor', 'course-check', 'dashboard',
+            'camera-checkin', 'race-map', 'results', 'track-map',
+        ].map((name) => `/images/portfolio/augmented-orienteering/augmented-orienteering-${name}.jpg`),
+        screens: ['raceDetail', 'mapEditor', 'courseCheck', 'dashboard', 'camera', 'raceMap', 'results', 'trackMap'],
     },
     {
         id: 'library',
@@ -27,8 +50,10 @@ const projects = [
         accent: '#52745c',
         icon: AutoStoriesIcon,
         stack: ['Symfony 7', 'PHP 8.3', 'PostgreSQL', 'Twig', 'Podman/Docker'],
-        href: undefined,
-        linkLabel: undefined,
+        device: 'browser',
+        screenshots: ['reader-select', 'dashboard', 'book-list', 'edit-book']
+            .map((name) => `/images/portfolio/personal-library/personal-library-${name}.png`),
+        screens: ['readerSelect', 'dashboard', 'bookList', 'editBook'],
     },
     {
         id: 'adventure',
@@ -36,6 +61,10 @@ const projects = [
         accent: '#147f83',
         icon: TerrainIcon,
         stack: ['Astro', 'Typescript', 'Node.js', 'Tailwind CSS', 'Leaflet', 'Cloudflare'],
+        device: 'browser',
+        screenshots: ['home', 'story-detail', 'route-detail', 'route-explorer', 'profile', 'contact']
+            .map((name) => `/images/portfolio/personal-adventure-journal/adventure-journal-${name}.png`),
+        screens: ['home', 'storyDetail', 'routeDetail', 'routeExplorer', 'profile', 'contact'],
         href: 'https://deaventura.me',
         linkLabel: 'visit',
     },
@@ -44,9 +73,14 @@ const projects = [
         name: 'Frasear.io',
         accent: '#bd563b',
         icon: FormatQuoteIcon,
+        logo: '/images/portfolio/icons/frasear.webp',
         stack: ['Android', 'Kotlin', 'Jetpack Compose', 'Room / SQLite', 'Coroutines'],
-        href: undefined,
-        linkLabel: undefined,
+        device: 'phone',
+        screenshots: [
+            'search-home', 'add-phrase', 'overflow-menu', 'about',
+            'search-results', 'import-confirmation', 'edit-phrase',
+        ].map((name) => `/images/portfolio/fraseario/fraseario-${name}.jpg`),
+        screens: ['searchHome', 'addPhrase', 'menu', 'about', 'searchResults', 'importConfirmation', 'editPhrase'],
     },
     {
         id: 'getThingsDone',
@@ -54,165 +88,189 @@ const projects = [
         accent: '#bd8735',
         icon: TaskAltIcon,
         stack: ['Electron', 'Node.js', 'ag-Grid', 'SQLite'],
+        device: 'browser',
+        screenshots: ['task-list', 'task-entry', 'reports-dialog', 'reports-window', 'task-details', 'edit-time']
+            .map((name) => `/images/portfolio/get-things-done/get-things-done-${name}.png`),
+        screens: ['taskList', 'taskEntry', 'reportsDialog', 'reportsWindow', 'taskDetails', 'editTime'],
         href: 'https://github.com/sengaigibon/get-things-done-electron-ag-grid',
         linkLabel: 'repository',
     },
-] as const;
-
-const libraryScreenshots = [
-    '/images/portfolio/personal-library/personal-library-reader-select.png',
-    '/images/portfolio/personal-library/personal-library-dashboard.png',
-    '/images/portfolio/personal-library/personal-library-book-list.png',
-    '/images/portfolio/personal-library/personal-library-edit-book.png',
 ];
 
-const adventureScreenshots = [
-    '/images/portfolio/personal-adventure-journal/adventure-journal-home.png',
-    '/images/portfolio/personal-adventure-journal/adventure-journal-story-detail.png',
-    '/images/portfolio/personal-adventure-journal/adventure-journal-route-detail.png',
-    '/images/portfolio/personal-adventure-journal/adventure-journal-route-explorer.png',
-    '/images/portfolio/personal-adventure-journal/adventure-journal-profile.png',
-    '/images/portfolio/personal-adventure-journal/adventure-journal-contact.png',
-];
+const ink = '#1f2a37';
+const muted = '#5b6675';
 
-const frasearScreenshots = [
-    '/images/portfolio/fraseario/fraseario-search-home.jpg',
-    '/images/portfolio/fraseario/fraseario-add-phrase.jpg',
-    '/images/portfolio/fraseario/fraseario-overflow-menu.jpg',
-    '/images/portfolio/fraseario/fraseario-about.jpg',
-    '/images/portfolio/fraseario/fraseario-search-results.jpg',
-    '/images/portfolio/fraseario/fraseario-import-confirmation.jpg',
-    '/images/portfolio/fraseario/fraseario-edit-phrase.jpg',
-];
-
-const orienteeringScreenshots = [
-    '/images/portfolio/augmented-orienteering/augmented-orienteering-race-detail.jpg',
-    '/images/portfolio/augmented-orienteering/augmented-orienteering-map-editor.jpg',
-    '/images/portfolio/augmented-orienteering/augmented-orienteering-course-check.jpg',
-    '/images/portfolio/augmented-orienteering/augmented-orienteering-dashboard.jpg',
-    '/images/portfolio/augmented-orienteering/augmented-orienteering-camera-checkin.jpg',
-    '/images/portfolio/augmented-orienteering/augmented-orienteering-race-map.jpg',
-    '/images/portfolio/augmented-orienteering/augmented-orienteering-results.jpg',
-    '/images/portfolio/augmented-orienteering/augmented-orienteering-track-map.jpg',
-];
-
-const getThingsDoneScreenshots = [
-    '/images/portfolio/get-things-done/get-things-done-task-list.png',
-    '/images/portfolio/get-things-done/get-things-done-task-entry.png',
-    '/images/portfolio/get-things-done/get-things-done-reports-dialog.png',
-    '/images/portfolio/get-things-done/get-things-done-reports-window.png',
-    '/images/portfolio/get-things-done/get-things-done-task-details.png',
-    '/images/portfolio/get-things-done/get-things-done-edit-time.png',
-];
-
-const screenshotsByProject: Record<string, string[]> = {
-    orienteering: orienteeringScreenshots,
-    library: libraryScreenshots,
-    adventure: adventureScreenshots,
-    frasear: frasearScreenshots,
-    getThingsDone: getThingsDoneScreenshots,
+const animations = {
+    '@keyframes pfFadeUp': {
+        from: { opacity: 0, transform: 'translateY(14px)' },
+        to: { opacity: 1, transform: 'translateY(0)' },
+    },
+    '@keyframes pfFadeIn': {
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+    },
+    '@media (prefers-reduced-motion: reduce)': {
+        '& *': { animation: 'none !important', transition: 'none !important' },
+    },
 };
 
-// Phone-format screenshots (portrait) need a taller frame than desktop ones.
-const phoneProjects = ['orienteering', 'frasear'];
+function PhoneFrame({ src, alt, sx, onClick }: { src: string; alt: string; sx?: object; onClick?: () => void }) {
+    return (
+        <Box
+            onClick={onClick}
+            sx={{
+                position: 'absolute',
+                height: { xs: 420, sm: 520, md: 580 },
+                aspectRatio: '9 / 19',
+                p: '9px',
+                borderRadius: { xs: '34px', md: '44px' },
+                bgcolor: '#14181f',
+                boxShadow: '0 30px 60px -18px rgba(15, 23, 42, 0.55), inset 0 0 0 2px #2c3340',
+                transition: 'transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s ease, filter .5s ease',
+                ...sx,
+            }}
+        >
+            <Box sx={{ position: 'relative', width: '100%', height: '100%', borderRadius: { xs: '26px', md: '35px' }, overflow: 'hidden', bgcolor: '#fff' }}>
+                <img key={src} src={src} alt={alt} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+            </Box>
+        </Box>
+    );
+}
 
-function InterfacePreview({ projectId, accent, label, screenLabels, previousScreenshotLabel, nextScreenshotLabel }: {
-    projectId: string;
-    accent: string;
+function navButton(accent: string) {
+    return {
+        width: 46,
+        height: 46,
+        flexShrink: 0,
+        color: ink,
+        bgcolor: '#fff',
+        boxShadow: '0 6px 18px rgba(15, 23, 42, 0.12)',
+        transition: 'all .25s ease',
+        '&:hover': { bgcolor: accent, color: '#fff', transform: 'translateY(-2px)' },
+    };
+}
+
+function Stage({ project, index, label, onPrevious, onNext, onSelect, previousLabel, nextLabel }: {
+    project: Project;
+    index: number;
     label: string;
-    screenLabels: string[];
-    previousScreenshotLabel: string;
-    nextScreenshotLabel: string;
+    onPrevious: () => void;
+    onNext: () => void;
+    onSelect: (index: number) => void;
+    previousLabel: string;
+    nextLabel: string;
 }) {
-    const [activeScreenshotIndex, setActiveScreenshotIndex] = useState(0);
-    const screenshots = screenshotsByProject[projectId];
-    const isPhone = phoneProjects.includes(projectId);
-    const rows = projectId === 'adventure' ? ['Pico Almanzor', 'Via Ferrata', 'Sierra Nevada']
-        : projectId === 'frasear' ? ['Save a phrase', 'Add author and tags', 'Search your collection']
-            : projectId === 'getThingsDone' ? ['Plan the week', 'Prepare next climb', 'Review notes']
-                : ['The mountain is you', 'A field guide', 'The creative act'];
+    const count = project.screenshots.length;
+    const previous = (index - 1 + count) % count;
+    const next = (index + 1) % count;
+    const sidePhone = (side: 1 | -1) => ({
+        cursor: 'pointer',
+        opacity: 0.5,
+        filter: 'saturate(0.7)',
+        transform: {
+            xs: `translateX(${side * 58}%) rotate(${side * 9}deg) scale(0.8)`,
+            md: `translateX(${side * 62}%) rotate(${side * 9}deg) scale(0.82)`,
+        },
+        '&:hover': { opacity: 0.8 },
+    });
 
     return (
-        <Box sx={{
-            width: '100%',
-            minHeight: isPhone ? { xs: 425, sm: 465 }
-                : projectId === 'adventure' || projectId === 'getThingsDone' ? { xs: 275, sm: 390 }
-                    : { xs: 190, sm: 250 },
-            p: { xs: 1.5, sm: 2.5 },
-            bgcolor: '#e9ece7',
-            border: '1px solid #d5dad2',
-            borderRadius: 1,
-            overflow: 'hidden',
-        }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
             <Box sx={{
-                height: isPhone ? { xs: 380, sm: 420 }
-                    : projectId === 'adventure' || projectId === 'getThingsDone' ? { xs: 230, sm: 340 }
-                        : { xs: 162, sm: 218 },
-                border: '1px solid #d9ddd7',
-                borderRadius: '5px',
-                bgcolor: '#fff',
+                position: 'relative',
+                flex: 1,
+                minHeight: { xs: 470, sm: 580, md: 660 },
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: { xs: '22px', md: '28px' },
                 overflow: 'hidden',
-                boxShadow: '0 8px 24px rgba(32, 41, 34, 0.10)',
+                background: `radial-gradient(circle at 50% 45%, ${project.accent}40 0%, ${project.accent}14 38%, transparent 70%),
+                             linear-gradient(160deg, rgba(255,255,255,0.75), rgba(255,255,255,0.35))`,
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundImage: `radial-gradient(${project.accent}30 1.2px, transparent 1.2px)`,
+                    backgroundSize: '22px 22px',
+                    maskImage: 'radial-gradient(circle at 50% 50%, black 30%, transparent 75%)',
+                },
             }}>
-                {screenshots ? (
-                    <Box sx={{ position: 'relative', width: '100%', height: '100%', bgcolor: '#e9eef0' }}>
-                        <img
-                            src={screenshots[activeScreenshotIndex]}
-                            alt={screenLabels[activeScreenshotIndex]}
-                            style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
-                        />
-                        <IconButton
-                            aria-label={previousScreenshotLabel}
-                            onClick={() => setActiveScreenshotIndex((index) => (index - 1 + screenshots.length) % screenshots.length)}
-                            sx={{ position: 'absolute', left: 8, bottom: 8, width: 32, height: 32, color: '#fff', bgcolor: 'rgba(35, 49, 59, 0.82)', '&:hover': { bgcolor: 'rgba(35, 49, 59, 0.96)' } }}
-                        >
-                            <ArrowBackIosNewIcon sx={{ fontSize: 15 }} />
-                        </IconButton>
-                        <Typography sx={{ position: 'absolute', left: '50%', bottom: 11, transform: 'translateX(-50%)', px: 1.1, py: 0.35, maxWidth: '55%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: '#fff', bgcolor: 'rgba(35, 49, 59, 0.82)', borderRadius: '4px', fontSize: 10 }}>
-                            {screenLabels[activeScreenshotIndex]} · {activeScreenshotIndex + 1}/{screenshots.length}
-                        </Typography>
-                        <IconButton
-                            aria-label={nextScreenshotLabel}
-                            onClick={() => setActiveScreenshotIndex((index) => (index + 1) % screenshots.length)}
-                            sx={{ position: 'absolute', right: 8, bottom: 8, width: 32, height: 32, color: '#fff', bgcolor: 'rgba(35, 49, 59, 0.82)', '&:hover': { bgcolor: 'rgba(35, 49, 59, 0.96)' } }}
-                        >
-                            <ArrowForwardIosIcon sx={{ fontSize: 15 }} />
-                        </IconButton>
-                    </Box>
-                ) : (
+                {project.device === 'phone' ? (
                     <>
-                        <Box sx={{ height: 24, display: 'flex', alignItems: 'center', gap: 0.6, px: 1, bgcolor: '#f5f6f3', borderBottom: '1px solid #e6e8e3' }}>
-                            {['#de8a7a', '#e4c36c', '#8caf8b'].map((color) => <Box key={color} sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: color }} />)}
-                            <Box sx={{ height: 10, flex: 1, maxWidth: 190, ml: 1, borderRadius: 1, bgcolor: '#e9ebe7' }} />
-                        </Box>
-                        <Box sx={{ display: 'flex', height: 'calc(100% - 24px)' }}>
-                            <Box sx={{ width: { xs: 45, sm: 75 }, p: { xs: 0.8, sm: 1.4 }, bgcolor: '#f7f8f5', borderRight: '1px solid #edf0eb' }}>
-                                <Box sx={{ width: '65%', height: 8, mb: 1.6, borderRadius: 1, bgcolor: accent, opacity: 0.85 }} />
-                                {[0, 1, 2, 3].map((item) => <Box key={item} sx={{ height: 5, width: item === 0 ? '90%' : `${55 + item * 8}%`, mb: 1, bgcolor: item === 0 ? `${accent}35` : '#e6e9e4', borderRadius: 1 }} />)}
-                            </Box>
-                            <Box sx={{ flex: 1, p: { xs: 1, sm: 2.2 }, minWidth: 0 }}>
-                                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: { xs: 1.2, sm: 2 } }}>
-                                    <Box>
-                                        <Box sx={{ width: { xs: 86, sm: 145 }, height: { xs: 9, sm: 12 }, bgcolor: '#36403a', borderRadius: 1, mb: 0.7 }} />
-                                        <Box sx={{ width: { xs: 52, sm: 82 }, height: 5, bgcolor: '#c9cec7', borderRadius: 1 }} />
-                                    </Box>
-                                    <Box sx={{ width: 37, height: 14, borderRadius: 0.7, bgcolor: `${accent}24` }} />
-                                </Box>
-                                {rows.map((row, index) => (
-                                    <Box key={row} sx={{ display: 'flex', alignItems: 'center', gap: 1, py: { xs: 0.7, sm: 1.1 }, borderTop: '1px solid #edf0eb' }}>
-                                        <Box sx={{ width: { xs: 20, sm: 31 }, height: { xs: 20, sm: 31 }, flexShrink: 0, borderRadius: 0.7, bgcolor: index === 0 ? `${accent}32` : '#eef0ec' }} />
-                                        <Typography noWrap sx={{ flex: 1, color: '#48524a', fontSize: { xs: 8, sm: 11 }, textAlign: 'left' }}>{row}</Typography>
-                                        <Box sx={{ width: { xs: 22, sm: 42 }, height: 5, flexShrink: 0, borderRadius: 1, bgcolor: '#e8ebe6' }} />
-                                    </Box>
-                                ))}
-                            </Box>
-                        </Box>
+                        <PhoneFrame src={project.screenshots[previous]} alt="" onClick={onPrevious} sx={sidePhone(-1)} />
+                        <PhoneFrame src={project.screenshots[next]} alt="" onClick={onNext} sx={sidePhone(1)} />
+                        <PhoneFrame
+                            src={project.screenshots[index]}
+                            alt={label}
+                            sx={{ zIndex: 2, '& img': { animation: 'pfFadeIn .45s ease' } }}
+                        />
                     </>
+                ) : (
+                    <Box sx={{
+                        position: 'relative',
+                        width: { xs: 'calc(100% - 24px)', md: 'calc(100% - 64px)' },
+                        borderRadius: '14px',
+                        overflow: 'hidden',
+                        bgcolor: '#fff',
+                        boxShadow: '0 30px 70px -20px rgba(15, 23, 42, 0.45)',
+                        transform: { md: 'perspective(1600px) rotateY(-7deg) rotateX(2deg)' },
+                        transition: 'transform .6s cubic-bezier(.2,.8,.2,1)',
+                        '&:hover': { transform: { md: 'perspective(1600px) rotateY(0deg) rotateX(0deg)' } },
+                    }}>
+                        <Box sx={{ height: 34, display: 'flex', alignItems: 'center', gap: '7px', px: 1.6, bgcolor: '#f1f3f6', borderBottom: '1px solid #e3e7ec' }}>
+                            {['#ff5f57', '#febc2e', '#28c840'].map((color) => <Box key={color} sx={{ width: 11, height: 11, flexShrink: 0, borderRadius: '50%', bgcolor: color }} />)}
+                            <Box sx={{ flex: 1, maxWidth: 320, height: 18, mx: 'auto', px: 1, borderRadius: '999px', bgcolor: '#e3e7ec', color: muted, fontSize: 10.5, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                                {label}
+                            </Box>
+                            <Box sx={{ width: { xs: 0, sm: 51 } }} />
+                        </Box>
+                        <Box sx={{ height: { xs: 300, sm: 420, md: 500 }, bgcolor: '#f6f8fa' }}>
+                            <img
+                                key={project.screenshots[index]}
+                                src={project.screenshots[index]}
+                                alt={label}
+                                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', animation: 'pfFadeIn .45s ease' }}
+                            />
+                        </Box>
+                    </Box>
                 )}
             </Box>
-            {!screenshots && (
-                <Typography sx={{ mt: 1, color: '#5b645d', fontSize: 11, textAlign: 'right' }}>{label}</Typography>
-            )}
+
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mt: 2.5, px: { xs: 0, md: 1 } }}>
+                <IconButton aria-label={previousLabel} onClick={onPrevious} sx={navButton(project.accent)}>
+                    <ArrowBackIosNewIcon sx={{ fontSize: 16 }} />
+                </IconButton>
+                <Box sx={{ flex: 1, minWidth: 0, textAlign: 'center' }}>
+                    <Typography noWrap sx={{ color: ink, fontSize: 14, fontWeight: 600 }}>
+                        {label}
+                        <Box component="span" sx={{ color: muted, fontWeight: 400 }}> · {index + 1}/{count}</Box>
+                    </Typography>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', gap: 0.75, mt: 1 }}>
+                        {project.screenshots.map((src, dot) => (
+                            <Box
+                                key={src}
+                                component="button"
+                                aria-label={`${dot + 1}/${count}`}
+                                aria-current={dot === index}
+                                onClick={() => onSelect(dot)}
+                                sx={{
+                                    width: dot === index ? 26 : 8,
+                                    height: 8,
+                                    p: 0,
+                                    borderRadius: '999px',
+                                    bgcolor: dot === index ? project.accent : 'rgba(31, 42, 55, 0.18)',
+                                    transition: 'all .3s ease',
+                                    '&:hover': { bgcolor: dot === index ? project.accent : 'rgba(31, 42, 55, 0.35)' },
+                                }}
+                            />
+                        ))}
+                    </Box>
+                </Box>
+                <IconButton aria-label={nextLabel} onClick={onNext} sx={navButton(project.accent)}>
+                    <ArrowForwardIosIcon sx={{ fontSize: 16 }} />
+                </IconButton>
+            </Box>
         </Box>
     );
 }
@@ -220,167 +278,215 @@ function InterfacePreview({ projectId, accent, label, screenLabels, previousScre
 export default function RecentPortfolio() {
     const t = useTranslations('main');
     const [activeIndex, setActiveIndex] = useState(0);
+    const [screenIndex, setScreenIndex] = useState(0);
     const project = projects[activeIndex];
     const ProjectIcon = project.icon;
-    const orienteeringScreenLabels = [
-        t('portfolio.orienteering.screens.raceDetail'),
-        t('portfolio.orienteering.screens.mapEditor'),
-        t('portfolio.orienteering.screens.courseCheck'),
-        t('portfolio.orienteering.screens.dashboard'),
-        t('portfolio.orienteering.screens.camera'),
-        t('portfolio.orienteering.screens.raceMap'),
-        t('portfolio.orienteering.screens.results'),
-        t('portfolio.orienteering.screens.trackMap'),
-    ];
-    const libraryScreenLabels = [
-        t('portfolio.library.screens.readerSelect'),
-        t('portfolio.library.screens.dashboard'),
-        t('portfolio.library.screens.bookList'),
-        t('portfolio.library.screens.editBook'),
-    ];
-    const adventureScreenLabels = [
-        t('portfolio.adventure.screens.home'),
-        t('portfolio.adventure.screens.storyDetail'),
-        t('portfolio.adventure.screens.routeDetail'),
-        t('portfolio.adventure.screens.routeExplorer'),
-        t('portfolio.adventure.screens.profile'),
-        t('portfolio.adventure.screens.contact'),
-    ];
-    const frasearScreenLabels = [
-        t('portfolio.frasear.screens.searchHome'),
-        t('portfolio.frasear.screens.addPhrase'),
-        t('portfolio.frasear.screens.menu'),
-        t('portfolio.frasear.screens.about'),
-        t('portfolio.frasear.screens.searchResults'),
-        t('portfolio.frasear.screens.importConfirmation'),
-        t('portfolio.frasear.screens.editPhrase'),
-    ];
-    const getThingsDoneScreenLabels = [
-        t('portfolio.getThingsDone.screens.taskList'),
-        t('portfolio.getThingsDone.screens.taskEntry'),
-        t('portfolio.getThingsDone.screens.reportsDialog'),
-        t('portfolio.getThingsDone.screens.reportsWindow'),
-        t('portfolio.getThingsDone.screens.taskDetails'),
-        t('portfolio.getThingsDone.screens.editTime'),
-    ];
+    const count = project.screenshots.length;
+
+    const selectProject = (index: number) => {
+        setActiveIndex(index);
+        setScreenIndex(0);
+    };
 
     return (
-        <Container id="recentPortfolio" maxWidth={false} sx={{ width: '100vw', textAlign: 'center', pb: 12 }}>
+        <Container id="recentPortfolio" maxWidth={false} sx={{ width: '100vw', textAlign: 'center', py: { xs: 8, md: 12 }, ...animations }}>
             <Typography variant="h2" color="text.secondary" fontSize={{ xs: 34, sm: 48 }}>
                 {t('recentPortfolio')}
             </Typography>
-            <Box sx={{
+
+            <Box role="tablist" aria-label={t('recentPortfolio')} sx={{
                 display: 'flex',
-                width: 'min(1180px, calc(100% - 32px))',
-                minHeight: { xs: 0, sm: 435 },
+                justifyContent: { xs: 'flex-start', md: 'center' },
+                gap: 1.2,
+                my: { xs: 3, sm: 4 },
                 mx: 'auto',
-                mt: { xs: 4, sm: 6 },
-                overflow: 'hidden',
-                border: '1px solid rgba(50, 62, 52, 0.18)',
-                borderRadius: 1,
-                bgcolor: '#fbfcf9',
-                boxShadow: '0 18px 55px rgba(31, 43, 34, 0.13)',
-                flexDirection: { xs: 'column', sm: 'row' },
-                textAlign: 'left',
+                px: { xs: 1, md: 2 },
+                pt: 1,
+                pb: 3,
+                maxWidth: 1280,
+                overflowX: 'auto',
+                scrollbarWidth: 'none',
+                '&::-webkit-scrollbar': { display: 'none' },
             }}>
-                <Box role="tablist" aria-label={t('recentPortfolio')} sx={{
-                    width: { xs: '100%', sm: '20%' },
-                    flex: { xs: 'none', sm: '0 0 20%' },
-                    display: { xs: 'flex', sm: 'block' },
-                    overflowX: { xs: 'auto', sm: 'visible' },
-                    bgcolor: '#eff2ed',
-                    borderRight: { sm: '1px solid #dfe4dc' },
-                    borderBottom: { xs: '1px solid #dfe4dc', sm: 0 },
-                }}>
-                    {projects.map((item, index) => {
-                        const ItemIcon = item.icon;
-                        const selected = index === activeIndex;
-                        return (
-                            <Button
-                                key={item.id}
-                                id={`portfolio-tab-${item.id}`}
-                                role="tab"
-                                aria-selected={selected}
-                                aria-controls="portfolio-panel"
-                                onClick={() => setActiveIndex(index)}
-                                startIcon={<ItemIcon sx={{ fontSize: 19 }} />}
-                                sx={{
-                                    justifyContent: 'flex-start',
-                                    width: { xs: 'auto', sm: '100%' },
-                                    minWidth: { xs: 150, sm: 0 },
-                                    minHeight: { xs: 54, sm: 84 },
-                                    px: { xs: 1.5, sm: 2 },
-                                    borderRadius: 0,
-                                    borderLeft: { sm: selected ? `3px solid ${item.accent}` : '3px solid transparent' },
-                                    borderBottom: { xs: selected ? `3px solid ${item.accent}` : '3px solid transparent', sm: 0 },
-                                    color: selected ? '#26332a' : '#606a62',
-                                    bgcolor: selected ? '#fbfcf9' : 'transparent',
-                                    fontSize: 13,
-                                    lineHeight: 1.35,
-                                    fontWeight: selected ? 700 : 500,
-                                    textAlign: 'left',
-                                    '& .MuiButton-startIcon': { color: item.accent, mr: 1 },
-                                    '&:hover': { bgcolor: selected ? '#fbfcf9' : '#e6eae4' },
-                                }}
-                            >
-                                {item.name}
-                            </Button>
-                        );
-                    })}
-                </Box>
-                <Box id="portfolio-panel" role="tabpanel" aria-labelledby={`portfolio-tab-${project.id}`} sx={{
-                    width: { xs: '100%', sm: '80%' },
-                    minWidth: 0,
+                {projects.map((item, index) => {
+                    const ItemIcon = item.icon;
+                    const selected = index === activeIndex;
+                    return (
+                        <Button
+                            key={item.id}
+                            id={`portfolio-tab-${item.id}`}
+                            role="tab"
+                            aria-selected={selected}
+                            aria-controls="portfolio-panel"
+                            onClick={() => selectProject(index)}
+                            startIcon={item.logo
+                                ? <Box component="img" src={item.logo} alt="" sx={{ width: 22, height: 22, borderRadius: '6px', display: 'block', boxShadow: selected ? '0 0 0 1.5px rgba(255, 255, 255, 0.9)' : 'none' }} />
+                                : <ItemIcon sx={{ fontSize: 19 }} />}
+                            sx={{
+                                flexShrink: 0,
+                                px: 2.2,
+                                py: 1.1,
+                                borderRadius: '999px',
+                                textTransform: 'none',
+                                fontSize: 14.5,
+                                fontWeight: 600,
+                                whiteSpace: 'nowrap',
+                                color: selected ? '#fff' : ink,
+                                bgcolor: selected ? item.accent : 'rgba(255, 255, 255, 0.7)',
+                                backdropFilter: 'blur(10px)',
+                                border: '1px solid',
+                                borderColor: selected ? item.accent : 'rgba(255, 255, 255, 0.85)',
+                                boxShadow: selected ? `0 8px 18px -10px ${item.accent}` : '0 4px 14px rgba(15, 23, 42, 0.08)',
+                                transition: 'all .3s ease',
+                                '& .MuiButton-startIcon': { color: selected ? '#fff' : item.accent, mr: 0.9 },
+                                '&:hover': {
+                                    bgcolor: selected ? item.accent : '#fff',
+                                    transform: 'translateY(-2px)',
+                                },
+                            }}
+                        >
+                            {item.name}
+                        </Button>
+                    );
+                })}
+            </Box>
+
+            <Box
+                id="portfolio-panel"
+                role="tabpanel"
+                aria-labelledby={`portfolio-tab-${project.id}`}
+                sx={{
+                    position: 'relative',
+                    width: 'min(1280px, calc(100% - 8px))',
+                    mx: 'auto',
                     display: 'grid',
-                    gridTemplateColumns: { xs: '1fr', md: '1fr 1.05fr' },
+                    gridTemplateColumns: { xs: '1fr', md: '0.85fr 1.15fr' },
                     alignItems: 'center',
-                    gap: { xs: 2.5, md: 4 },
-                    p: { xs: 2, sm: 3, md: 4 },
-                }}>
-                    <Box sx={{ order: { xs: 2, md: 1 } }}>
-                        <Typography sx={{ color: project.accent, fontSize: 12, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', mb: 1 }}>
-                            {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
-                        </Typography>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2, mb: 1.4 }}>
-                            <ProjectIcon sx={{ color: project.accent, fontSize: 26 }} />
-                            <Typography variant="h4" component="h3" sx={{ color: '#29342c', fontSize: { xs: 23, sm: 29 }, lineHeight: 1.15 }}>
-                                {project.name}
-                            </Typography>
-                        </Box>
-                        <Typography sx={{ color: '#59635b', fontSize: 15, lineHeight: 1.75, mb: 2.5 }}>
-                            {t(`portfolio.${project.id}.summary`)}
-                        </Typography>
-                        <Typography sx={{ color: '#344139', fontSize: 12, fontWeight: 700, mb: 1 }}>
-                            {t('techStack')}
-                        </Typography>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.8 }}>
-                            {project.stack.map((technology) => (
-                                <Chip key={technology} size="small" label={technology} sx={{ borderRadius: '4px', bgcolor: '#edf0eb', color: '#465148', fontSize: 11 }} />
-                            ))}
-                        </Box>
-                        {project.href && (
-                            <Button href={project.href} target="_blank" rel="noreferrer" variant="contained" sx={{ mt: 2.5, bgcolor: project.accent, '&:hover': { bgcolor: project.accent, filter: 'brightness(0.92)' }, textTransform: 'none' }}>
-                                {t(project.linkLabel)}
-                            </Button>
+                    gap: { xs: 3, md: 5 },
+                    p: { xs: 2, sm: 3, md: 5 },
+                    textAlign: 'left',
+                    borderRadius: { xs: '26px', md: '36px' },
+                    bgcolor: 'rgba(255, 255, 255, 0.62)',
+                    backdropFilter: 'blur(22px) saturate(140%)',
+                    border: '1px solid rgba(255, 255, 255, 0.8)',
+                    boxShadow: '0 40px 90px -30px rgba(30, 41, 80, 0.45)',
+                    overflow: 'hidden',
+                    '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        width: 420,
+                        height: 420,
+                        top: -180,
+                        left: -160,
+                        borderRadius: '50%',
+                        background: project.accent,
+                        opacity: 0.12,
+                        filter: 'blur(40px)',
+                        pointerEvents: 'none',
+                        transition: 'background .5s ease',
+                    },
+                }}
+            >
+                <Box key={project.id} sx={{ position: 'relative', zIndex: 1, order: { xs: 2, md: 1 }, animation: 'pfFadeUp .55s ease both' }}>
+                    <Typography aria-hidden sx={{
+                        fontSize: { xs: 72, md: 120 },
+                        fontWeight: 800,
+                        lineHeight: 0.9,
+                        letterSpacing: -4,
+                        color: 'transparent',
+                        WebkitTextStroke: `2px ${project.accent}55`,
+                        mb: { xs: 1, md: 2 },
+                        userSelect: 'none',
+                    }}>
+                        {String(activeIndex + 1).padStart(2, '0')}
+                    </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
+                        {project.logo ? (
+                            <Box component="img" src={project.logo} alt="" sx={{
+                                width: 60,
+                                height: 60,
+                                flexShrink: 0,
+                                display: 'block',
+                                borderRadius: '18px',
+                                boxShadow: `0 12px 24px -10px ${project.accent}, 0 0 0 1px rgba(15, 23, 42, 0.06)`,
+                            }} />
+                        ) : (
+                            <Box sx={{
+                                width: 48,
+                                height: 48,
+                                flexShrink: 0,
+                                display: 'grid',
+                                placeItems: 'center',
+                                borderRadius: '16px',
+                                color: '#fff',
+                                background: `linear-gradient(135deg, ${project.accent}, ${project.accent}b3)`,
+                                boxShadow: `0 10px 22px -8px ${project.accent}`,
+                            }}>
+                                <ProjectIcon sx={{ fontSize: 26 }} />
+                            </Box>
                         )}
+                        <Typography variant="h3" component="h3" sx={{ color: ink, fontSize: { xs: 28, sm: 36, md: 42 }, fontWeight: 700, lineHeight: 1.1, letterSpacing: -0.5 }}>
+                            {project.name}
+                        </Typography>
                     </Box>
-                    <Box sx={{ order: { xs: 1, md: 2 } }}>
-                        <InterfacePreview
-                            key={project.id}
-                            projectId={project.id}
-                            accent={project.accent}
-                            label={t('previewPlaceholder')}
-                            screenLabels={{
-                                orienteering: orienteeringScreenLabels,
-                                library: libraryScreenLabels,
-                                adventure: adventureScreenLabels,
-                                frasear: frasearScreenLabels,
-                                getThingsDone: getThingsDoneScreenLabels,
-                            }[project.id]}
-                            previousScreenshotLabel={t('previousScreenshot')}
-                            nextScreenshotLabel={t('nextScreenshot')}
-                        />
+                    <Typography sx={{ color: muted, fontSize: { xs: 16, md: 17.5 }, lineHeight: 1.75, mb: 3.5 }}>
+                        {t(`portfolio.${project.id}.summary`)}
+                    </Typography>
+                    <Typography sx={{ color: ink, fontSize: 12, fontWeight: 700, letterSpacing: 1.4, textTransform: 'uppercase', mb: 1.4 }}>
+                        {t('techStack')}
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                        {project.stack.map((technology) => (
+                            <Box key={technology} sx={{
+                                px: 1.6,
+                                py: 0.6,
+                                borderRadius: '999px',
+                                fontSize: 13,
+                                fontWeight: 500,
+                                color: ink,
+                                bgcolor: 'rgba(255, 255, 255, 0.85)',
+                                border: `1px solid ${project.accent}33`,
+                            }}>
+                                {technology}
+                            </Box>
+                        ))}
                     </Box>
+                    {project.href && project.linkLabel && (
+                        <Button
+                            href={project.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            variant="contained"
+                            disableElevation
+                            sx={{
+                                mt: 4,
+                                px: 3.5,
+                                py: 1.3,
+                                borderRadius: '999px',
+                                bgcolor: project.accent,
+                                textTransform: 'none',
+                                fontSize: 15,
+                                fontWeight: 600,
+                                boxShadow: `0 12px 26px -10px ${project.accent}`,
+                                '&:hover': { bgcolor: project.accent, filter: 'brightness(0.92)', transform: 'translateY(-2px)' },
+                            }}
+                        >
+                            {t(project.linkLabel)} ↗
+                        </Button>
+                    )}
+                </Box>
+
+                <Box sx={{ position: 'relative', zIndex: 1, order: { xs: 1, md: 2 }, minWidth: 0 }}>
+                    <Stage
+                        project={project}
+                        index={screenIndex}
+                        label={t(`portfolio.${project.id}.screens.${project.screens[screenIndex]}`)}
+                        onPrevious={() => setScreenIndex((index) => (index - 1 + count) % count)}
+                        onNext={() => setScreenIndex((index) => (index + 1) % count)}
+                        onSelect={setScreenIndex}
+                        previousLabel={t('previousScreenshot')}
+                        nextLabel={t('nextScreenshot')}
+                    />
                 </Box>
             </Box>
         </Container>
