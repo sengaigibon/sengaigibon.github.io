@@ -54,6 +54,8 @@ const projects: Project[] = [
         screenshots: ['reader-select', 'dashboard', 'book-list', 'edit-book']
             .map((name) => `/images/portfolio/personal-library/personal-library-${name}.png`),
         screens: ['readerSelect', 'dashboard', 'bookList', 'editBook'],
+        href: 'https://github.com/sengaigibon/PersonalLibrary',
+        linkLabel: 'repository',
     },
     {
         id: 'adventure',
