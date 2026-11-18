@@ -12,6 +12,7 @@
         "nextScreenshot": "Next screenshot",
         "visit": "Visit project",
         "repository": "View repository",
+        "downloadApk": "Download APK",
         "portfolio": {
             "orienteering": {
                 "summary": "An Android app for orienteering training. Define a course as GPS markers, then run it with your printed map: the app times you, records your track, and uses the camera to show each control flag at its real spot once you're close. Everything stays on your device.",

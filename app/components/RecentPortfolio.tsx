@@ -27,6 +27,8 @@ type Project = {
     screens: string[];
     href?: string;
     linkLabel?: string;
+    /** When true, `href` points to a file served from /public and the button downloads it instead of opening a new tab. */
+    download?: boolean;
 };
 
 const projects: Project[] = [
@@ -83,6 +85,9 @@ const projects: Project[] = [
             'search-results', 'import-confirmation', 'edit-phrase',
         ].map((name) => `/images/portfolio/fraseario/fraseario-${name}.jpg`),
         screens: ['searchHome', 'addPhrase', 'menu', 'about', 'searchResults', 'importConfirmation', 'editPhrase'],
+        href: '/downloads/fraseario.apk',
+        linkLabel: 'downloadApk',
+        download: true,
     },
     {
         id: 'getThingsDone',
@@ -456,8 +461,9 @@ export default function RecentPortfolio() {
                     {project.href && project.linkLabel && (
                         <Button
                             href={project.href}
-                            target="_blank"
-                            rel="noreferrer"
+                            {...(project.download
+                                ? { download: true }
+                                : { target: '_blank', rel: 'noreferrer' })}
                             variant="contained"
                             disableElevation
                             sx={{
@@ -473,7 +479,7 @@ export default function RecentPortfolio() {
                                 '&:hover': { bgcolor: project.accent, filter: 'brightness(0.92)', transform: 'translateY(-2px)' },
                             }}
                         >
-                            {t(project.linkLabel)} ↗
+                            {t(project.linkLabel)} {project.download ? '↓' : '↗'}
                         </Button>
                     )}
                 </Box>

@@ -12,6 +12,7 @@
         "nextScreenshot": "Nächster Screenshot",
         "visit": "Projekt besuchen",
         "repository": "Repository ansehen",
+        "downloadApk": "APK herunterladen",
         "portfolio": {
             "orienteering": {
                 "summary": "Eine Android-App für das Orientierungslauf-Training. Lege eine Bahn aus GPS-Posten an und laufe sie mit deiner gedruckten Karte: Die App misst die Zeit, zeichnet deinen Track auf und zeigt jeden Posten über die Kamera an seiner echten Position, sobald du in der Nähe bist. Alle Daten bleiben auf dem Gerät.",

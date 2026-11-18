@@ -12,6 +12,7 @@
         "nextScreenshot": "Captura siguiente",
         "visit": "Visitar proyecto",
         "repository": "Ver repositorio",
+        "downloadApk": "Descargar APK",
         "portfolio": {
             "orienteering": {
                 "summary": "Una app Android para entrenar orientación. Define un recorrido con balizas GPS y córrelo con tu mapa impreso: la app te cronometra, graba tu track y usa la cámara para mostrar cada baliza en su sitio real cuando estás cerca. Todo se queda en tu dispositivo.",
